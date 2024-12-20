@@ -23,6 +23,7 @@ $router->name('admin.index')->get('/admin', [App\Admin\Controller\BaseController
 $router->name('admin.blogs')->get('/admin/blogs', [App\Admin\Controller\BlogController::class, 'index']);
 $router->name('admin.login')->get('/admin/login', [App\Admin\Controller\LoginController::class, 'index']);
 $router->name('admin.kullanici')->get('/admin/kullanici', [App\Admin\Controller\KullaniciController::class, 'index']);
+$router->name('admin.kategori')->get('/admin/kategori', [App\Admin\Controller\kategoriController::class, 'index']);
 
 // post get ekleme 
 $router->name('admin.post')->post('/admin', [App\Admin\Controller\LoginController::class, 'userAdd']);

@@ -14,7 +14,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="kategori.html">
+              <a class="nav-link " aria-current="page" href="/admin/kategori">
                 <span data-feather="users"></span>
                 Kategori Yönetimi
               </a>
