@@ -25,6 +25,7 @@ $router->name('admin.login')->get('/admin/login', [App\Admin\Controller\LoginCon
 $router->name('admin.kullanici')->get('/admin/kullanici', [App\Admin\Controller\KullaniciController::class, 'index']);
 $router->name('admin.kategori')->get('/admin/kategori', [App\Admin\Controller\KategoriController::class, 'index']);
 $router->name('admin.yorumlar')->get('/admin/yorumlar', [App\Admin\Controller\CommentsController::class, 'index']);
+$router->name('admin.tags')->get('/admin/tags', [App\Admin\Controller\TagsController::class, 'index']);
 
 // post get ekleme 
 $router->name('admin.post')->post('/admin', [App\Admin\Controller\LoginController::class, 'userAdd']);
