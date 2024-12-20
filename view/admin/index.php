@@ -41,7 +41,7 @@ include_once "template/header.php";
                       </div> <!--end::Small Box Widget 4-->
                   </div> 
                   <div class="col-lg-3 col-12"> 
-                      <div class="small-box text-bg-success">
+                      <div class="small-box text-bg-primary">
                           <div class="inner">
                               <h3>5</h3>
                               <p><b style="color: white;">Kategoriler</b></p>
