@@ -72,7 +72,7 @@ include_once "template/header.php";
             </div>
             <div class="container mt-5">
                 <h2 class="mb-4">Blog Yazıları</h2>
-                <table id="blogTable" class="table table-striped table-bordered">
+                <table id="studentTable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Sıra</th>
