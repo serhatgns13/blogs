@@ -2,20 +2,20 @@
 
 namespace App\Admin\Controller;
 
-use App\Admin\Model\kategoriModel;
+use App\Admin\Model\CommentsModel;
 use System\Engine\Controller;
 
-class KategoriController extends Controller
+class CommentsController extends Controller
 {
   
     public function index(): void
     {
-        $this->data["title"] = 'Kategori Sayfası...';
+        $this->data["title"] = 'Admin Sayfası...';
 
-        // $app = new CategoryModel();
+        //  $app = new CommentsModel;
         //  $this->data["users"] = $app->users(); // çoklu veri çekme
         //  $this->data["ByIdusers"] = $app->ByIdusers(); // tekli veri çekme 
 
-        $this->view("admin/kategori", $this->data);
+        $this->view("admin/yorumlar", $this->data);
     }
 }

@@ -25,6 +25,12 @@
                 Blog Listesi
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/yorumlar">
+                <span data-feather="file"></span>
+                Yorumlar Listesi
+              </a>
+            </li>
                      
             <li class="nav-item">
               <a class="nav-link" href="#">

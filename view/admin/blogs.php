@@ -93,7 +93,7 @@ include_once "template/header.php";
                             <td>Reşit Bey</td>
                             <td>15</td>
                             <td>
-                                <img src="image_url_1.jpg" alt="Görsel" style="width: 50px; height: 50px;">
+                                <img src="/view/admin/assets/images/login.png" alt="Görsel" style="width: 50px; height: 50px;">
                             </td>
                             <td>2024-12-19</td>
                             <td>
@@ -109,12 +109,33 @@ include_once "template/header.php";
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>2</td>
+                            <td>3</td>
                             <td>Blog Başlığı 2</td>
+                            <td>Serhat Bey</td>
+                            <td>25</td>
+                            <td>
+                                <img src="/view/admin/assets/images/login.png" alt="Görsel" style="width: 50px; height: 50px;">
+                            </td>
+                            <td>2024-12-18</td>
+                            <td>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <div class="button"><button type="button" class="btn btn-success text-white">Düzenle</button></div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="button"><button type="button" class="btn bg-danger text-white"><span data-feather="trash-2"></span></button></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>Blog Başlığı 3</td>
                             <td>Bahar Ulu</td>
                             <td>25</td>
                             <td>
-                                <img src="image_url_2.jpg" alt="Görsel" style="width: 50px; height: 50px;">
+                                <img src="/view/admin/assets/images/login.png" alt="Görsel" style="width: 50px; height: 50px;">
                             </td>
                             <td>2024-12-18</td>
                             <td>

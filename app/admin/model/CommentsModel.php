@@ -4,19 +4,19 @@ namespace App\Admin\Model;
 
 use System\Engine\Model;
 
-class KategoriModel extends Model
+class CommentsModel extends Model
 {
-    public function users(): array | false
+    public function posts(): array | false
     {
-        $statement = $this->pdo->query('SELECT * FROM users');
+        $statement = $this->pdo->query('SELECT * FROM posts');
         $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $response ?: [];
     }
 
-    public function ByIdusers(): array | false
+    public function ByIdposts(): array | false
     {
-        $statement = $this->pdo->query('SELECT * FROM users');
+        $statement = $this->pdo->query('SELECT * FROM posts');
         $response = $statement->fetch(\PDO::FETCH_ASSOC);
 
         return $response ?: [];
