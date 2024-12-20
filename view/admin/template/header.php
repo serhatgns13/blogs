@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/view/admin/assets/css/style.css">
     <script src="/view/admin/assets/node_modules/feather-icons/dist/feather.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <!-- Data table Telefon Görünüm Cdn -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
 </head>
 
 <body>

@@ -15,7 +15,7 @@ include_once "template/header.php";
             <h2 class="text-center">Etiketler</h2>
           </div>
         </div>
-        <div class="col-2 my-3">
+        <div class="col-12 col-md-2 my-3">
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Yeni Etiket Ekle
           </button>

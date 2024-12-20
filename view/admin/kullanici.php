@@ -19,7 +19,7 @@ include_once "template/header.php";
 
                 </div>
 
-                <div class="col-2 my-3">
+                <div class="col-12 col-md-2 my-3">
 
                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Kullanıcı Ekle
