@@ -8,7 +8,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="kullanici-ekle.html">
+              <a class="nav-link " aria-current="page" href="/admin/kullanici">
                 <span data-feather="users"></span>
                 Kullanıcılar
               </a>
