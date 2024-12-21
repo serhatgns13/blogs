@@ -3,7 +3,8 @@
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link " aria-current="page" href="/admin">
-                <span data-feather="home"></span>
+              <i class="bi bi-arrow-up"></i>
+
                 Ana Sayfa
               </a>
             </li>

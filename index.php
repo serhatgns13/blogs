@@ -28,7 +28,11 @@ $router->name('admin.tags')->get('/admin/tags', [App\Admin\Controller\TagsContro
 $router->name('admin.profil')->get('/admin/profil', [App\Admin\Controller\ProfilController::class, 'index']);
 
 // post get ekleme 
-$router->name('admin.createAdd')->post('/admin/blogs/createAdd',[App\Admin\Controller\BlogController::class, 'index']);
+$router->name('admin.createAdd')->post('/admin/blogs/createAdd', [App\Admin\Controller\BlogController::class, 'index']);
+$router->name('admin.register')->post('/admin/register', [App\Admin\Controller\KullaniciController::class, 'register']);
+
+
+
 
 $router->dispatch($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 
