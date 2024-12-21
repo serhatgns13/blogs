@@ -7,7 +7,6 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/system/engine/Autoloader.php';
 require_once __DIR__ . '/system/routing/Router.php';
 
-
 use System\Engine\Autoloader;
 use System\Routing\Router;
 
@@ -24,8 +23,7 @@ $router->name('admin.blogs')->get('/admin/blogs', [App\Admin\Controller\BlogCont
 $router->name('admin.login')->get('/admin/login', [App\Admin\Controller\LoginController::class, 'index']);
 
 // post get ekleme 
-$router->name('admin.post')->post('/admin', [App\Admin\Controller\LoginController::class, 'userAdd']);
-
+$router->name('admin.createAdd')->post('/admin/blogs/createAdd',[App\Admin\Controller\BlogController::class, 'index']);
 
 $router->dispatch($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 
