@@ -28,7 +28,7 @@ include_once "template/header.php";
               <th>Sıra</th>
               <th>ID</th>
               <th>Etiket İsmi</th>
-              <th></th>
+              <th>Slug</th>
               <th>İşlem</th>
 
             </tr>
@@ -38,7 +38,7 @@ include_once "template/header.php";
               <td>1</td>
               <td>1</td>
               <td>En Çok tercih edenler</td>
-              <td></td>
+              <td>Gonca</td>
               <td>
                 <div class="row text-center">
                   <div class="col-6">
@@ -112,6 +112,52 @@ include_once "template/header.php";
       </div>
     </div>
 
+    <!-- Düzenleme İşlemi -->
+
+    <div class="modal fade" id="tagsModalUpdate" tabindex="-1" aria-labelledby="tagsModal"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tagsModal">Etiket Düzenle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <!-- Etiket Adı -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Etiket Adı : </label>
+                        <input type="text" class="form-control" id="name" name="name"
+                            placeholder="Etiket adı girin...">
+                    </div>
+                    <!-- Slug Adı -->
+                    <div class="mb-3">
+                        <label for="Slug" class="form-label">Slug Adı</label>
+                        <input type="text" class="form-control" id="Slug" name="Slug"
+                            placeholder="Slug adı girin...">
+                    </div>
+
+                    <!-- Kategori Durumu -->
+                    <div class="mb-3">
+                        <label for="tags_status" class="form-label">Etiket Durumu</label>
+                        <select class="form-select" id="tags_status" name="tags_status">
+                            <option value="1">Aktif</option>
+                            <option value="0">Pasif</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Etiket Güncelle</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
     <?php
 
     include_once "template/footer.php";
