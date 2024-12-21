@@ -8,13 +8,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="kullanici-ekle.html">
+              <a class="nav-link " aria-current="page" href="/admin/kullanici">
                 <span data-feather="users"></span>
                 Kullanıcılar
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="kategori.html">
+              <a class="nav-link " aria-current="page" href="/admin/kategori">
                 <span data-feather="users"></span>
                 Kategori Yönetimi
               </a>
@@ -25,9 +25,15 @@
                 Blog Listesi
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/yorumlar">
+                <span data-feather="file"></span>
+                Yorumlar Listesi
+              </a>
+            </li>
                      
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/admin/tags">
                 <span data-feather="layers"></span>
                 Tags Listesi
               </a>
