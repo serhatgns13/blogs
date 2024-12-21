@@ -32,7 +32,7 @@ include_once "template/header.php";
                         <i class="bi bi-key-fill icon-gray"></i> Şifre
                     </label>
                     <input type="password" class="form-control form-control-sm" id="password"
-                        placeholder="Şifreyi Giriniz" required>
+                        value="<?php echo $ByIdusers["password"] ?>" required>
                 </div>
 
                 <div class="col-12">
@@ -42,9 +42,18 @@ include_once "template/header.php";
 
                     
                     <select class="form-select form-select-sm" id="role_id" required>
-                        <option selected disabled value="">Rol Seçiniz...</option>
-                        
-                        <option value="1">Admin</option>
+                        <?php
+                            if ($ByIdusers ["role_id"]==1) {
+                                echo "<option value='1'>Admin</option>";
+                            }else if($ByIdusers ["role_id"]==2){
+                              echo  ' <option value="2">Editör</option';
+                            }else if ($ByIdusers ["role_id"]==3){
+                                echo  ' <option value="3">Editör</option';
+    
+                            }
+
+                        ?>
+                        <option value="2">Admin</option>
                         <option value="2">Editör</option>
                         <option value="3">Kullanıcı</option>
                     </select>
