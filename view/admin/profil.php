@@ -15,14 +15,14 @@ include_once "template/header.php";
                     <label for="user_name" class="form-label">
                         <i class="bi bi-person-circle icon-gray"></i> Kullanıcı Adı
                     </label>
-                    <input type="text" class="form-control form-control-sm" id="user_name" placeholder="Kullanıcı Adı" required>
+                    <input type="text" class="form-control form-control-sm" id="user_name"  required value="<?php echo $ByIdusers['user_name']?>">
                 </div>
         
                 <div class="col-12">
                     <label for="email" class="form-label">
                         <i class="bi bi-envelope-fill icon-gray"></i> Mail Adresi
                     </label>
-                    <input type="email" class="form-control form-control-sm" id="email" placeholder="Maili Giriniz" required>
+                    <input type="email" class="form-control form-control-sm" id="email" value="<?php echo $ByIdusers['email']?>" required>
                 </div>
         
                 <div class="col-12">

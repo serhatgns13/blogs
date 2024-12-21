@@ -39,14 +39,15 @@
         <li><a class="dropdown-item" href="#">Ayarlar</a></li>
         <li><a class="dropdown-item" href="/admin/profil">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Oturumu Kapat</a></li>
+        <li><a class="dropdown-item" href="/admin/logout">Oturumu Kapat</a></li>
       </ul>
    
 
-    </div>
-        <!-- <div class="navbar-nav">
+    <!-- </div>
+        <div class="navbar-nav">
             <div class="nav-item text-nowrap">
                 <a class="nav-link px-3" href="/view/admin/logout.php">Oturum Kapat</a>
             </div>
-        </div> -->
+        </div>  -->
+        
     </header>

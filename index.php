@@ -25,6 +25,7 @@ $router->name('admin.kullanici')->get('/admin/kullanici', [App\Admin\Controller\
 $router->name('admin.kategori')->get('/admin/kategori', [App\Admin\Controller\KategoriController::class, 'index']);
 $router->name('admin.yorumlar')->get('/admin/yorumlar', [App\Admin\Controller\CommentsController::class, 'index']);
 $router->name('admin.tags')->get('/admin/tags', [App\Admin\Controller\TagsController::class, 'index']);
+$router->name('admin.profil')->get('/admin/profil', [App\Admin\Controller\ProfilController::class, 'index']);
 
 // post get ekleme 
 $router->name('admin.createAdd')->post('/admin/blogs/createAdd',[App\Admin\Controller\BlogController::class, 'index']);

@@ -31,6 +31,13 @@
                 Yorumlar Listesi
               </a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/profil">
+                <span data-feather="file"></span>
+                Profilim
+              </a>
+            </li>
                      
             <li class="nav-item">
               <a class="nav-link" href="/admin/tags">

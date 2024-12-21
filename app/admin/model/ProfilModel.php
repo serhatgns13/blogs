@@ -4,7 +4,7 @@ namespace App\Admin\Model;
 
 use System\Engine\Model;
 
-class LoginModel extends Model
+class ProfilModel extends Model
 {
     public function users(): array | false
     {
@@ -21,8 +21,5 @@ class LoginModel extends Model
 
         return $response ?: [];
     }
-
-    
-
 
 }
