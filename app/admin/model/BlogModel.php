@@ -22,4 +22,6 @@ class BlogModel extends Model
         return $response ?: [];
     }
 
+    
+
 }

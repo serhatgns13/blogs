@@ -42,6 +42,7 @@ include_once "template/header.php";
                                 } else if ($value['post_status'] == 0) {
                                     echo '<span class="text-center text-danger" data-feather="x-circle"></span>';
                                 }
+
                                 ?></td>
                             <td><?php echo $value['created_date']; ?></td>
                             <td><button class="btn btn-primary">Düzenle</button> <button class="btn btn-danger">Sil</button>

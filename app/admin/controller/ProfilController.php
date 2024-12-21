@@ -12,7 +12,7 @@ class ProfilController extends Controller
   
     public function index(): void
     {
-        $this->data["title"] = 'Admin Sayfası...';
+        $this->data["title"] = 'Profilim';
 
         $app = new ProfilModel();
          // $this->data["users"] = $app->users(); // çoklu veri çekme

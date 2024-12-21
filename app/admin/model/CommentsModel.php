@@ -8,7 +8,7 @@ class CommentsModel extends Model
 {
     public function posts(): array | false
     {
-        $statement = $this->pdo->query('SELECT * FROM posts');
+        $statement = $this->pdo->query('SELECT * FROM comments');
         $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $response ?: [];
@@ -16,7 +16,7 @@ class CommentsModel extends Model
 
     public function ByIdposts(): array | false
     {
-        $statement = $this->pdo->query('SELECT * FROM posts');
+        $statement = $this->pdo->query('SELECT * FROM comments');
         $response = $statement->fetch(\PDO::FETCH_ASSOC);
 
         return $response ?: [];
