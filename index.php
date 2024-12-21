@@ -26,11 +26,12 @@ $router->name('admin.kategori')->get('/admin/kategori', [App\Admin\Controller\Ka
 $router->name('admin.yorumlar')->get('/admin/yorumlar', [App\Admin\Controller\CommentsController::class, 'index']);
 $router->name('admin.tags')->get('/admin/tags', [App\Admin\Controller\TagsController::class, 'index']);
 $router->name('admin.profil')->get('/admin/profil', [App\Admin\Controller\ProfilController::class, 'index']);
+$router->name('admin.logout')->get('/admin/logout', [App\Admin\Controller\LoginController::class, 'logout']);
 
 // post get ekleme 
-$router->name('admin.createAdd')->post('/admin/blogs/createAdd', [App\Admin\Controller\BlogController::class, 'index']);
 $router->name('admin.register')->post('/admin/register', [App\Admin\Controller\KullaniciController::class, 'register']);
-
+$router->name('admin.delete')->get('/admin/kullanici/delete/{id}', [App\Admin\Controller\KullaniciController::class, 'delete']);
+$router->name('admin.login')->post('/admin/login', [App\Admin\Controller\LoginController::class, 'login']);
 
 
 

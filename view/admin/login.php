@@ -8,10 +8,6 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title><?php echo $title ?></title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
-
-
     <!-- Bootstrap core CSS -->
     <link href="/view/admin/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -25,7 +21,7 @@
 
     <main class="form-signin">
 
-        <form action="" method="post">
+        <form action="/admin/login" method="post">
             <img class="mb-4" src="/view/admin/assets/images/login.png" alt="" width="100" height="100">
             <h1 class="h3 mb-3 fw-normal">Lütfen giriş yapın</h1>
 
@@ -50,7 +46,7 @@
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş Yap</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+            <p class="mt-5 mb-3 text-muted">&copy; <?php echo date("Y"); ?></p>
         </form>
     </main>
 

@@ -47,7 +47,6 @@ class KullaniciModel extends Model
         return $statement->fetchColumn() > 0;
     }
 
-  
     // Güncelleme işlemi
 
     public function updateUser($id, $username, $email, $password, $role_id, $userstatus): bool
@@ -76,19 +75,14 @@ class KullaniciModel extends Model
         }
     }
 
-    
-
-    public function authenticate($username, $password): bool
+    // Kullanıcı silme işlemi
+    public function deleteUser($id): bool
     {
-        $statement = $this->pdo->prepare('SELECT * FROM users WHERE username = :username');
-        $statement->execute(['username' => $username]);
-        $user = $statement->fetch(\PDO::FETCH_ASSOC);
-
-        if ($user && password_verify($password, $user['password'])) {
-            return true;
-        }
-
-        return false;
+        $statement = $this->pdo->prepare('DELETE FROM users WHERE id = :id');
+        return $statement->execute([':id' => $id]);
     }
+
+  
+   
 
 }

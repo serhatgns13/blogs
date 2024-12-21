@@ -12,8 +12,7 @@ class KullaniciController extends Controller
     {
         $this->data["title"] = 'Kullanıcı Sayfası...';
         $app = new KullaniciModel;
-        // $app = new BaseModel();
-        $this->data["users"] = $app->users(); // çoklu veri çekme
+        $this->data["usersvariable"] = $app->users(); // çoklu veri çekme
         //  $this->data["ByIdusers"] = $app->ByIdusers(); // tekli veri çekme 
 
         $this->view("admin/kullanici", $this->data);
@@ -30,7 +29,7 @@ class KullaniciController extends Controller
 
             if (empty($username) || empty($email) || empty($password)) {
                 $_SESSION['warning_message'] = 'Lütfen tüm alanları doldurun';
-                $this->view('admin/kullanici', $this->data);
+                $this->view('/admin/kullanici', $this->data);
                 return;
             }
 
@@ -39,7 +38,7 @@ class KullaniciController extends Controller
             // Kullanıcı adı veya e-posta adresi zaten var mı kontrol et
             if ($kullaniciModel->userExists($username, $email)) {
                 $_SESSION['warning_message'] = 'Kullanıcı adı veya e-posta adresi zaten mevcut';
-                $this->view('admin/kullanici', $this->data);
+                $this->view('/admin/kullanici', $this->data);
                 return;
             }
 
@@ -56,9 +55,6 @@ class KullaniciController extends Controller
 
         $this->view('admin/kullanici', $this->data);
     }
-
-    
-
 
     public function update($id): void
     {
@@ -83,5 +79,23 @@ class KullaniciController extends Controller
 
         $this->view('admin/profil', $this->data);
     }
+
+    public function delete($id): void
+    {
+        $kullaniciModel = new KullaniciModel();
+
+        if ($kullaniciModel->deleteUser($id)) {
+            // Silme başarılı, kullanıcıyı yönlendir
+            $_SESSION['success_message'] = 'Kullanıcı başarıyla silindi.';
+        } else {
+            // Silme başarısız, hata mesajı göster
+            $_SESSION['error_message'] = 'Kullanıcı silme işlemi başarısız.';
+        }
+
+        header('Location: /admin/kullanici');
+        exit();
+    }
+
+    
 
 }

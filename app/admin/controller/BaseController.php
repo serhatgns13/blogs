@@ -9,7 +9,12 @@ use System\Engine\Controller;
 
 class BaseController extends Controller
 {
-  
+
+    public function __construct()
+    {
+        $this->requireAuthentication();
+    }
+
     public function index(): void
     {
         $this->data["title"] = 'Admin Sayfası...';
@@ -20,4 +25,27 @@ class BaseController extends Controller
 
         $this->view("admin/index", $this->data);
     }
+
+    private function startSession(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
+
+    private function isAuthenticated(): bool
+    {
+        return isset($_SESSION['user_id']);
+    }
+
+
+    public function requireAuthentication(): void
+    {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /admin/login');
+            exit();
+        }
+    }
+
+
 }

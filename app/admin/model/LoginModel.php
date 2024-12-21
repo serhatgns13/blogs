@@ -22,18 +22,17 @@ class LoginModel extends Model
         return $response ?: [];
     }
 
-    public function authenticate($username, $password): bool
+
+    public function ByIdLogin(string $email): array|false
     {
-        $statement = $this->pdo->prepare('SELECT * FROM users WHERE username = :username');
-        $statement->execute(['username' => $username]);
-        $user = $statement->fetch(\PDO::FETCH_ASSOC);
+        $statement = $this->pdo->prepare('SELECT * FROM users WHERE email = :email');
+        $statement->execute(['email' => $email]);
+        $response = $statement->fetch(\PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($password, $user['password'])) {
-            return true;
-        }
-
-        return false;
+        return $response ?: [];
     }
+
+   
 
 
 }
