@@ -36,7 +36,7 @@
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow "  >
         <li><a class="dropdown-item" href="#">Yeni BLog</a></li>
         <li><a class="dropdown-item" href="#">Ayarlar</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="/admin/profil">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">Oturumu Kapat</a></li>
       </ul>
