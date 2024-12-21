@@ -137,7 +137,7 @@ include_once "template/header.php";
                             placeholder="Slug adı girin...">
                     </div>
 
-                    <!-- Kategori Durumu -->
+                    <!-- etiket Durumu -->
                     <div class="mb-3">
                         <label for="tags_status" class="form-label">Etiket Durumu</label>
                         <select class="form-select" id="tags_status" name="tags_status">
@@ -147,7 +147,7 @@ include_once "template/header.php";
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-primary">Etiket Güncelle</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Kapat</button>
                     </div>
 
                 </form>
@@ -157,7 +157,7 @@ include_once "template/header.php";
     </div>
 </div>
 
-</div>
+
     <?php
 
     include_once "template/footer.php";
