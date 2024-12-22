@@ -40,7 +40,9 @@ include_once "template/header.php";
 
                      
  <?php if (isset($posts) && is_array($posts)): ?>
+  
     <?php foreach ($posts as $key => $value):
+   
                             ?>
 
                             <tr>
@@ -80,7 +82,7 @@ include_once "template/header.php";
                                 </td>
                                 <td><?php echo $value['view_count']; ?></td>
                                 <td>
-                                    <?php echo $value['category_id']; ?>
+                                     <?php print $value['name'] ; ?>
                             </td>
                                 <td><?php echo date('d-m-Y', strtotime($value['created_date'])); ?></td>
                                 <td>
@@ -90,14 +92,14 @@ include_once "template/header.php";
                                                         class="bi bi-pencil-square"></i></button></div>
                                         </div>
                                         <div class="col-4">
-                                        <a href="/admin/blogs/deleteBlog/<?php echo $value['id']; ?>"
+                                        <a href="/admin/blogs/deleteBlog/<?php echo $value['post_id']; ?>"
                                         class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>
                                                     </div>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php  endforeach; ?>
                         <?php else: ?>
                             <script>
                                 showErrorMessage("<?php echo $_SESSION['error_message']; ?>");
@@ -145,7 +147,7 @@ include_once "template/header.php";
                                     <select name="category_id" id="" class="form-control">
                                     <option value="">Kategori Seç</option>
                                         <?php foreach ($CategoryName as $value): ?>
-                                            <option value="<?php echo $value['id'] ?>"><?php echo $value['name']; ?></option>
+                                            <option value="<?php echo $value['category_id'] ?>"><?php echo $value['name']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

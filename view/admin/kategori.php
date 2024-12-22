@@ -57,11 +57,11 @@ include_once "template/header.php";
                                             <div class="col-6">
                                                 <div class="button"><button type="button" class="btn bg-primary text-white"
                                                         data-bs-toggle="modal"
-                                                        data-bs-target="#categoryModalUpdate<?php echo $value['id']; ?>">Düzenle</button>
+                                                        data-bs-target="#categoryModalUpdate<?php echo $value['category_id']; ?>">Düzenle</button>
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <a href="/admin/kategori/deleteKategori/<?php echo $value['id']; ?>"
+                                                <a href="/admin/kategori/deleteKategori/<?php echo $value['category_id']; ?>"
                                                     class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>
                                             </div>
 
@@ -72,7 +72,7 @@ include_once "template/header.php";
                                 <div class="container mt-5">
                                     <!-- Güncelleme Modal -->
 
-                                    <div class="modal fade" id="categoryModalUpdate<?php echo $value['id']; ?>" tabindex="-1"
+                                    <div class="modal fade" id="categoryModalUpdate<?php echo $value['category_id']; ?>" tabindex="-1"
                                         aria-labelledby="categoryModal" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -82,7 +82,7 @@ include_once "template/header.php";
                                                         aria-label="Kapat"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="/admin/updateKategori/<?php echo $value['id']; ?>" method="POST">
+                                                    <form action="/admin/updateKategori/<?php echo $value['category_id']; ?>" method="POST">
                                                         <!-- Kategori Adı -->
                                                         <div class="mb-3">
                                                             <label for="name" class="form-label">Kategori Adı : </label>
@@ -105,7 +105,7 @@ include_once "template/header.php";
 
                                                         </div>
                                                     
-                                                        <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                                                        <input type="hidden" name="category_id" value="<?php echo $value['category_id']; ?>">
                                                         
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

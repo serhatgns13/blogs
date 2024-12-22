@@ -8,7 +8,7 @@ class BlogModel extends Model
 {
     public function posts(): array|false
     {
-        $statement = $this->pdo->query('SELECT * FROM posts');
+        $statement = $this->pdo->query('SELECT * FROM `posts`,categories WHERE posts.category_id = categories.category_id');
         $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $response ?: [];
@@ -53,7 +53,7 @@ class BlogModel extends Model
     // dosyadan resim silme işlemi
     public function getBlogById($id): array|false
     {
-        $sql = "SELECT * FROM posts WHERE id = :id";
+        $sql = "SELECT * FROM posts WHERE post_id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([':id' => $id]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -61,7 +61,7 @@ class BlogModel extends Model
     // blog sayfasında sütün silemee
     public function deleteBlogs($id): bool{
         
-        $statement = $this->pdo->prepare('DELETE FROM posts WHERE id = :id');
+        $statement = $this->pdo->prepare('DELETE FROM posts WHERE post_id = :id');
         return $statement->execute(['id'=> $id]);
     }
 
