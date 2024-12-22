@@ -22,42 +22,57 @@ class KategoriController extends Controller
     public function createKategori(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $categoryName = $_POST['name'] ?? '';
-            $categorySlug = $_POST['slug'] ?? '';
-            $categoryStatus = $_POST['category_status'] ?? '';
 
-            if (empty($categoryName) || empty($categorySlug) || empty($categoryStatus)) {
+            $kategoriModel = new KategoriModel();
+           
+            $categoryName = $_POST['name'] ?? '';
+            $categorySlug = $kategoriModel->seflink($categoryName);
+            $categoryStatus = $_POST['category_status'] ?? '';
+          
+            if (empty($categoryName)) {
+              
                 $_SESSION['warning_message'] = 'Lütfen tüm alanları doldurunuz';
-                $this->view('/admin/kategori', $this->data);
+                $this->view('admin/kategori', $this->data);
                 return;
             }
 
-            $kategoriModel = new KategoriModel();
+           
+
+            if($kategoriModel->kategoriExists($categoryName)){
+                $_SESSION['warning_message'] = 'Aynı Kategoriden İsim Mevcuttur';
+                $this->view('admin/kategori',$this->data);
+                return;
+            }
 
             if ($kategoriModel->creat($categoryName, $categorySlug, $categoryStatus)) {
                 // kayıt başarılı ise sayfaya yönlendir
                 $_SESSION['success_message'] = 'Kategori Başarılı Bir Şekilde Eklendi';
-                $this->view('/admin/kategori', $this->data);
+               
+                header('Location: /admin/kategori');
+                exit();
+                
             } else {
                 // kayıt başarısız oldugunda burası calışcak
                 $_SESSION['error_message'] = 'kayıt Başarısız';
             }
+            
         }
 
-        $this->view('/admin/kategori', $this->data);
+        $this->view('admin/kategori', $this->data);
     }
 
-    public function updateKategori(): void
+    public function updateKategori($id): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id=$_POST['id'] ?? '';
-            $categoryName = $_POST['name'] ?? '';
-            $categorySlug = $_POST['slug'] ?? '';
-            $categoryStatus = $_POST['categoryStatus'] ?? '';
+            $kategoriModel = new KategoriModel();
+            $id=$_POST['id'];
+            $categoryName = $_POST['name'];
+            $categorySlug = $kategoriModel->seflink($categoryName);
+            $categoryStatus = $_POST['categoryStatus'];
         }
-        $kategoriModel = new KategoriModel();
+        
         if ($kategoriModel->update($id, $categoryName, $categorySlug, $categoryStatus)) {
-            header('Location : /admin/kategori');
+            header('Location : admin/kategori');
             exit;
         } else {
             // Güncelleme başarısız oldugunda burası calışcak

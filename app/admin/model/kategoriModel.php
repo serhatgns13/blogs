@@ -35,11 +35,20 @@ class KategoriModel extends Model
         ]);
     }
 
+    // kategori aynı isimden eklenmemesi
+    public function kategoriExists($categoryName): bool 
+    {
+        $statement = $this->pdo->prepare('SELECT COUNT(*) FROM categories WHERE  name = :name ');
+        $statement ->execute([
+            ':name' => $categoryName
+        ]);
+        return $statement->fetchColumn() > 0;
+    }
     // kategori Güncelleme
     
     public function update($id,$categoryName,$categorySlug,$category_status): bool
     {
-        $statement = $this->pdo->prepare('UPDATE categories SET name = :name, slug = :slug, category_status = :category_status  WHERE  id = :id');
+        $statement = $this->pdo->prepare('UPDATE categories SET name = ?,slug = ?,category_status = ? WHERE  id = ?');
          return $statement->execute([
             'id' => $id,
             'name' => $categoryName,
@@ -55,5 +64,15 @@ class KategoriModel extends Model
     }
    
 
+    public function seflink($val)
+    {
+        $find = array('Ç', 'Ş', 'Ğ', 'Ü', 'İ', 'Ö', 'ç', 'ş', 'ğ', 'ü', 'ö', 'ı', '+', '#', '?', '*', '!', '.', '(', ')');
+        $replace = array('c', 's', 'g', 'u', 'i', 'o', 'c', 's', 'g', 'u', 'o', 'i', 'plus', 'sharp', '', '', '', '', '', '');
+        $string = strtolower(str_replace($find, $replace, $val));
+        $string = preg_replace("@[^A-Za-z0-9\-_\.\+]@i", ' ', $string);
+        $string = trim(preg_replace('/\s+/', ' ', $string));
+        $string = str_replace(' ', '-', $string);
+        return $string;
+    }
 
 }

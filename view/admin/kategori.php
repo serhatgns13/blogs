@@ -62,18 +62,72 @@ include_once "template/header.php";
                                                         data-bs-target="#categoryModalUpdate<?php echo $value['id']; ?>">Düzenle</button></div>
                                             </div>
                                             <div class="col-6">
-                                            <a href="/admin/kategori/deleteKategori/<?php echo $value['id']; ?>"
-                                            class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>
+                                                <a href="/admin/kategori/deleteKategori/<?php echo $value['id']; ?>"
+                                                    class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>
                                             </div>
 
                                         </div>
                                     </td>
 
                                 </tr>
+                                <div class="container mt-5">
+                                    <!-- Güncelleme Modal -->
+
+                                    <div class="modal fade" id="categoryModalUpdate<?php echo $value['id']; ?>" tabindex="-1" aria-labelledby="categoryModal"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="categoryModal">Kategori Düzenle</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="/admin/updateKategori" method="POST">
+                                                        <!-- Kategori Adı -->
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Kategori Adı : </label>
+                                                            <input type="text" class="form-control" id="name" name="name"
+                                                                value="<?php print $value['name']; ?>">
+                                                        </div>
+                                                        <!-- Slug Adı -->
+
+
+                                                        <!-- Kategori Durumu -->
+                                                        <div class="mb-3">
+                                                            <label for="category_status" class="form-label">Kategori Durumu :
+                                                            </label>
+                                                            <select class="form-select" id="category_status" name="category_status">
+                                                                <?php if ($value['category_status'] == 1) { ?>
+                                                                    <option value="1">Aktif</option>
+                                                                    <option value="0">Pasif</option>
+                                                                   
+                                                                <?php    } elseif ($value['category_status'] == 0) { ?>
+                                                                    <option value="0">Pasif</option>
+                                                                    <option value="1">Aktif</option>
+                                                                 
+                                                                   
+                                                                <?php } ?>
+
+
+                                                            </select>
+                                                        </div>
+                                                        <input type="hidden" value="<?php echo $value['id']; ?>" name="id">
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                                            <button type="submit" class="btn btn-primary">Kategori Güncelle</button>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <script>
-                            showErrorMessage("<?php echo $_SESSION['error_message']; ?>");
+                                showErrorMessage("<?php echo $_SESSION['error_message']; ?>");
                             </script>
                         <?php endif;  ?>
 
@@ -104,7 +158,7 @@ include_once "template/header.php";
         <?php endif; ?>
         <div class="container mt-5">
 
-            <!-- Modal -->
+            <!--Kategori Ekleme Modal  -->
             <div class="modal fade" id="categoryCreate" tabindex="-1" aria-labelledby="categoryModal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -120,12 +174,7 @@ include_once "template/header.php";
                                     <input type="text" class="form-control" id="name" name="name"
                                         placeholder="Kategori adı girin">
                                 </div>
-                                <!-- Slug Adı -->
-                                <div class="mb-3">
-                                    <label for="Slug" class="form-label">Slug Adı</label>
-                                    <input type="text" class="form-control" id="Slug" name="slug"
-                                        placeholder="Kategori adı girin">
-                                </div>
+
 
                                 <!-- Kategori Durumu -->
                                 <div class="mb-3">
@@ -149,49 +198,7 @@ include_once "template/header.php";
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="categoryModalUpdate<?php echo $value['id']; ?>" tabindex="-1" aria-labelledby="categoryModal"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="categoryModal">Kategori Düzenle</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-                        </div>
-                        <div class="modal-body">
-                        <form action="/admin/updateKategori" method="POST">
-                                <!-- Kategori Adı -->
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Kategori Adı : </label>
-                                    <input type="text" class="form-control" id="name" name="name"
-                                        placeholder="Kategori adı girin">
-                                </div>
-                                <!-- Slug Adı -->
-                                <div class="mb-3">
-                                    <label for="Slug" class="form-label">Slug Adı</label>
-                                    <input type="text" class="form-control" id="Slug" name="Slug"
-                                        placeholder="Slug adı girin">
-                                </div>
 
-                                <!-- Kategori Durumu -->
-                                <div class="mb-3">
-                                    <label for="category_status" class="form-label">Kategori Durumu</label>
-                                    <select class="form-select" id="category_status" name="category_status">
-                                        <option value="1">Aktif</option>
-                                        <option value="0">Pasif</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" value="<?php echo $value['id']; ?>" name="id">
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-                                    <button type="submit" class="btn btn-primary">Kategori Güncelle</button>
-                                </div>
-
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
 
         <?php

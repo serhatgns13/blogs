@@ -26,31 +26,7 @@ class Controller
         }
     }
 
-    public function upload($img, $list)
-    {
-        $input = $img;
-        $klasor = $list;
-        $target_dir = rtrim($klasor, '/') . '/'; // Klasör yolunun sonuna '/' ekle
-
-        $target_file = $target_dir . basename($_FILES[$input]["name"]);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $filename = uniqid();
-
-        // Dosya uzantısını kontrol et
-        $allowedExtensions = ['png', 'jpeg', 'jpg', 'gif'];
-        if (!in_array($imageFileType, $allowedExtensions)) {
-            throw new Exception("Sadece PNG, JPEG, JPG ve GIF dosya türlerine izin verilmektedir.");
-        }
-
-        $basename = $filename . '.' . $imageFileType;
-        $yeniyol = $target_dir . $basename;
-
-        if (move_uploaded_file($_FILES[$input]["tmp_name"], $yeniyol)) {
-            return $basename;
-        } else {
-            throw new Exception("Dosya yükleme başarısız oldu.");
-        }
-    }
+    
 
     public function getSecurity($data)
     {
@@ -69,16 +45,6 @@ class Controller
         }
     }
 
-    public function seflink($val)
-    {
-        $find = array('Ç', 'Ş', 'Ğ', 'Ü', 'İ', 'Ö', 'ç', 'ş', 'ğ', 'ü', 'ö', 'ı', '+', '#', '?', '*', '!', '.', '(', ')');
-        $replace = array('c', 's', 'g', 'u', 'i', 'o', 'c', 's', 'g', 'u', 'o', 'i', 'plus', 'sharp', '', '', '', '', '', '');
-        $string = strtolower(str_replace($find, $replace, $val));
-        $string = preg_replace("@[^A-Za-z0-9\-_\.\+]@i", ' ', $string);
-        $string = trim(preg_replace('/\s+/', ' ', $string));
-        $string = str_replace(' ', '-', $string);
-        return $string;
-    }
 
 
 
