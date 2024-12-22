@@ -25,6 +25,9 @@ class BlogController extends Controller
 
     public function create(): void
     {
+        $this->data["title"] = 'Blog Ekleme Sayfası İçeriği...';
+        $BlogModel = new BlogModel();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userID = $_SESSION['user_id'] ?? '';
             $title = $_POST['title'] ?? '';
@@ -68,9 +71,7 @@ class BlogController extends Controller
                 return;
             }
 
-            $BlogModel = new BlogModel();
-
-        
+            
             if ($BlogModel->Blog($title)) {
                 $_SESSION['warning_message'] = 'Aynı Başlık zaten mevcut';
                 $this->view('admin/blogs', $this->data);
