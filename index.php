@@ -42,6 +42,8 @@ $router->name('admin.updateKategori')->post('/admin/updateKategori/{id}', [App\A
 $router->name('admin.deleteKategori')->get('/admin/kategori/deleteKategori/{id}', [App\Admin\Controller\KategoriController::class, 'deleteKategori']);
 // tags 
 $router->name(name: 'admin.creatTags')->post('/admin/creatTags', [App\Admin\Controller\TagsController::class, 'creatTags']);
+$router->name('admin.updateTags')->post('/admin/updateTags/{id}', [App\Admin\Controller\TagsController::class, 'updateTags']);
+$router->name('admin.deleteTags')->get('/admin/kategori/deleteTags/{id}', [App\Admin\Controller\TagsController::class, 'deleteTags']);
 
 
 
