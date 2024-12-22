@@ -46,15 +46,20 @@ class KategoriModel extends Model
     }
     // kategori Güncelleme
     
-    public function update($id,$categoryName,$categorySlug,$category_status): bool
+    public function update($id, $categoryName, $categorySlug, $category_status): bool
     {
-        $statement = $this->pdo->prepare('UPDATE categories SET name = ?,slug = ?,category_status = ? WHERE  id = ?');
-         return $statement->execute([
-            'id' => $id,
-            'name' => $categoryName,
-            'slug' => $categorySlug,
-            'category_status' => $category_status
-        ]);
+        try {
+            $statement = $this->pdo->prepare('UPDATE categories SET name = :name, slug = :slug, category_status = :category_status WHERE id = :id');
+            return $statement->execute([
+                ':id' => $id,
+                ':name' => $categoryName,
+                ':slug' => $categorySlug,
+                ':category_status' => $category_status
+            ]);
+        } catch (\PDOException $e) {
+            // İstisna mesajını loglayabilir veya gerektiği gibi işleyebilirsiniz
+            return false;
+        }
     }
 
     // silme işlemi
