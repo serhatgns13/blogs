@@ -37,7 +37,7 @@ $router->name('admin.login')->post('/admin/login', [App\Admin\Controller\LoginCo
 $router->name('admin.create')->post('/admin/create', [App\Admin\Controller\BlogController::class, 'create']);
 //kategori sayfası işlemleri
 $router->name('admin.createKategori')->post('/admin/createKategori', [App\Admin\Controller\KategoriController::class, 'createKategori']);
-$router->name('admin.updateKategori')->post('/admin/kategori/updateKategori/{id}', [App\Admin\Controller\KategoriController::class, 'updateKategori']);
+$router->name('admin.updateKategori')->post('/admin/updateKategori/{id}', [App\Admin\Controller\KategoriController::class, 'updateKategori']);
 $router->name('admin.deleteKategori')->get('/admin/kategori/deleteKategori/{id}', [App\Admin\Controller\KategoriController::class, 'deleteKategori']);
 
 
