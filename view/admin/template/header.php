@@ -33,24 +33,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Kelime Ara..." aria-label="Search">
-    <div class="dropdown " style="margin-right:25px;">
-      <a href="#" class=" col-10 d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong><?php echo $_SESSION['user_name'] ?></strong>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow ">
-        <li><a class="dropdown-item" href="#">Yeni BLog</a></li>
-        <li><a class="dropdown-item" href="#">Ayarlar</a></li>
-        <li><a class="dropdown-item" href="/admin/profil">Profile</a></li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="/admin/logout">Oturumu Kapat</a></li>
-      </ul>
-
-
-      <!-- </div>
+ 
+      <!-- 
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
                 <a class="nav-link px-3" href="/view/admin/logout.php">Oturum Kapat</a>
