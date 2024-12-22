@@ -1,7 +1,7 @@
 
 function showSuccessMessage(message) {
     Swal.fire({
-        title: "Başarılır!",
+        title: "Başarılı!",
         text: message,
         icon: "success"
     });

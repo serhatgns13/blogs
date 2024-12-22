@@ -24,7 +24,6 @@
 <body>
 
 
-
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"><img src="/view/admin/assets/images/login.png"
         width="40" alt=""> Full Stack</a>
@@ -37,7 +36,7 @@
       <a href="#" class=" col-10 d-flex align-items-center text-white text-decoration-none dropdown-toggle"
         data-bs-toggle="dropdown" aria-expanded="false">
         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong><?php echo $_SESSION['user_name']; ?></strong>
+        <strong><?php echo $_SESSION['user_name'] ?></strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow ">
         <li><a class="dropdown-item" href="#">Yeni BLog</a></li>
@@ -50,11 +49,5 @@
       </ul>
 
 
-      <!-- </div>
-        <div class="navbar-nav">
-            <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="/view/admin/logout.php">Oturum Kapat</a>
-            </div>
-        </div>  -->
 
   </header>
