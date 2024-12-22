@@ -44,14 +44,24 @@ include_once "template/header.php";
 
                             <tr>
                                 <td><?php echo ($key + 1) ?></td>
-                                <td>
-                                    <img src="/view/admin/assets/images/login.png" alt="Görsel"
+                                <td> 
+                                    <img src="/view/admin/assets/images/blogs/<?php print$value['image'] ?>" alt="Görsel"
                                         style="width: 50px; height: 50px;">
                                 </td>
-                                <td><?php echo $value['title']; ?></td>
+                                <td><?php echo $value['title']; ?> </td>
                                 <td><?php echo mb_substr($value['content'], 0, length: 50) . '...'; ?></td>
                                 <td>
-                                    <?php ?>ekleyen kişi gelecek kalsın
+                                <?php
+
+                                    if ($value['post_status'] == 1) {
+                                        echo 'Admin';
+                                    } else if ($value['post_status'] == 2) {
+                                        echo 'kullanıcı"></i>';
+                                    } else if ($value['post_status'] == 3) {
+                                        echo 'Misafir"></i>';
+                                    }
+
+                                    ?>
                                 </td>
 
                                 <td>
@@ -92,24 +102,6 @@ include_once "template/header.php";
 
         </main>
 
-        <?php if (isset($_SESSION['success_message']) || isset($_SESSION['error_message']) || isset($_SESSION['warning_message'])): ?>
-
-            <script>
-                <?php if (isset($_SESSION['success_message'])): ?>
-                    showSuccessMessage("<?php echo $_SESSION['success_message']; ?>");
-                <?php endif; ?>
-
-                <?php if (isset($_SESSION['error_message'])): ?>
-                    showErrorMessage("<?php echo $_SESSION['error_message']; ?>");
-                <?php endif; ?>
-
-                <?php if (isset($_SESSION['warning_message'])): ?>
-                    showWarningMessage("<?php echo $_SESSION['warning_message']; ?>");
-                <?php endif; ?>
-            </script>
-
-            <?php unset($_SESSION['success_message'], $_SESSION['error_message'], $_SESSION['warning_message']); ?>
-        <?php endif; ?>
         <!-- Modal -->
         <div class="container mt-5">
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -141,12 +133,21 @@ include_once "template/header.php";
                                     <label for="image" class="form-label">Görsel</label>
                                     <input type="file" class="form-control" id="image" name="image">
                                 </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Kategori</label>
+                                    <select name="category_id" id="">
+                                        <?php foreach ($CategoryName as $value): ?>
+                                            <option value="<?php echo $value['id'] ?>"><?php echo $value['name']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                                 <div class="modal-footer">
 
                                     <input type="submit" value="Kaydet" class="btn btn-success">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Kapat</button>
                                 </div>
+                                
                             </form>
 
                             <?php if (isset($data['error'])): ?>

@@ -17,6 +17,8 @@ class KategoriController extends Controller
         //  $this->data["ByIdCategories"] = $app->ByIdCategories(); // tekli veri çekme 
 
         $this->view("admin/kategori", $this->data);
+        
+        
     }
 
     public function createKategori(): void
@@ -41,7 +43,7 @@ class KategoriController extends Controller
                 return;
             }
 
-            if ($kategoriModel->create($categoryName, $categorySlug, $categoryStatus)) {
+            if ($kategoriModel->creat($categoryName, $categorySlug, $categoryStatus)) {
                 // kayıt başarılı ise sayfaya yönlendir
                 $_SESSION['success_message'] = 'Kategori Başarılı Bir Şekilde Eklendi';
 

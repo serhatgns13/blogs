@@ -4,6 +4,7 @@ namespace App\Admin\Controller;
 
 
 use App\Admin\Model\BlogModel;
+use App\Admin\Model\KategoriModel;
 use System\Engine\Controller;
 
 class BlogController extends Controller
@@ -12,12 +13,14 @@ class BlogController extends Controller
     public function index(): void
     {
         $this->data["title"] = 'Blog Sayfası İçeriği...';
-
         $app = new BlogModel();
+        $appCategory = new KategoriModel();
+        $this->data["CategoryName"] = $appCategory->category();  // kategoriden verileri cekiyor     
         $this->data["posts"] = $app->posts(); // çoklu veri çekme
         // $this->data["ByIdpost"] = $app->ByIdposts(); // tekli veri çekme 
 
         $this->view("admin/blogs", $this->data);
+       
 
     }
 
@@ -27,13 +30,14 @@ class BlogController extends Controller
     {
         $this->data["title"] = 'Blog Ekleme Sayfası İçeriği...';
         $BlogModel = new BlogModel();
-
+      
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userID = $_SESSION['user_id'] ?? '';
-            $title = $_POST['title'] ?? '';
-            $content = $_POST['content'] ?? '';
-            $image = $_FILES['image']['name'] ?? ''; // Düzenlendi
-            $poststatus = $_POST['post_status'] ?? '';
+            $userID = $_SESSION['user_id'];
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            $image = $_FILES['image']['name']; // Düzenlendi
+            $categoryID = $_POST['category_id']; // Düzenlendi
+            $poststatus = $_POST['post_status'];
 
 
             if (empty($title) || empty($content) || empty($image)) { // $email kaldırıldı
@@ -42,7 +46,7 @@ class BlogController extends Controller
                 return;
             }
 
-            $targetDir = "uploads/";
+            $targetDir = "view/admin/assets/images/blogs/";
             $targetFile = $targetDir . basename($_FILES["image"]["name"]);
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
             $check = getimagesize($_FILES["image"]["tmp_name"]);
@@ -78,7 +82,7 @@ class BlogController extends Controller
                 return;
             }
 
-            if ($BlogModel->createPost($userID, $title, $image, $content, $poststatus)) {
+            if ($BlogModel->createPost($userID, $title,$content, $image, $categoryID, $poststatus)) {
                 // Kayıt başarılı, kullanıcıyı yönlendir
                 $_SESSION['success_message'] = 'Blog başarıyla kaydedildi.';
                 header('Location: /admin/blogs');

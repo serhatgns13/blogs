@@ -22,19 +22,20 @@ class BlogModel extends Model
         return $response ?: [];
     }
 
-    public function createPost(array $data): bool
+    public function createPost($user_id,$blogTitle,$blogContent,$blogİmages,$categoryID,$blogPostStatus): bool
     {
-        $sql = "INSERT INTO blogs (user_id, title, content, image, post_status) 
-                VALUES (:user_id, :title, :content, :image, :post_status)";
+        $sql = "INSERT INTO posts (user_id, title, content, image, category_id, post_status) 
+                VALUES (:user_id, :title, :content, :image, :category_id, :post_status)";
 
         $stmt = $this->pdo->prepare($sql);
 
         return $stmt->execute([
-            ':user_id' => $_SESSION['user_id'],
-            ':title' => $data['title'],
-            ':content' => $data['content'],
-            ':image' => $data['image'],
-            ':post_status' => $data['post_status']
+            ':user_id' => $user_id,
+            ':title' => $blogTitle,
+            ':content' => $blogContent,
+            ':image' => $blogİmages,
+            ':category_id' => $categoryID,
+            ':post_status' => $blogPostStatus
         ]);
     }
 
