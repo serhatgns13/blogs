@@ -7,7 +7,7 @@ include_once "template/header.php";
     <div class="row">
 
         <?php include_once "template/sidebar.php"; ?>
-
+        <?php include_once "template/notice.php"; ?>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
             <div class="row my-2">
@@ -31,6 +31,7 @@ include_once "template/header.php";
                             <th>Yönetici</th>
                             <th>durum</th>
                             <th>Görüntüleme</th>
+                            <th>Kategori</th>
                             <th>Tarih</th>
                             <th class="text-center">İşlem</th>
                         </tr>
@@ -53,12 +54,14 @@ include_once "template/header.php";
                                 <td>
                                 <?php
 
-                                    if ($value['post_status'] == 1) {
+                                    if ($value['user_id'] == 1) {
                                         echo 'Admin';
-                                    } else if ($value['post_status'] == 2) {
-                                        echo 'kullanıcı"></i>';
-                                    } else if ($value['post_status'] == 3) {
-                                        echo 'Misafir"></i>';
+                                    } else if ($value['user_id'] == 2) {
+                                        echo 'kullanıcı';
+                                    } else if ($value['user_id'] == 3) {
+                                        echo 'Misafir';
+                                    }else {
+                                        echo 'Tanımsız';
                                     }
 
                                     ?>
@@ -76,6 +79,9 @@ include_once "template/header.php";
                                     ?>
                                 </td>
                                 <td><?php echo $value['view_count']; ?></td>
+                                <td>
+                                    <?php echo $value['category_id']; ?>
+                            </td>
                                 <td><?php echo date('d-m-Y', strtotime($value['created_date'])); ?></td>
                                 <td>
                                     <div class="row text-center">
@@ -84,8 +90,9 @@ include_once "template/header.php";
                                                         class="bi bi-pencil-square"></i></button></div>
                                         </div>
                                         <div class="col-4">
-                                            <div class="button"><button type="button" class="btn bg-danger text-white"><i
-                                                        class="bi bi-trash"></i></button></div>
+                                        <a href="/admin/blogs/deleteBlog/<?php echo $value['id']; ?>"
+                                        class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>
+                                                    </div>
                                         </div>
                                     </div>
                                 </td>
@@ -135,7 +142,8 @@ include_once "template/header.php";
                                 </div>
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Kategori</label>
-                                    <select name="category_id" id="">
+                                    <select name="category_id" id="" class="form-control">
+                                    <option value="">Kategori Seç</option>
                                         <?php foreach ($CategoryName as $value): ?>
                                             <option value="<?php echo $value['id'] ?>"><?php echo $value['name']; ?></option>
                                         <?php endforeach; ?>

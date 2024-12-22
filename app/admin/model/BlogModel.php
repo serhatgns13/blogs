@@ -22,6 +22,7 @@ class BlogModel extends Model
         return $response ?: [];
     }
 
+
     public function createPost($user_id,$blogTitle,$blogContent,$blogİmages,$categoryID,$blogPostStatus): bool
     {
         $sql = "INSERT INTO posts (user_id, title, content, image, category_id, post_status) 
@@ -49,6 +50,21 @@ class BlogModel extends Model
         ]);
         return $statement->fetchColumn() > 0;
     }
+    // dosyadan resim silme işlemi
+    public function getBlogById($id): array|false
+    {
+        $sql = "SELECT * FROM posts WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+    // blog sayfasında sütün silemee
+    public function deleteBlogs($id): bool{
+        
+        $statement = $this->pdo->prepare('DELETE FROM posts WHERE id = :id');
+        return $statement->execute(['id'=> $id]);
+    }
+
 
 
 
