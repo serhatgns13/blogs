@@ -35,6 +35,7 @@ class LoginController extends Controller
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['user_name'] = $user['user_name'];
+            $_SESSION['role_id'] = $user['role_id'];
             header('Location: /admin');
             exit();
         }

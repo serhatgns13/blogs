@@ -37,7 +37,7 @@
       <a href="#" class=" col-10 d-flex align-items-center text-white text-decoration-none dropdown-toggle"
         data-bs-toggle="dropdown" aria-expanded="false">
         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>Mehmet Reşit Akın</strong>
+        <strong><?php echo $_SESSION['user_name'] ?></strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow ">
         <li><a class="dropdown-item" href="#">Yeni BLog</a></li>

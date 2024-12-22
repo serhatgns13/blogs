@@ -32,7 +32,7 @@ $router->name('admin.logout')->get('/admin/logout', [App\Admin\Controller\LoginC
 $router->name('admin.register')->post('/admin/register', [App\Admin\Controller\KullaniciController::class, 'register']);
 $router->name('admin.delete')->get('/admin/kullanici/delete/{id}', [App\Admin\Controller\KullaniciController::class, 'delete']);
 $router->name('admin.login')->post('/admin/login', [App\Admin\Controller\LoginController::class, 'login']);
-
+$router->name('admin.create')->post('/admin/create', [App\Admin\Controller\BlogController::class, 'index']);
 
 
 $router->dispatch($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

@@ -30,16 +30,26 @@ class Controller
     {
         $input = $img;
         $klasor = $list;
-        $target_dir = $klasor;
+        $target_dir = rtrim($klasor, '/') . '/'; // Klasör yolunun sonuna '/' ekle
 
         $target_file = $target_dir . basename($_FILES[$input]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         $filename = uniqid();
-        $extension = pathinfo($_FILES[$input]["type"] == "png" || $_FILES[$input]["type"] == "jpeg" || $_FILES[$input]["type"] == "jpg" || $_FILES[$input]["type"] == "gif", PATHINFO_EXTENSION);
-        $basename = $filename . $extension . "." . $imageFileType;
+
+        // Dosya uzantısını kontrol et
+        $allowedExtensions = ['png', 'jpeg', 'jpg', 'gif'];
+        if (!in_array($imageFileType, $allowedExtensions)) {
+            throw new Exception("Sadece PNG, JPEG, JPG ve GIF dosya türlerine izin verilmektedir.");
+        }
+
+        $basename = $filename . '.' . $imageFileType;
         $yeniyol = $target_dir . $basename;
-        move_uploaded_file($_FILES[$input]["tmp_name"], $yeniyol);
-        return $basename;
+
+        if (move_uploaded_file($_FILES[$input]["tmp_name"], $yeniyol)) {
+            return $basename;
+        } else {
+            throw new Exception("Dosya yükleme başarısız oldu.");
+        }
     }
 
     public function getSecurity($data)
@@ -70,55 +80,6 @@ class Controller
         return $string;
     }
 
-    function DataFormat($format, $datetime = 'now')
-    {
-        $z = date("$format", strtotime($datetime));
-        $gun_dizi = array(
-            'Monday' => 'Pazartesi',
-            'Tuesday' => 'Salı',
-            'Wednesday' => 'Çarşamba',
-            'Thursday' => 'Perşembe',
-            'Friday' => 'Cuma',
-            'Saturday' => 'Cumartesi',
-            'Sunday' => 'Pazar',
-            'January' => 'Ocak',
-            'February' => 'Şubat',
-            'March' => 'Mart',
-            'April' => 'Nisan',
-            'May' => 'Mayıs',
-            'June' => 'Haziran',
-            'July' => 'Temmuz',
-            'August' => 'Ağustos',
-            'September' => 'Eylül',
-            'October' => 'Ekim',
-            'November' => 'Kasım',
-            'December' => 'Aralık',
-            'Mon' => 'Pts',
-            'Tue' => 'Sal',
-            'Wed' => 'Çar',
-            'Thu' => 'Per',
-            'Fri' => 'Cum',
-            'Sat' => 'Cts',
-            'Sun' => 'Paz',
-            'Jan' => 'Oca',
-            'Feb' => 'Şub',
-            'Mar' => 'Mar',
-            'Apr' => 'Nis',
-            'Jun' => 'Haz',
-            'Jul' => 'Tem',
-            'Aug' => 'Ağu',
-            'Sep' => 'Eyl',
-            'Oct' => 'Eki',
-            'Nov' => 'Kas',
-            'Dec' => 'Ara',
-        );
-        foreach ($gun_dizi as $en => $tr) {
-            $z = str_replace($en, $tr, $z);
-        }
-        if (strpos($z, 'Mayıs') !== false && strpos($format, 'F') === false)
-            $z = str_replace('Mayıs', 'May', $z);
-        return $z;
-    }
 
 
 }
