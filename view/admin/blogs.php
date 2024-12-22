@@ -37,9 +37,9 @@ include_once "template/header.php";
                     </thead>
                     <tbody>
 
-                        <?php
-
-                        foreach ($posts as $key => $value):
+                     
+ <?php if (isset($posts) && is_array($posts)): ?>
+    <?php foreach ($posts as $key => $value):
                             ?>
 
                             <tr>
@@ -81,7 +81,11 @@ include_once "template/header.php";
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-
+                        <?php else: ?>
+                            <script>
+                                showErrorMessage("<?php echo $_SESSION['error_message']; ?>");
+                            </script>
+                        <?php endif;  ?>
                     </tbody>
                 </table>
             </div>
