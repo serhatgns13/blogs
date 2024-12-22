@@ -8,7 +8,7 @@ class BlogModel extends Model
 {
     public function posts(): array|false
     {
-        $statement = $this->pdo->query('SELECT * FROM `posts`,categories WHERE posts.category_id = categories.category_id');
+        $statement = $this->pdo->query('SELECT * FROM `posts`,categories,users WHERE posts.category_id = categories.category_id and posts.user_id = users.id');
         $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $response ?: [];

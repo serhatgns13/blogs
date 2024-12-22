@@ -38,7 +38,7 @@ include_once "template/header.php";
                     </thead>
                     <tbody>
 
-                     
+                 
  <?php if (isset($posts) && is_array($posts)): ?>
   
     <?php foreach ($posts as $key => $value):
@@ -56,11 +56,11 @@ include_once "template/header.php";
                                 <td>
                                 <?php
 
-                                    if ($value['user_id'] == 1) {
+                                    if ($value['role_id'] == 1) {
                                         echo 'Admin';
-                                    } else if ($value['user_id'] == 2) {
+                                    } else if ($value['role_id'] == 2) {
                                         echo 'kullanıcı';
-                                    } else if ($value['user_id'] == 3) {
+                                    } else if ($value['role_id'] == 3) {
                                         echo 'Misafir';
                                     }else {
                                         echo 'Tanımsız';
