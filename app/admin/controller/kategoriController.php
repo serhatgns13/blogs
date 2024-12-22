@@ -67,7 +67,7 @@ class KategoriController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $kategoriModel = new KategoriModel();
 
-            $id = $_POST['id'];
+            $id = $_POST['category_id'];
             $categoryName = $_POST['name'];
             $categorySlug = $kategoriModel->seflink($categoryName);
             $categoryStatus = $_POST['category_status'];

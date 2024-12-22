@@ -40,7 +40,7 @@ class BlogController extends Controller
             $poststatus = $_POST['post_status'];
 
 
-            if (empty($title) || empty($content) || empty($image)) { // $email kaldırıldı
+            if (empty($title) || empty($content) || empty($image)|| empty($categoryID)) { // $email kaldırıldı
                 $_SESSION['warning_message'] = 'Lütfen tüm alanları doldurun';
                 $this->view('admin/blogs', $this->data);
                 return;
@@ -96,7 +96,40 @@ class BlogController extends Controller
         $this->view('admin/blogs', $this->data);
     }
 
+            // silme işlemi
 
+            public function deleteBlog($id): void
+{
+    $BlogModel = new BlogModel();
+    
+    // Blog kaydını al
+    $blog = $BlogModel->getBlogById($id);
+    
+    if ($blog) {
+        // Resim dosyasının yolunu belirleyin
+        $imagePath = "view/admin/assets/images/blogs/" . $blog['image'];
+        
+        // Resim dosyasını sil
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+        
+        // Blog kaydını sil
+        if ($BlogModel->deleteBlogs($id)) {
+            // Silme işlemi başarılı ise sayfaya yönlendir
+            $_SESSION['success_message'] = 'Blog ve resim başarıyla silindi.';
+        } else {
+            // Silme işlemi başarısız ise hata mesajı göster
+            $_SESSION['error_message'] = 'Blog silme işlemi başarısız.';
+        }
+    } else {
+        // Blog kaydı bulunamadıysa hata mesajı göster
+        $_SESSION['error_message'] = 'Blog bulunamadı.';
+    }
+    
+    header('Location: /admin/blogs');
+    exit;
+}
 
 
 }

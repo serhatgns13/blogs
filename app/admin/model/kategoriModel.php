@@ -49,9 +49,9 @@ class KategoriModel extends Model
     public function update($id, $categoryName, $categorySlug, $category_status): bool
     {
         try {
-            $statement = $this->pdo->prepare('UPDATE categories SET name = :name, slug = :slug, category_status = :category_status WHERE id = :id');
+            $statement = $this->pdo->prepare('UPDATE categories SET name = :name, slug = :slug, category_status = :category_status WHERE category_id  = :category_id');
             return $statement->execute([
-                ':id' => $id,
+                ':category_id' => $id,
                 ':name' => $categoryName,
                 ':slug' => $categorySlug,
                 ':category_status' => $category_status
@@ -64,7 +64,7 @@ class KategoriModel extends Model
 
     // silme işlemi
     public function deleteCategory($id): bool{
-        $statement = $this->pdo->prepare('DELETE FROM categories WHERE id = :id');
+        $statement = $this->pdo->prepare('DELETE FROM categories WHERE category_id = :id');
         return $statement->execute(['id'=> $id]);
     }
    
