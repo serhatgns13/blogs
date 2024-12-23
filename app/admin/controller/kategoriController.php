@@ -17,8 +17,8 @@ class KategoriController extends Controller
         //  $this->data["ByIdCategories"] = $app->ByIdCategories(); // tekli veri çekme 
 
         $this->view("admin/kategori", $this->data);
-        
-        
+
+
     }
 
     public function createKategori(): void
@@ -27,8 +27,8 @@ class KategoriController extends Controller
 
             $kategoriModel = new KategoriModel();
 
-            $categoryName = $_POST['name'];
-            $categorySlug = $kategoriModel->seflink($categoryName);
+            $categoryName = $this->getSecurity($_POST['name']);
+            $categorySlug = $this->seflink($categoryName);
             $categoryStatus = $_POST['category_status'];
 
             if (empty($categoryName)) {
@@ -42,13 +42,15 @@ class KategoriController extends Controller
                 $this->view('admin/kategori', $this->data);
                 return;
             }
+           
 
             if ($kategoriModel->creat($categoryName, $categorySlug, $categoryStatus)) {
+                
                 // kayıt başarılı ise sayfaya yönlendir
                 $_SESSION['success_message'] = 'Kategori Başarılı Bir Şekilde Eklendi';
 
                 header('Location: /admin/kategori');
-                exit();
+                return;
 
             } else {
                 $_SESSION['error_message'] = 'kayıt Başarısız';
@@ -68,11 +70,11 @@ class KategoriController extends Controller
             $kategoriModel = new KategoriModel();
 
             $id = $_POST['category_id'];
-            $categoryName = $_POST['name'];
-            $categorySlug = $kategoriModel->seflink($categoryName);
+            $categoryName = $this->getSecurity($_POST['name']);
+            $categorySlug = $this->seflink($categoryName);
             $categoryStatus = $_POST['category_status'];
 
-         
+
             if ($kategoriModel->update($id, $categoryName, $categorySlug, $categoryStatus)) {
                 $_SESSION['success_message'] = 'Kategori güncelleme başarılı';
                 header('Location: /admin/kategori');

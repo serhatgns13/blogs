@@ -27,7 +27,7 @@ class KategoriModel extends Model
     public function creat($categoryName,$categorySlug,$category_status): bool
     {
         $statement = $this->pdo->prepare('INSERT INTO categories (name, slug, category_status) VALUES (:name, :slug, :category_status)');
-
+        
         return $statement->execute([
             ':name' => $categoryName,
             ':slug' => $categorySlug,
@@ -69,15 +69,6 @@ class KategoriModel extends Model
     }
    
 
-    public function seflink($val)
-    {
-        $find = array('Ç', 'Ş', 'Ğ', 'Ü', 'İ', 'Ö', 'ç', 'ş', 'ğ', 'ü', 'ö', 'ı', '+', '#', '?', '*', '!', '.', '(', ')');
-        $replace = array('c', 's', 'g', 'u', 'i', 'o', 'c', 's', 'g', 'u', 'o', 'i', 'plus', 'sharp', '', '', '', '', '', '');
-        $string = strtolower(str_replace($find, $replace, $val));
-        $string = preg_replace("@[^A-Za-z0-9\-_\.\+]@i", ' ', $string);
-        $string = trim(preg_replace('/\s+/', ' ', $string));
-        $string = str_replace(' ', '-', $string);
-        return $string;
-    }
+  
 
 }

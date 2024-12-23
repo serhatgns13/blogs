@@ -28,7 +28,7 @@ class TagsController extends Controller
             $tagsModel = new TagsModel();
 
             $ticketName = $_POST['blog_title'];
-            $ticketSlug = $tagsModel->seflink($ticketName);
+            $ticketSlug = $this->seflink($ticketName);
 
             if (empty($ticketName)) {
                 $_SESSION['warning_message'] = 'Lütfen tüm alanları doldurunuz';
@@ -61,7 +61,7 @@ class TagsController extends Controller
 
             $id = $_POST['tags_id'];
             $ticketName = $_POST['name'];
-            $ticketSlug = $tagsModel->seflink($ticketName);
+            $ticketSlug = $this->seflink($ticketName);
 
             if ($tagsModel->update($id, $ticketName, $ticketSlug)) {
                 $_SESSION['success_message'] = 'Tags güncelleme başarılı';
