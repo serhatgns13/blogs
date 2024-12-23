@@ -60,8 +60,12 @@ class TagsController extends Controller
             $tagsModel = new TagsModel();
 
             $id = $_POST['tags_id'];
+
             $ticketName = $_POST['name'];
             $ticketSlug = $this->seflink($ticketName);
+            $ticketName = $this->getSecurity($_POST['name']) ;
+            $ticketSlug = $tagsModel->seflink($ticketName);
+
 
             if ($tagsModel->update($id, $ticketName, $ticketSlug)) {
                 $_SESSION['success_message'] = 'Tags güncelleme başarılı';
