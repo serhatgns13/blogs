@@ -12,23 +12,20 @@ include_once "template/header.php";
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
       <div class="row my-2">
-        <div class="card">
-          <h2 class="text-center">Etiketler</h2>
-        </div>
-      </div>
-      <div class="col-12 col-md-2 my-3">
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Yeni Etiket Ekle
-        </button>
       </div>
       <div class="container mt-5">
-        <h2 class="mb-4">Etiket Listesi</h2>
+        <h2 class="mb-3 text-center">Etiket Listesi</h2>
+        <div class="col-12 col-md-2 my-3">
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Yeni Etiket Ekle
+          </button>
+        </div>
         <table id="studentTable" class="table table-striped table-bordered">
           <thead>
             <tr>
               <th>Sıra</th>
-              <th>name</th>
-              <th>İşlem</th>
+              <th>Etiket İsmi</th>
+              <th class="text-center">İşlemler</th>
             </tr>
           </thead>
           <tbody>
@@ -40,18 +37,20 @@ include_once "template/header.php";
                 <td>
                   <div class="row text-center">
                     <div class="col-6">
-                        <div class="button"><button type="button" class="btn bg-primary text-white"
-                          data-bs-toggle="modal"data-bs-target="#tagsModalUpdate<?php echo $value['id']; ?>">Düzenle</button>
+                        <div class="button"><button type="button" class="btn bg-success text-white"
+                          data-bs-toggle="modal"data-bs-target="#tagsModalUpdate<?php echo $value['tags_id']; ?>">Düzenle</button>
                         </div>
                     </div>
                     <div class="col-6">
-                      <a href="/admin/kategori/deleteTags/<?php echo $value['id']; ?>"class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>          
+                      <a href="/admin/kategori/deleteTags/<?php echo $value['tags_id']; ?>"class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>          
                     </div>
                 </td>
               </tr>
 
               <!-- MODAL GÜNCELLEME -->
-              <div class="modal fade" id="tagsModalUpdate<?php echo $value['id']; ?>" tabindex="-1" aria-labelledby="tagsModal" aria-hidden="true">
+              <div class="modal fade" id="tagsModalUpdate<?php echo $value['tags_id']; ?>" tabindex="-1" aria-labelledby="tagsModal" aria-hidden="true">
+
+ 
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -59,12 +58,12 @@ include_once "template/header.php";
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="/admin/updateTags/<?php echo htmlspecialchars($value['id'], ENT_QUOTES, 'UTF-8'); ?>" method="POST">
+                      <form action="/admin/updateTags/<?php echo $value['tags_id']; ?>" method="POST">
                         <div class="mb-3">
                           <label for="name" class="form-label">Etiket Adı:</label>
-                          <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($value['name'], ENT_QUOTES, 'UTF-8'); ?>">
+                          <input type="text" class="form-control" id="name" name="name" value="<?php echo $value['name']; ?>">
                         </div>
-                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($value['id'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <input type="hidden" name="id" value="<?php echo $value['tags_id']; ?>">
                         <div class="modal-footer">
                           <button type="submit" class="btn btn-primary">Etiket Güncelle</button>
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>

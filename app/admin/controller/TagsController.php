@@ -59,8 +59,8 @@ class TagsController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tagsModel = new TagsModel();
 
-            $id = $_POST['id'] ?? null;
-            $ticketName = $_POST['name'] ?? null;
+            $id = $_POST['tags_id'];
+            $ticketName = $_POST['name'];
             $ticketSlug = $tagsModel->seflink($ticketName);
 
             if ($tagsModel->update($id, $ticketName, $ticketSlug)) {

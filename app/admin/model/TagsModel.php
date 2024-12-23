@@ -48,9 +48,9 @@ class TagsModel extends Model
     public function update($id, $ticketName, $ticketSlug): bool
     {
         try {
-            $statement = $this->pdo->prepare('UPDATE tags SET name = :name, slug = :slug WHERE id = :id');
+            $statement = $this->pdo->prepare('UPDATE tags SET name = :name, slug = :slug WHERE tags_id = :tags_id');
             return $statement->execute([
-                ':id' => $id,
+                ':tags_id' => $id,
                 ':name' => $ticketName,
                 ':slug' => $ticketSlug,
             ]);
@@ -61,7 +61,7 @@ class TagsModel extends Model
 
     // silme işlemi
     public function deleteTicket($id): bool{
-        $statement = $this->pdo->prepare('DELETE FROM tags WHERE id = :id');
+        $statement = $this->pdo->prepare('DELETE FROM tags WHERE tags_id = :id');
         return $statement->execute(['id'=> $id]);
     }
    
