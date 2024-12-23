@@ -60,17 +60,46 @@ class Controller
     public function upload($img, $list)
     {
         $input = $img;
-        $klasor = $list;
+        $klasor = rtrim($list, '/') . '/';
         $target_dir = $klasor;
-
-        $target_file = $target_dir . basename($_FILES[$input]["name"]);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $filename   = uniqid();
-        $extension  = pathinfo($_FILES[$input]["type"] == "png" || $_FILES[$input]["type"] == "jpeg" || $_FILES[$input]["type"] == "jpg" || $_FILES[$input]["type"] == "gif", PATHINFO_EXTENSION);
-        $basename   =  $filename. $extension . "." . $imageFileType;
-        $yeniyol = $target_dir . $basename;
-        move_uploaded_file($_FILES[$input]["tmp_name"], $yeniyol);
-        return $basename;
+    
+        // Dosya bilgilerini al
+        $fileName = basename($_FILES[$input]["name"]);
+        $fileTmpName = $_FILES[$input]["tmp_name"];
+        $fileSize = $_FILES[$input]["size"];
+        $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+    
+        // Benzersiz dosya adı oluştur
+        $uniqueName = uniqid('', true) . '.' . $fileType;
+        $target_file = $target_dir . $uniqueName;
+    
+        // Dosya türü kontrolü
+        $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+        if (!in_array($fileType, $allowedTypes)) {
+           $_SESSION['error_message'] = "Hata: Sadece JPG, JPEG, PNG ve GIF dosyaları yüklenebilir.";
+            return;
+        }
+    
+        // Dosya boyutu kontrolü (örneğin 5MB)
+        if ($fileSize > 5000000) {
+          $_SESSION['error_message'] = "Hata: Dosya boyutu 5MB'ı geçemez.";
+          return;
+        }
+    
+        // Resmin gerçek bir resim olup olmadığını kontrol et
+        $check = getimagesize($fileTmpName);
+        if ($check === false) {
+            $_SESSION['error_message'] = "Hata: Dosya bir resim değil.";
+            return;
+        }
+    
+        // Dosyayı yükle
+        if (move_uploaded_file($fileTmpName, $target_file)) {
+            return $uniqueName;
+        } else {
+            $_SESSION['error_message'] = "Hata: Dosya yüklenirken bir hata oluştu.";
+            return;
+        }
     }
 
 

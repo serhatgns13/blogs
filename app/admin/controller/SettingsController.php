@@ -20,9 +20,12 @@ class SettingsController extends Controller
         $this->view("admin/settings", $this->data);
     }
 
-    public function Updatesettings(): void
+    public function Updatesettings($id): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $app = new SettingsModel();
+
             $id = $_POST['set_id'];
             $title = $_POST['set_title'];
             $description = $_POST['set_description'];
@@ -41,30 +44,41 @@ class SettingsController extends Controller
             ];
 
             if (!empty($resim)) {
-                $images = $this->upload("set_images", "view/admin/assets/images/logo/");
-                if ($images !== false) {
-                    $data['set_images'] = $images;
-                    $app = new SettingsModel();
-                    $result = $app->SettingsUpdate($data);
+                $uploadResult = $this->upload('set_images', "view/admin/assets/images/logo/");
+                if ($uploadResult !== false) {
+                    $data['set_images'] = $uploadResult;
+
+                    if (!empty($app->ByIdSettings()['set_images'])) {
+                        if (file_exists("view/admin/assets/images/logo/" . $app->ByIdSettings()['set_images'])) {
+                            unlink("view/admin/assets/images/logo/" . $app->ByIdSettings()['set_images']);
+                        }
+                    }
+                    
+                    if ($app->SettingsUpdate($data)) {
+                        $_SESSION['success_message'] = 'Ayarlar başarıyla güncellendi.';
+                        header('Location: /admin/settings');
+                        exit();
+                    } else {
+                        $_SESSION['warning_message'] = 'Ayarlar güncellenemedi.';
+                    }
                 } else {
-                    $_SESSION['message'] = 'Resim yükleme işleminiz başarısız.';
-                    $this->view("admin/settings", $this->data);
+                    $_SESSION['error_message'] = 'Resim yükleme işleminiz başarısız.';
+                    $this->view('/admin/settings', $this->data);
                     return;
                 }
             } else {
-                $app = new SettingsModel();
-                $result = $app->SettingsUpdateNull($data);
-            }
-
-            if ($result) {
-                $_SESSION['message'] = 'Ayarlar başarıyla güncellendi.';
-                header('Location: /admin/settings');
-            } else {
-                $_SESSION['message'] = 'Ayarlar güncellenemedi.';
+                if ($app->SettingsUpdateNull($data)) {
+                    $_SESSION['success_message'] = 'Ayarlar başarıyla güncellendi.';
+                    header('Location: /admin/settings');
+                    exit();
+                } else {
+                    $_SESSION['warning_message'] = 'Ayarlar güncellenemedi.';
+                }
             }
         }
 
         $this->view("admin/settings", $this->data);
     }
+
 
 }
