@@ -57,4 +57,21 @@ class Controller
     }
 
 
+    public function upload($img, $list)
+    {
+        $input = $img;
+        $klasor = $list;
+        $target_dir = $klasor;
+
+        $target_file = $target_dir . basename($_FILES[$input]["name"]);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $filename   = uniqid();
+        $extension  = pathinfo($_FILES[$input]["type"] == "png" || $_FILES[$input]["type"] == "jpeg" || $_FILES[$input]["type"] == "jpg" || $_FILES[$input]["type"] == "gif", PATHINFO_EXTENSION);
+        $basename   =  $filename. $extension . "." . $imageFileType;
+        $yeniyol = $target_dir . $basename;
+        move_uploaded_file($_FILES[$input]["tmp_name"], $yeniyol);
+        return $basename;
+    }
+
+
 }

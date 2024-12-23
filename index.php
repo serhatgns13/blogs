@@ -27,7 +27,7 @@ $router->name('admin.yorumlar')->get('/admin/yorumlar', [App\Admin\Controller\Co
 $router->name('admin.tags')->get('/admin/tags', [App\Admin\Controller\TagsController::class, 'index']);
 $router->name('admin.profil')->get('/admin/profil', [App\Admin\Controller\ProfilController::class, 'index']);
 $router->name('admin.logout')->get('/admin/logout', [App\Admin\Controller\LoginController::class, 'logout']);
-
+$router->name('admin.settings')->get('/admin/settings', [App\Admin\Controller\SettingsController::class, 'index']);
 // post get ekleme 
 // Kullanıcı Sayfası İşlemleri
 $router->name('admin.register')->post('/admin/register', [App\Admin\Controller\KullaniciController::class, 'register']);
@@ -46,6 +46,8 @@ $router->name(name: 'admin.creatTags')->post('/admin/creatTags', [App\Admin\Cont
 $router->name('admin.updateTags')->post('/admin/updateTags/{id}', [App\Admin\Controller\TagsController::class, 'updateTags']);
 $router->name('admin.deleteTags')->get('/admin/kategori/deleteTags/{id}', [App\Admin\Controller\TagsController::class, 'deleteTags']);
 
+//Settings
+$router->name('admin.Updatesettings')->post('/admin/Updatesettings/{id}', [App\Admin\Controller\SettingsController::class, 'Updatesettings']);
 
 
 
