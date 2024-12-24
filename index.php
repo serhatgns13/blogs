@@ -35,6 +35,7 @@ $router->name('admin.delete')->get('/admin/kullanici/delete/{id}', [App\Admin\Co
 $router->name('admin.login')->post('/admin/login', [App\Admin\Controller\LoginController::class, 'login']);
 //Blog Sayfası
 $router->name('admin.create')->post('/admin/create', [App\Admin\Controller\BlogController::class, 'create']);
+$router->name('admin.updateblog')->post('/admin/updateblog/{id}', [App\Admin\Controller\BlogController::class, 'updateblog']);
 $router->name('admin.deleteBlog')->get('/admin/blogs/deleteBlog/{id}', [App\Admin\Controller\BlogController::class, 'deleteBlog']);
 //kategori sayfası işlemleri
 $router->name(name: 'admin.createKategori')->post('/admin/createKategori', [App\Admin\Controller\KategoriController::class, 'createKategori']);
