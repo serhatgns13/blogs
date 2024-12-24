@@ -23,16 +23,17 @@ class BlogModel extends Model
     }
 
 
-    public function createPost($user_id,$blogTitle,$blogContent,$blogİmages,$categoryID,$blogPostStatus): bool
+    public function createPost($user_id,$blogTitle,$blogslug,$blogContent,$blogİmages,$categoryID,$blogPostStatus): bool
     {
-        $sql = "INSERT INTO posts (user_id, title, content, image, category_id, post_status) 
-                VALUES (:user_id, :title, :content, :image, :category_id, :post_status)";
+        $sql = "INSERT INTO posts (user_id, title,slug ,content, image, category_id, post_status) 
+                VALUES (:user_id, :title,:slug, :content, :image, :category_id, :post_status)";
 
         $stmt = $this->pdo->prepare($sql);
 
         return $stmt->execute([
             ':user_id' => $user_id,
             ':title' => $blogTitle,
+            ':slug' => $blogslug,
             ':content' => $blogContent,
             ':image' => $blogİmages,
             ':category_id' => $categoryID,

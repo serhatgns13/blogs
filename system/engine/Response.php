@@ -4,7 +4,7 @@ namespace System\Engine;
 
 trait Response
 {
-    public function jsonResponse(string $status, array|string $data = null): void
+    public function jsonResponse(string $status, array|string $data = []): void
     {
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Credentials: true");

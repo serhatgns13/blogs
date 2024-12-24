@@ -38,6 +38,8 @@ class BlogController extends Controller
             $image = $_FILES['image']['name']; // Düzenlendi
             $categoryID = $_POST['category_id']; // Düzenlendi
             $poststatus = $_POST['post_status'];
+            $blogTitleSeflink = $this->seflink($title);
+            $contentSecurity = $this->getSecurity($content);
 
 
             if (empty($title) || empty($content) || empty($image)|| empty($categoryID)) { // $email kaldırıldı
@@ -82,7 +84,7 @@ class BlogController extends Controller
                 return;
             }
 
-            if ($BlogModel->createPost($userID, $title,$content, $image, $categoryID, $poststatus)) {
+            if ($BlogModel->createPost($userID, $title,$blogTitleSeflink,$contentSecurity, $image, $categoryID, $poststatus)) {
                 // Kayıt başarılı, kullanıcıyı yönlendir
                 $_SESSION['success_message'] = 'Blog başarıyla kaydedildi.';
                 header('Location: /admin/blogs');
