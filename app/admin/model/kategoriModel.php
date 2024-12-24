@@ -24,13 +24,14 @@ class KategoriModel extends Model
 
     // kategori kaydetme
 
-    public function creat($categoryName,$categorySlug,$category_status): bool
+    public function creat($categoryName,$categorySlug,$categoryParentid,$category_status): bool
     {
-        $statement = $this->pdo->prepare('INSERT INTO categories (name, slug, category_status) VALUES (:name, :slug, :category_status)');
+        $statement = $this->pdo->prepare('INSERT INTO categories (name, slug, parent_id, category_status) VALUES (:name, :slug, :parent_id, :category_status)');
         
         return $statement->execute([
             ':name' => $categoryName,
             ':slug' => $categorySlug,
+            ':parent_id' => $categoryParentid,
             ':category_status' => $category_status
         ]);
     }

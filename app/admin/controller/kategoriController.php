@@ -29,6 +29,7 @@ class KategoriController extends Controller
 
             $categoryName = $this->getSecurity($_POST['name']);
             $categorySlug = $this->seflink($categoryName);
+            $categoryParentid = $_POST['parent_id'];
             $categoryStatus = $_POST['category_status'];
 
             if (empty($categoryName)) {
@@ -44,7 +45,7 @@ class KategoriController extends Controller
             }
            
 
-            if ($kategoriModel->creat($categoryName, $categorySlug, $categoryStatus)) {
+            if ($kategoriModel->creat($categoryName, $categorySlug,$categoryParentid, $categoryStatus)) {
                 
                 // kayıt başarılı ise sayfaya yönlendir
                 $_SESSION['success_message'] = 'Kategori Başarılı Bir Şekilde Eklendi';
