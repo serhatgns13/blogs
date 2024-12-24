@@ -99,70 +99,72 @@ class BlogController extends Controller
     }
 
 
-     public function updateblog($id): void{
-        $this->data["title"] = 'Blog Güncelleme Sayfası İçeriği...';
-        $BlogModel = new BlogModel();
-        $appCategory = new KategoriModel();
-        $this->data["CategoryName"] = $appCategory->category();  // kategoriden verileri cekiyor     
-        $this->data["post"] = $BlogModel->getBlogById($id);
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $userID = $_SESSION['user_id'];
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $categoryID = $_POST['category_id']; // Düzenlendi
-            $poststatus = $_POST['post_status'];
-            $blogTitleSeflink = $this->seflink($title);
-            $contentSecurity = $this->getSecurity($content);
-
-
-            if (empty($title) || empty($content) ) { // $email kaldırıldı
-                $_SESSION['warning_message'] = 'Lütfen tüm alanları doldurun';
-            }else {
-                if (!empty($_FILES['image']['name'])) {
-                    // Mevcut resmi veritabanından al
-                    $currentPost = $BlogModel->getBlogById($id);
-                    $currentImage = $currentPost['image'];
-                    $targetDir = "view/admin/assets/images/blogs/";
-                    $targetFile = $targetDir . basename($_FILES['image']['name']);
-        
-                    // Mevcut resmi dosya sisteminden sil
-                    if (file_exists($targetDir . $currentImage)) {
-                        unlink($targetDir . $currentImage);
-                    }
-        
-                    // Yeni resmi yükle
-                    move_uploaded_file($_FILES['image']['tmp_name'], $targetFile);
-                    $image = $_FILES['image']['name'];
-        
-                    // Resmi veritabanında güncelle
-                    if ($BlogModel->updatePostİmage($id, $userID, $title, $blogTitleSeflink, $contentSecurity, $image, $categoryID, $poststatus)) {
-                        // Kayıt başarılı, kullanıcıyı yönlendir
-                        $_SESSION['success_message'] = 'Blog başarıyla Güncellendi.';
-                        header('Location: /admin/blogs');
+    public function updateblog($id): void 
+    {
+                $this->data["title"] = 'Blog Güncelleme Sayfası İçeriği...';
+                $BlogModel = new BlogModel();
+                $appCategory = new KategoriModel();
+                $this->data["CategoryName"] = $appCategory->category();  // kategoriden verileri cekiyor     
+                $this->data["post"] = $BlogModel->getBlogById($id);
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $id = $_POST['id'];
+                    $userID = $_SESSION['user_id'];
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $categoryID = $_POST['category_id']; // Düzenlendi
+                    $poststatus = $_POST['post_status'];
+                    $blogTitleSeflink = $this->seflink($title);
+                    $contentSecurity = $this->getSecurity($content);
+                    $resim = $_FILES['image']['name'];
+            
+                    $data = [
+                        'id' => $id,
+                        'user_id' => $userID,
+                        'title' => $title,
+                        'slug' => $blogTitleSeflink,
+                        'content' => $contentSecurity,
+                        'category_id' => $categoryID,
+                        'post_status' => $poststatus
+                    ];
+            
+                    if (!empty($resim)) {
+                        // Mevcut resmi veritabanından al
+                        $uploadResult = $this->upload('image', "view/admin/assets/images/blogs/");
+                        if ($uploadResult !== false) {
+                            $data['image'] = $uploadResult;
+            
+                            $currentPost = $BlogModel->getBlogById($id);
+                            if (!empty($currentPost['image'])) {
+                                if (file_exists("view/admin/assets/images/blogs/" . $currentPost['image'])) {
+                                    unlink("view/admin/assets/images/blogs/" . $currentPost['image']);
+                                }
+                            }
+            
+                            if ($BlogModel->PostsUpdate($data)) {
+                                $_SESSION['success_message'] = 'Ayarlar başarıyla güncellendi.';
+                                header('Location: /admin/blogs');
+                                exit();
+                            } else {
+                                $_SESSION['warning_message'] = 'Ayarlar güncellenemedi.';
+                            }
+                        } else {
+                            $_SESSION['error_message'] = 'Resim yükleme işleminiz başarısız.';
+                            $this->view('/admin/blogs', $this->data);
+                            return;
+                        }
                     } else {
-                        $_SESSION['error'] = 'Başarısız';
-                        header('Location: /admin/blogs');
-                    }
-                } else {
-                    // Resmi değiştirmeden güncelle
-                    if ($BlogModel->updatePost($id, $userID, $title, $blogTitleSeflink, $contentSecurity, $categoryID, $poststatus)) {
-                        // Kayıt başarılı, kullanıcıyı yönlendir
-                        $_SESSION['success_message'] = 'Blog başarıyla Güncellendi.';
-                        header('Location: /admin/blogs');
-                    } else {
-                        $_SESSION['error'] = 'Başarısız';
-                        header('Location: /admin/blogs');
+                        if ($BlogModel->PostsUpdateNull($data)) {
+                            $_SESSION['success_message'] = 'Ayarlar başarıyla güncellendi.';
+                            header('Location: /admin/blogs');
+                            exit();
+                        } else {
+                            $_SESSION['warning_message'] = 'Ayarlar güncellenemedi.';
+                        }
                     }
                 }
             }
-
-           
-        }
-        header('Location: /admin/blogs');
-    exit;
-    }
-
+        
+        
 
 
             // silme işlemi
