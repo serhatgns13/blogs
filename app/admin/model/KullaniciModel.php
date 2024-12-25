@@ -26,12 +26,12 @@ class KullaniciModel extends Model
     // Kullanıcı kaydı
     public function registerUser($username, $email, $password, $role_id, $userstatus): bool
     {
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        
         $statement = $this->pdo->prepare('INSERT INTO users (user_name, email, password, role_id, user_status) VALUES (:user_name, :email, :password, :role_id, :user_status)');
         return $statement->execute([
             ':user_name' => $username,
             ':email' => $email,
-            ':password' => $hashedPassword,
+            ':password' => $password,
             ':role_id' => $role_id,
             ':user_status' => $userstatus
         ]);

@@ -34,6 +34,9 @@ $router->name('admin.register')->post('/admin/register', [App\Admin\Controller\K
 $router->name('admin.update')->post('/admin/update/{id}', [App\Admin\Controller\KullaniciController::class, 'update']);
 $router->name('admin.delete')->get('/admin/kullanici/delete/{id}', [App\Admin\Controller\KullaniciController::class, 'delete']);
 $router->name('admin.login')->post('/admin/login', [App\Admin\Controller\LoginController::class, 'login']);
+// Profil Sayfası İşlemleri
+$router->name('admin.profilUpdate')->post('/admin/profilUpdate/{id}', [App\Admin\Controller\ProfilController::class, 'profilUpdate']);
+
 //Blog Sayfası
 $router->name('admin.create')->post('/admin/create', [App\Admin\Controller\BlogController::class, 'create']);
 $router->name('admin.updateblog')->post('/admin/updateblog/{id}', [App\Admin\Controller\BlogController::class, 'updateblog']);

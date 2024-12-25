@@ -101,6 +101,13 @@ class Controller
             return;
         }
     }
-
+    
+    public function  securitySetHash( $data ) {
+        $options = [
+            'cost' => 12
+        ];
+        $new_password = password_hash( $data, PASSWORD_DEFAULT, $options );
+        return $new_password;
+    }
 
 }
