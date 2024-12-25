@@ -3,21 +3,23 @@
 namespace App\Catalog\Controller;
 
 use App\Catalog\Model\BaseModel;
+use App\Catalog\Model\CategoriesModel;
 use System\Engine\Controller;
 
 class BaseController extends Controller
 {
     public function index(): void
     {
-
-        $this->data["title"] = "Catalog index title";
-
+        $this->data["title"] = "Anasayfa";
 
         $app = new BaseModel();
-        $users = $app->users();
-        $this->data["users"] = $users;
-    
+        $category = new CategoriesModel();
+        
+        $Category = $category->categories();
+        $this->data["CategoryValue"] = $Category;
 
+        $Settings = $app->settings();
+        $this->data["SettingsValue"] = $Settings;
         $this->view("catalog/index", $this->data);
     }
 }

@@ -26,7 +26,7 @@ class Controller
         }
     }
 
-    
+
 
     public function getSecurity($data)
     {
@@ -62,37 +62,37 @@ class Controller
         $input = $img;
         $klasor = rtrim($list, '/') . '/';
         $target_dir = $klasor;
-    
+
         // Dosya bilgilerini al
         $fileName = basename($_FILES[$input]["name"]);
         $fileTmpName = $_FILES[$input]["tmp_name"];
         $fileSize = $_FILES[$input]["size"];
         $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    
+
         // Benzersiz dosya adı oluştur
         $uniqueName = uniqid('', true) . '.' . $fileType;
         $target_file = $target_dir . $uniqueName;
-    
+
         // Dosya türü kontrolü
         $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
         if (!in_array($fileType, $allowedTypes)) {
-           $_SESSION['error_message'] = "Hata: Sadece JPG, JPEG, PNG ve GIF dosyaları yüklenebilir.";
+            $_SESSION['error_message'] = "Hata: Sadece JPG, JPEG, PNG ve GIF dosyaları yüklenebilir.";
             return;
         }
-    
+
         // Dosya boyutu kontrolü (örneğin 5MB)
         if ($fileSize > 5000000) {
-          $_SESSION['error_message'] = "Hata: Dosya boyutu 5MB'ı geçemez.";
-          return;
+            $_SESSION['error_message'] = "Hata: Dosya boyutu 5MB'ı geçemez.";
+            return;
         }
-    
+
         // Resmin gerçek bir resim olup olmadığını kontrol et
         $check = getimagesize($fileTmpName);
         if ($check === false) {
             $_SESSION['error_message'] = "Hata: Dosya bir resim değil.";
             return;
         }
-    
+
         // Dosyayı yükle
         if (move_uploaded_file($fileTmpName, $target_file)) {
             return $uniqueName;
@@ -102,5 +102,13 @@ class Controller
         }
     }
 
+    function formatDateInTurkish($date)
+    {
+        setlocale(LC_TIME, 'tr_TR.UTF-8');
+        $formatter = new \IntlDateFormatter('tr_TR', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
+        return $formatter->format(new \DateTime($date));
+    }
+
+  
 
 }

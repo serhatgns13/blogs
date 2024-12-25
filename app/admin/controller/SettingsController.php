@@ -44,13 +44,13 @@ class SettingsController extends Controller
             ];
 
             if (!empty($resim)) {
-                $uploadResult = $this->upload('set_images', "view/admin/assets/images/logo/");
+                $uploadResult = $this->upload('set_images', "view/catalog/assets/dist/img/logo/");
                 if ($uploadResult !== false) {
                     $data['set_images'] = $uploadResult;
 
                     if (!empty($app->ByIdSettings()['set_images'])) {
-                        if (file_exists("view/admin/assets/images/logo/" . $app->ByIdSettings()['set_images'])) {
-                            unlink("view/admin/assets/images/logo/" . $app->ByIdSettings()['set_images']);
+                        if (file_exists("view/catalog/assets/dist/img/logo/" . $app->ByIdSettings()['set_images'])) {
+                            unlink("view/catalog/assets/dist/img/logo/" . $app->ByIdSettings()['set_images']);
                         }
                     }
                     

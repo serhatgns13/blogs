@@ -88,10 +88,11 @@ class BlogController extends Controller
                 // Kayıt başarılı, kullanıcıyı yönlendir
                 $_SESSION['success_message'] = 'Blog başarıyla kaydedildi.';
                 header('Location: /admin/blogs');
-                exit();
+                return;
             } else {
                 // Kayıt başarısız, hata mesajı göster
                 $_SESSION['error_message'] = 'Kayıt başarısız';
+                return;
             }
         }
 
