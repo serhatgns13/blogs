@@ -60,8 +60,8 @@ class KullaniciController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
-            $username =  $_POST['user_name'] ;
-            $email = $_POST['email'];
+            $username =  $this->getSecurity($_POST['user_name']) ;
+            $email =$this->getSecurity($_POST['email']);
             $password = $_POST['password'];
             $role_id = $_POST['role_id'];
             $userstatus = $_POST['user_status'];
