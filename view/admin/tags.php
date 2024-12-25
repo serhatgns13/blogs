@@ -63,9 +63,9 @@ include_once "template/header.php";
                           <label for="name" class="form-label">Etiket Adı:</label>
                           <input type="text" class="form-control" id="name" name="name" value="<?php echo $value['name']; ?>">
                         </div>
-                        <input type="hidden" name="id" value="<?php echo $value['tags_id']; ?>">
+                        <input type="hidden" name="tags_id" value="<?php echo $value['tags_id']; ?>">
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-primary">Etiket Güncelle</button>
+                          <button type="submit" class="btn btn-success">Etiket Güncelle</button>
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
                         </div>
                       </form>
