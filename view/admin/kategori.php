@@ -72,8 +72,8 @@ include_once "template/header.php";
                                 <div class="container mt-5">
                                     <!-- Güncelleme Modal -->
 
-                                    <div class="modal fade" id="categoryModalUpdate<?php echo $value['category_id']; ?>" tabindex="-1"
-                                        aria-labelledby="categoryModal" aria-hidden="true">
+                                    <div class="modal fade" id="categoryModalUpdate<?php echo $value['category_id']; ?>"
+                                        tabindex="-1" aria-labelledby="categoryModal" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -82,7 +82,8 @@ include_once "template/header.php";
                                                         aria-label="Kapat"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="/admin/updateKategori/<?php echo $value['category_id']; ?>" method="POST">
+                                                    <form action="/admin/updateKategori/<?php echo $value['category_id']; ?>"
+                                                        method="POST">
                                                         <!-- Kategori Adı -->
                                                         <div class="mb-3">
                                                             <label for="name" class="form-label">Kategori Adı : </label>
@@ -94,8 +95,9 @@ include_once "template/header.php";
                                                         <div class="mb-3">
                                                             <label for="category_status" class="form-label">Kategori Durumu :
                                                             </label>
-                                                                
-                                                            <select class="form-select" id="category_status" name="category_status">
+
+                                                            <select class="form-select" id="category_status"
+                                                                name="category_status">
                                                                 <option value="1" <?php if ($value['category_status'] == 1) {
                                                                     echo 'selected';
                                                                 } ?>>Aktif</option>
@@ -104,9 +106,10 @@ include_once "template/header.php";
                                                                 } ?>>Pasif</option>
 
                                                         </div>
-                                                    
-                                                        <input type="hidden" name="category_id" value="<?php echo $value['category_id']; ?>">
-                                                        
+
+                                                        <input type="hidden" name="category_id"
+                                                            value="<?php echo $value['category_id']; ?>">
+
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Kapat</button>
@@ -135,7 +138,7 @@ include_once "template/header.php";
 
 
         </main>
-       
+
         <div class="container mt-5">
 
             <!--Kategori Ekleme Modal  -->
@@ -150,21 +153,63 @@ include_once "template/header.php";
                         <div class="modal-body">
                             <form action="/admin/createKategori" method="POST">
                                 <!-- Kategori Adı -->
+
+                                <div class="mb-3">
+                                    <label for="category_status" class="form-label">Kategori adı</label>
+                                    <select class="form-select" id="parent_id" name="parent_id">
+                                        <option value="0">Ana Kategori</option>
+                                        <?php
+
+                                        $mainCategories = [];
+                                        $subCategories = [];
+
+                                        // Kategorileri ana ve alt kategoriler olarak ayır
+                                        foreach ($categoryvariable as $value) {
+                                            if ($value['parent_id'] == 0) {
+                                                $mainCategories[] = $value;
+                                            } else {
+                                                $subCategories[] = $value;
+                                            }
+                                        }
+
+                                        // Ana kategorileri ve alt kategorileri yazdır
+                                        foreach ($mainCategories as $mainCategory) {
+                                            ?>
+                                            <option value="<?php echo $mainCategory['category_id']; ?>">
+                                                <?php echo $mainCategory['name']; ?>
+                                            </option>
+                                            <?php
+                                            foreach ($subCategories as $subCategory) {
+                                                if ($subCategory['parent_id'] == $mainCategory['category_id']) {
+                                                    ?>
+                                                    <option value="<?php echo $subCategory['category_id']; ?>">
+                                                        -- <?php echo $subCategory['name']; ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                            }
+                                        }
+                                        ?>
+
+                                    </select>
+
+                                </div>
+
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Kategori Adı</label>
                                     <input type="text" class="form-control" id="name" name="name"
                                         placeholder="Kategori adı girin">
                                 </div>
 
-
-                                <!-- Kategori Durumu -->
                                 <div class="mb-3">
-                                    <label for="category_status" class="form-label">Kategori Durumu</label>
+                                    <label for="category_status" class="form-label">Durum</label>
                                     <select class="form-select" id="category_status" name="category_status">
                                         <option value="1">Aktif</option>
                                         <option value="0">Pasif</option>
                                     </select>
                                 </div>
+
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Kapat</button>

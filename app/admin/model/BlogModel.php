@@ -41,34 +41,17 @@ class BlogModel extends Model
         ]);
     }
 
-    public function updatePostİmage($id,$user_id,$blogTitle,$blogslug,$blogContent,$blogİmages,$categoryID,$blogPostStatus): bool
+    public function PostsUpdate(array $data): bool
     {
-        $statement =$this->pdo->prepare("UPDATE posts SET user_id = :user_id, title = :title,slug = :slug, content = :content, image = :image, category_id = :category_id, post_status = :post_status WHERE post_id = :id");       
-
-        return $statement->execute([
-            ':id' => $id,
-            ':user_id' => $user_id,
-            ':title' => $blogTitle,
-            ':slug' => $blogslug,
-            ':content' => $blogContent,
-            ':image' => $blogİmages,
-            ':category_id' => $categoryID,
-            ':post_status' => $blogPostStatus
-        ]);
+        $statement = $this->pdo->prepare("UPDATE posts SET user_id = :user_id, title = :title,slug = :slug, content = :content, image = :image, category_id = :category_id, post_status = :post_status WHERE post_id = :id");
+        $response = $statement->execute($data);
+        return $response;
     }
-    public function updatePost($id,$user_id,$blogTitle,$blogslug,$blogContent,$categoryID,$blogPostStatus): bool
+    public function PostsUpdateNull(array $data): bool
     {
-        $statement =$this->pdo->prepare("UPDATE posts SET user_id = :user_id, title = :title,slug = :slug, content = :content,  category_id = :category_id, post_status = :post_status WHERE post_id = :id") ;      
-
-        return $statement->execute([
-            ':id' => $id,
-            ':user_id' => $user_id,
-            ':title' => $blogTitle,
-            ':slug' => $blogslug,
-            ':content' => $blogContent,
-            ':category_id' => $categoryID,
-            ':post_status' => $blogPostStatus
-        ]);
+        $statement = $this->pdo->prepare("UPDATE posts SET user_id = :user_id, title = :title,slug = :slug, content = :content,  category_id = :category_id, post_status = :post_status WHERE post_id = :id");
+        $response = $statement->execute($data);
+        return $response;
     }
 
 
