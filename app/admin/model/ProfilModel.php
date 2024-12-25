@@ -22,4 +22,27 @@ class ProfilModel extends Model
         return $response ?: [];
     }
 
+
+
+    public function ByIdusersUpdate($id, $user_name, $email, $password ): bool
+    {
+        if (empty($password)) {
+            $statement = $this->pdo->prepare('UPDATE users SET user_name = :user_name, email = :email WHERE id = :id');
+         return $statement->execute([
+            'id' => $id,
+            'user_name' => $user_name,
+            'email' => $email         
+            
+        ]);
+        }else {
+            $statement = $this->pdo->prepare('UPDATE users SET user_name = :user_name, email = :email, password = :password WHERE id = :id');
+         return $statement->execute([
+            'id' => $id,
+            'user_name' => $user_name,
+            'email' => $email,
+            'password' => $password
+        ]);
+        }
+    }
+
 }

@@ -27,7 +27,6 @@ class Controller
     }
 
 
-
     public function getSecurity($data)
     {
         if (is_array($data)) {
@@ -102,6 +101,7 @@ class Controller
         }
     }
 
+
     function formatDateInTurkish($date)
     {
         setlocale(LC_TIME, 'tr_TR.UTF-8');
@@ -109,6 +109,14 @@ class Controller
         return $formatter->format(new \DateTime($date));
     }
 
-  
+    public function securitySetHash($data)
+    {
+        $options = [
+            'cost' => 12
+        ];
+        $new_password = password_hash($data, PASSWORD_DEFAULT, $options);
+        return $new_password;
+    }
+
 
 }

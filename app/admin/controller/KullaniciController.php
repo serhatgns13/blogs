@@ -21,11 +21,11 @@ class KullaniciController extends Controller
     public function register(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['user_name'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $password = $_POST['password'] ?? '';
-            $role_id = $_POST['role_id'] ?? '';
-            $userstatus = $_POST['user_status'] ?? '';
+            $username = $_POST['user_name'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $role_id = $_POST['role_id'];
+            $userstatus = $_POST['user_status'];
 
             if (empty($username) || empty($email) || empty($password)) {
                 $_SESSION['warning_message'] = 'Lütfen tüm alanları doldurun';
@@ -41,8 +41,8 @@ class KullaniciController extends Controller
                 $this->view('/admin/kullanici', $this->data);
                 return;
             }
-
-            if ($kullaniciModel->registerUser($username, $email, $password, $role_id, $userstatus)) {
+            $hashedPassword = $this->securitySetHash($password);
+            if ($kullaniciModel->registerUser($username, $email, $hashedPassword, $role_id, $userstatus)) {
                 // Kayıt başarılı, kullanıcıyı yönlendir
                 $_SESSION['success_message'] = 'Kullanıcı başarıyla kaydedildi.';
                 header('Location: /admin/kullanici');
@@ -59,17 +59,21 @@ class KullaniciController extends Controller
     public function update($id): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $password = $_POST['password'] ?? '';
-            $role_id = $_POST['role_id'] ?? '';
-            $userstatus = $_POST['userstatus'] ?? '';
+            $id = $_POST['id'];
+            $username =  $this->getSecurity($_POST['user_name']) ;
+            $email =$this->getSecurity($_POST['email']);
+            $password = $_POST['password'];
+            $role_id = $_POST['role_id'];
+            $userstatus = $_POST['user_status'];
+            
+            
+            $hashedPassword = $this->securitySetHash($password);
+            $kullaniciModel = new KullaniciModel();           
 
-            $kullaniciModel = new KullaniciModel();
-
-            if ($kullaniciModel->updateUser($id, $username, $email, $password, $role_id, $userstatus)) {
+            if ($kullaniciModel->updateUser($id, $username, $email, $hashedPassword, $role_id, $userstatus)) {
                 // Güncelleme başarılı, kullanıcıyı yönlendir
-                header('Location: /admin/profil');
+                $_SESSION['success_message'] = 'Kullanıcı başarıyla Güncellendi.';
+                header('Location: /admin/kullanici');
                 exit();
             } else {
                 // Güncelleme başarısız, hata mesajı göster
@@ -77,7 +81,7 @@ class KullaniciController extends Controller
             }
         }
 
-        $this->view('admin/profil', $this->data);
+        $this->view('admin/kullanici', $this->data);
     }
 
     public function delete($id): void
