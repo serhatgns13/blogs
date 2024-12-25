@@ -56,21 +56,21 @@ class KullaniciModel extends Model
             $statement = $this->pdo->prepare('UPDATE users SET user_name = :user_name, email = :email, role_id = :role_id, user_status = :user_status WHERE id = :id');
             return $statement->execute([
                 'id' => $id,
-                'username' => $username,
+                'user_name' => $username,
                 'email' => $email,
                 'role_id' => $role_id,
-                'userstatus' => $userstatus
+                'user_status' => $userstatus
             ]);
         } else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $statement = $this->pdo->prepare('UPDATE users SET user_name = :user_name, email = :email, password = :password, role_id = :role_id, user_status = :user_status WHERE id = :id');
             return $statement->execute([
                 'id' => $id,
-                'username' => $username,
+                'user_name' => $username,
                 'email' => $email,
                 'password' => $hashedPassword,
                 'role_id' => $role_id,
-                'userstatus' => $userstatus
+                'user_status' => $userstatus
             ]);
         }
     }
