@@ -15,7 +15,7 @@ $router = new Router();
 
 // site anasayfası
 $router->name('catalog.index')->get('/', [App\Catalog\Controller\BaseController::class, 'index']);
-$router->name('catalog.blogs')->get('/blogs', [App\Catalog\Controller\BlogController::class, 'index']);
+$router->name('catalog.detayBlog')->get('/detay', [App\Catalog\Controller\BlogController::class, 'index']);
 
 // admin anasayfası
 $router->name('admin.index')->get('/admin', [App\Admin\Controller\BaseController::class, 'index']);
