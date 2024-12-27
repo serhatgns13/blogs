@@ -22,7 +22,7 @@
                 <header class="uc-offcanvas-header hstack justify-between items-center pb-4 bg-white dark:bg-gray-900">
                     <div class="uc-logo">
                         <a href="index.html" class="h5 text-none text-gray-900 dark:text-white">
-                            <img class="w-32px" src="../assets/images/common/logo-icon.svg" alt="News5" data-uc-svg>
+                            <img class="w-32px" src="view/catalog/fonts/images/common/logo-icon.svg" alt="News5" data-uc-svg>
                         </a>
                     </div>
                     <button class="uc-offcanvas-close p-0 icon-3 btn border-0 dark:text-white dark:text-opacity-50 hover:text-primary hover:rotate-90 duration-150 transition-all" type="button">
@@ -41,16 +41,16 @@
                         <li class="uc-parent">
                             <a href="#">Homepages</a>
                             <ul class="uc-nav-sub" data-uc-nav="">
-                                <li><a href="../main/index.html">Main</a></li>
-                                <li><a href="../demo-two/index.html">Classic News</a></li>
-                                <li><a href="../demo-three/index.html">Tech</a></li>
-                                <li><a href="../demo-four/index.html">Classic Blog</a></li>
-                                <li><a href="../demo-five/index.html">Gaming</a></li>
-                                <li><a href="../demo-six/index.html">Sports</a></li>
-                                <li><a href="../demo-seven/index.html">Newspaper</a></li>
-                                <li><a href="../demo-eight/index.html">Magazine</a></li>
-                                <li><a href="../demo-nine/index.html">Travel</a></li>
-                                <li><a href="../demo-ten/index.html">Food</a></li>
+                                <li><a href="view/admin/kategori.php/main/index.html">Main</a></li>
+                                <li><a href="view/admin/kategori.php/demo-two/index.html">Classic News</a></li>
+                                <li><a href="view/admin/kategori.php/demo-three/index.html">Tech</a></li>
+                                <li><a href="view/admin/kategori.php/demo-four/index.html">Classic Blog</a></li>
+                                <li><a href="view/admin/kategori.php/demo-five/index.html">Gaming</a></li>
+                                <li><a href="view/admin/kategori.php/demo-six/index.html">Sports</a></li>
+                                <li><a href="view/admin/kategori.php/demo-seven/index.html">Newspaper</a></li>
+                                <li><a href="view/admin/kategori.php/demo-eight/index.html">Magazine</a></li>
+                                <li><a href="view/admin/kategori.php/demo-nine/index.html">Travel</a></li>
+                                <li><a href="view/admin/kategori.php/demo-ten/index.html">Food</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Latest</a></li>
@@ -61,27 +61,27 @@
                                 <li class="uc-parent">
                                     <a href="blog.html">Blog</a>
                                     <ul class="uc-nav-sub">
-                                        <li><a href="blog.html">Full Width</a></li>
-                                        <li><a href="blog-2cols.html">Grid 2 Cols</a></li>
-                                        <li><a href="blog-3cols.html">Grid 3 Cols</a></li>
-                                        <li><a href="blog-4cols.html">Grid 4 Cols</a></li>
+                                        <li><a href="view/admin/kategori.php/blog.html">Full Width</a></li>
+                                        <li><a href="view/admin/kategori.php/blog-2cols.html">Grid 2 Cols</a></li>
+                                        <li><a href="view/admin/kategori.php/blog-3cols.html">Grid 3 Cols</a></li>
+                                        <li><a href="view/admin/kategori.php/blog-4cols.html">Grid 4 Cols</a></li>
                                     </ul>
                                 </li>
                                 <li class="uc-parent">
                                     <a href="blog-details.html">Blog - detail</a>
                                     <ul class="uc-nav-sub">
-                                        <li><a href="blog-details.html">Blog detail</a></li>
-                                        <li><a href="blog-details-2.html">Blog detail - v2</a></li>
+                                        <li><a href="view/admin/kategori.php/blog-details.html">Blog detail</a></li>
+                                        <li><a href="view/admin/kategori.php/blog-details-2.html">Blog detail - v2</a></li>
                                     </ul>
                                 </li>
                                 <li class="uc-parent">
                                     <a href="#">Useful pages</a>
                                     <ul class="uc-nav-sub">
-                                        <li><a href="sign-up.html">Sign up</a></li>
-                                        <li><a href="sign-in.html">Sign in</a></li>
-                                        <li><a href="reset-password.html">Reset password</a></li>
-                                        <li><a href="404.html">404 page</a></li>
-                                        <li><a href="coming-soon.html">Coming soon</a></li>
+                                        <li><a href="view/admin/login.php/sign-up.html">Sign up</a></li>
+                                        <li><a href="view/admin/login.php/sign-in.html">Sign in</a></li>
+                                        <li><a href="view/admin/login.php/reset-password.html">Reset password</a></li>
+                                        <li><a href="view/admin/404.php/404.html">404 page</a></li>
+                                        <li><a href="view/admin/kategori.phpcoming-soon.html">Coming soon</a></li>
                                     </ul>
                                 </li>
                                 <li class="uc-parent">
@@ -94,7 +94,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="uc-parent">
+                        <!-- <li class="uc-parent">
                             <a href="shop.html">Shop</a>
                             <ul class="uc-nav-sub" data-uc-nav="">
                                 <li class="uc-parent">
@@ -115,17 +115,19 @@
                                 <li><a href="shop-checkout-2.html">Checkout - v2</a></li>
                                 <li><a href="shop-order.html">Order confirmation</a></li>
                             </ul>
-                        </li>
+                        </li> -->
+                        
+                        
                         <li class="hr opacity-10 my-1"></li>
                         <li><a href="sign-in.html">Sign in</a></li>
                         <li><a href="sign-up.html">Create an account</a></li>
                     </ul>
                     <ul class="social-icons nav-x mt-4">
                         <li>
-                            <a href="#"><i class="unicon-logo-medium icon-2"></i></a>
-                            <a href="#"><i class="unicon-logo-x-filled icon-2"></i></a>
-                            <a href="#"><i class="unicon-logo-instagram icon-2"></i></a>
-                            <a href="#"><i class="unicon-logo-pinterest icon-2"></i></a>
+                            <a href="#"><i class="view/admin/catalog/assets/unicon-logo-medium icon-2"></i></a>
+                            <a href="#"><i class="view/admin/catalog/assets/unicon-logo-x-filled icon-2"></i></a>
+                            <a href="#"><i class="view/admin/catalog/assets/unicon-logo-instagram icon-2"></i></a>
+                            <a href="#"><i class="view/admin/catalog/assets/unicon-logo-pinterest icon-2"></i></a>
                         </li>
                     </ul>
                     <div class="py-2 hstack gap-2 mt-4 bg-white dark:bg-gray-900" data-uc-sticky="position: bottom">
@@ -144,7 +146,7 @@
         </div>
 
         <!--  Cart panel -->
-        <div id="uc-cart-panel" data-uc-offcanvas="overlay: true; flip: true;">
+        <!-- <div id="uc-cart-panel" data-uc-offcanvas="overlay: true; flip: true;">
             <div class="uc-offcanvas-bar bg-white text-dark dark:bg-gray-900 dark:text-white">
                 <button class="uc-offcanvas-close top-0 ltr:end-0 rtl:start-0 rtl:end-auto m-2 p-0 border-0 icon-2 lg:icon-3 btn btn-md dark:text-white transition-transform duration-150 hover:rotate-90" type="button">
                     <i class="unicon-close"></i>
@@ -245,4 +247,4 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
