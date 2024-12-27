@@ -2,7 +2,10 @@
 
 namespace App\Catalog\Controller;
 
+
 use App\Catalog\Model\BlogModel;
+
+
 use App\Catalog\Model\BaseModel;
 use App\Catalog\Model\CategoriesModel;
 use System\Engine\Controller;
@@ -23,6 +26,7 @@ class BaseController extends Controller
         $this->data["HeaderView"] = $blogApp->HeaderView(); // çoklu veri çekme
         $Settings = $app->settings();
         $this->data["SettingsValue"] = $Settings;
+
         $this->view("catalog/index", $this->data);
     }
 }

@@ -1,5 +1,7 @@
+
 <?php require_once "template/header.php"; ?>
 <?php require_once "template/navbars.php"; ?>
+
 
 <!--  Favorites modal -->
 <div id="uc-favorites-modal" data-uc-modal="overlay: true">
@@ -1512,6 +1514,8 @@
     </nav>
 </header>
 
+=======
+>>>>>>> 017f95c9f4f84f390b2525457647032123d0ed3b
 <!-- Header end -->
 
 <!-- Wrapper start -->
