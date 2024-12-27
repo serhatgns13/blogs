@@ -10,11 +10,11 @@ class BaseController extends Controller
 {
     public function index(): void
     {
-        $this->data["title"] = "Anasayfa";
-
-        $app = new BaseModel();
-        $category = new CategoriesModel();
         
+        $app = new BaseModel();
+
+        $category = new CategoriesModel();
+
         $Category = $category->categories();
         $this->data["CategoryValue"] = $Category;
 
