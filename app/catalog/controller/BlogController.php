@@ -15,8 +15,9 @@ class BlogController extends Controller
 
         $app = new BlogModel();
         $this->data["posts"] = $app->posts(); // çoklu veri çekme
+       
         $this->data["ByIdpost"] = $app->ByIdposts(); // tekli veri çekme 
 
-        $this->view("catalog/blogs", $this->data);
+        $this->view("catalog/index", $this->data);
     }
 }

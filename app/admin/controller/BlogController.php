@@ -48,7 +48,7 @@ class BlogController extends Controller
                 return;
             }
 
-            $targetDir = "view/admin/assets/images/blogs/";
+            $targetDir = "view/catalog/assets/dist/image/blog/";
             $targetFile = $targetDir . basename($_FILES["image"]["name"]);
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
             $check = getimagesize($_FILES["image"]["tmp_name"]);
@@ -130,14 +130,14 @@ class BlogController extends Controller
             
                     if (!empty($resim)) {
                         // Mevcut resmi veritabanından al
-                        $uploadResult = $this->upload('image', "view/admin/assets/images/blogs/");
+                        $uploadResult = $this->upload('image', "view/catalog/assets/dist/image/blog/");
                         if ($uploadResult !== false) {
                             $data['image'] = $uploadResult;
             
                             $currentPost = $BlogModel->getBlogById($id);
                             if (!empty($currentPost['image'])) {
-                                if (file_exists("view/admin/assets/images/blogs/" . $currentPost['image'])) {
-                                    unlink("view/admin/assets/images/blogs/" . $currentPost['image']);
+                                if (file_exists("view/catalog/assets/dist/image/blog/" . $currentPost['image'])) {
+                                    unlink("view/catalog/assets/dist/image/blog/" . $currentPost['image']);
                                 }
                             }
             
@@ -179,7 +179,7 @@ class BlogController extends Controller
     
     if ($blog) {
         // Resim dosyasının yolunu belirleyin
-        $imagePath = "view/admin/assets/images/blogs/" . $blog['image'];
+        $imagePath = "view/catalog/assets/dist/image/blog/" . $blog['image'];
         
         // Resim dosyasını sil
         if (file_exists($imagePath)) {

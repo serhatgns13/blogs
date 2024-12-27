@@ -48,7 +48,7 @@ include_once "template/header.php";
                         <tr>
                             <td><?php echo ($key + 1) ?></td>
                             <td>
-                                <img src="/view/admin/assets/images/blogs/<?php print$value['image'] ?>" alt="Görsel"
+                                <img src="/view/catalog/assets/dist/image/blog/<?php print$value['image'] ?>" alt="Görsel"
                                     style="width: 50px; height: 50px;">
                             </td>
                             <td><?php echo $value['title']; ?> </td>

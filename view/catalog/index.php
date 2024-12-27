@@ -1397,13 +1397,17 @@
                                                     <ul class="uc-nav uc-navbar-dropdown-nav">
                                                         <li class="uc-nav-header mb-1">Main Pages</li>
                                                         <li><a href="view/catalog/main/index.html">Main</a></li>
-                                                        <li><a href="view/catalog/demo-two/index.html">Classic News</a></li>
+                                                        <li><a href="view/catalog/demo-two/index.html">Classic News</a>
+                                                        </li>
                                                         <li><a href="view/catalog/demo-three/index.html">Tech</a></li>
-                                                        <li><a href="view/catalog/demo-four/index.html">Classic Blog</a></li>
+                                                        <li><a href="view/catalog/demo-four/index.html">Classic Blog</a>
+                                                        </li>
                                                         <li><a href="view/catalog/demo-five/index.html">Gaming</a></li>
                                                         <li><a href="view/catalog/demo-six/index.html">Sports</a></li>
-                                                        <li><a href="view/catalog/demo-seven/index.html">Newspaper</a></li>
-                                                        <li><a href="view/catalog/demo-eight/index.html">Magazine</a></li>
+                                                        <li><a href="view/catalog/demo-seven/index.html">Newspaper</a>
+                                                        </li>
+                                                        <li><a href="view/catalog/demo-eight/index.html">Magazine</a>
+                                                        </li>
                                                         <li><a href="view/catalog/demo-nine/index.html">Travel</a></li>
                                                         <li><a href="view/catalog/demo-ten/index.html">Food</a></li>
                                                     </ul>
@@ -1524,6 +1528,9 @@
                             <div class="block-content">
                                 <div class="row child-cols-12 md:child-cols-6 g-1 col-match">
                                     <div>
+                                        <?php foreach ($HeaderView as $value) : { ?>
+
+
                                         <div>
                                             <article
                                                 class="post type-post panel uc-transition-toggle  vstack gap-2 lg:gap-3 h-100 rounded overflow-hidden">
@@ -1533,7 +1540,7 @@
                                                         <canvas class="h-100 w-100"></canvas>
                                                         <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
                                                             src="view/catalog/assets/images/common/img-fallback.png"
-                                                            data-src="view/catalog/assets/images/demo-three/posts/img-12.jpg"
+                                                            data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
                                                             alt="AI-Powered Financial Planning: How Algorithms Revolutionizing"
                                                             data-uc-img="loading: lazy">
                                                     </div>
@@ -1541,7 +1548,7 @@
                                                         class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9 d-block md:d-none">
                                                         <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
                                                             src="view/catalog/assets/images/common/img-fallback.png"
-                                                            data-src="view/catalog/assets/images/demo-three/posts/img-12.jpg"
+                                                            data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
                                                             alt="AI-Powered Financial Planning: How Algorithms Revolutionizing"
                                                             data-uc-img="loading: lazy">
                                                     </div>
@@ -1556,21 +1563,25 @@
                                                         <div>
                                                             <div class="post-category hstack gap-narrow fw-semibold">
                                                                 <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                    href="blog-category.html">Tech</a>
+                                                                    href="blog-category.html"><?php print $value['name']; ?></a>
                                                             </div>
                                                         </div>
                                                         <div class="sep d-none md:d-block">|</div>
                                                         <div class="d-none md:d-block">
                                                             <div class="post-date hstack gap-narrow">
-                                                                <span>2mo ago</span>
+                                                                <span>
+                                                                  
+                                                    
+
+
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <h3
                                                         class="post-title h5 sm:h4 xl:h3 m-0 max-w-600px text-white text-truncate-2">
                                                         <a class="text-none text-white"
-                                                            href="blog-details.html">AI-Powered Financial Planning: How
-                                                            Algorithms Revolutionizing</a>
+                                                            href="blog-details.html"><?php print $value['title']; ?></a>
                                                     </h3>
                                                     <div>
                                                         <div
@@ -1599,10 +1610,15 @@
                                                 </div>
                                             </article>
                                         </div>
+                                        <?php } endforeach; ?>
+
                                     </div>
                                     <div>
                                         <div class="panel">
                                             <div class="row child-cols-6 g-1">
+                                                <?php foreach ($HeaderPosts as $value) {  ?>
+
+
                                                 <div>
                                                     <article
                                                         class="post type-post panel uc-transition-toggle vstack gap-2 lg:gap-3 rounded overflow-hidden">
@@ -1610,8 +1626,8 @@
                                                             <div
                                                                 class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-1x1 sm:ratio-4x3">
                                                                 <img class="media-cover image image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-01.jpg"
+                                                                    src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
+                                                                    data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
                                                                     alt="The Rise of AI-Powered Personal Assistants: How They Manage"
                                                                     data-uc-img="loading: lazy">
                                                             </div>
@@ -1624,8 +1640,8 @@
                                                             <h3
                                                                 class="post-title h6 sm:h5 lg:h6 xl:h5 m-0 max-w-600px text-white text-truncate-2">
                                                                 <a class="text-none text-white"
-                                                                    href="blog-details.html">The Rise of AI-Powered
-                                                                    Personal Assistants: How They Manage</a>
+                                                                    href="blog-details.html"><?php echo $value['title'] ?>
+                                                                </a>
                                                             </h3>
                                                             <div
                                                                 class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
@@ -1633,13 +1649,20 @@
                                                                     <div
                                                                         class="post-category hstack gap-narrow fw-semibold">
                                                                         <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">Gadgets</a>
+                                                                            href="blog-category.html"><?php print $value['name']; ?></a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="sep d-none md:d-block">|</div>
                                                                 <div class="d-none md:d-block">
                                                                     <div class="post-date hstack gap-narrow">
-                                                                        <span>1min ago</span>
+
+                                                                        <span>  <?php 
+
+
+                                                                            echo $this->timeConvert($value['created_date_posts']);
+
+                                                                            ?>
+                                                                    </span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1647,138 +1670,8 @@
                                                         <a href="blog-details.html" class="position-cover"></a>
                                                     </article>
                                                 </div>
-                                                <div>
-                                                    <article
-                                                        class="post type-post panel uc-transition-toggle vstack gap-2 lg:gap-3 rounded overflow-hidden">
-                                                        <div class="post-media panel overflow-hidden">
-                                                            <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-1x1 sm:ratio-4x3">
-                                                                <img class="media-cover image image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-02.jpg"
-                                                                    alt="Tech Innovations Reshaping the Retail Landscape: AI Payments"
-                                                                    data-uc-img="loading: lazy">
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            class="position-cover bg-gradient-to-t from-black to-transparent opacity-90">
-                                                        </div>
-                                                        <div
-                                                            class="post-header panel vstack justify-start items-start flex-column-reverse gap-1 p-2 position-cover text-white">
-                                                            <h3
-                                                                class="post-title h6 sm:h5 lg:h6 xl:h5 m-0 max-w-600px text-white text-truncate-2">
-                                                                <a class="text-none text-white"
-                                                                    href="blog-details.html">Tech Innovations Reshaping
-                                                                    the Retail Landscape: AI Payments</a>
-                                                            </h3>
-                                                            <div
-                                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
-                                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">Startups</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="sep d-none md:d-block">|</div>
-                                                                <div class="d-none md:d-block">
-                                                                    <div class="post-date hstack gap-narrow">
-                                                                        <span>55min ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <a href="blog-details.html" class="position-cover"></a>
-                                                    </article>
-                                                </div>
-                                                <div class="d-none lg:d-block">
-                                                    <article
-                                                        class="post type-post panel uc-transition-toggle vstack gap-2 lg:gap-3 rounded overflow-hidden">
-                                                        <div class="post-media panel overflow-hidden">
-                                                            <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-1x1 sm:ratio-4x3">
-                                                                <img class="media-cover image image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-03.jpg"
-                                                                    alt="Balancing Work and Wellness: Tech Solutions for Healthy"
-                                                                    data-uc-img="loading: lazy">
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            class="position-cover bg-gradient-to-t from-black to-transparent opacity-90">
-                                                        </div>
-                                                        <div
-                                                            class="post-header panel vstack justify-start items-start flex-column-reverse gap-1 p-2 position-cover text-white">
-                                                            <h3
-                                                                class="post-title h6 sm:h5 lg:h6 xl:h5 m-0 max-w-600px text-white text-truncate-2">
-                                                                <a class="text-none text-white"
-                                                                    href="blog-details.html">Balancing Work and
-                                                                    Wellness: Tech Solutions for Healthy</a>
-                                                            </h3>
-                                                            <div
-                                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
-                                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">Gadgets</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="sep d-none md:d-block">|</div>
-                                                                <div class="d-none md:d-block">
-                                                                    <div class="post-date hstack gap-narrow">
-                                                                        <span>1h ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <a href="blog-details.html" class="position-cover"></a>
-                                                    </article>
-                                                </div>
-                                                <div class="d-none lg:d-block">
-                                                    <article
-                                                        class="post type-post panel uc-transition-toggle vstack gap-2 lg:gap-3 rounded overflow-hidden">
-                                                        <div class="post-media panel overflow-hidden">
-                                                            <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-1x1 sm:ratio-4x3">
-                                                                <img class="media-cover image image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-04.jpg"
-                                                                    alt="The Importance of Sleep: Tips for Better Rest and Recovery"
-                                                                    data-uc-img="loading: lazy">
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            class="position-cover bg-gradient-to-t from-black to-transparent opacity-90">
-                                                        </div>
-                                                        <div
-                                                            class="post-header panel vstack justify-start items-start flex-column-reverse gap-1 p-2 position-cover text-white">
-                                                            <h3
-                                                                class="post-title h6 sm:h5 lg:h6 xl:h5 m-0 max-w-600px text-white text-truncate-2">
-                                                                <a class="text-none text-white"
-                                                                    href="blog-details.html">The Importance of Sleep:
-                                                                    Tips for Better Rest and Recovery</a>
-                                                            </h3>
-                                                            <div
-                                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
-                                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">AI Powered</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="sep d-none md:d-block">|</div>
-                                                                <div class="d-none md:d-block">
-                                                                    <div class="post-date hstack gap-narrow">
-                                                                        <span>2h ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <a href="blog-details.html" class="position-cover"></a>
-                                                    </article>
-                                                </div>
+                                                <?php   } ?>
+
                                             </div>
                                         </div>
                                     </div>
@@ -2092,6 +1985,7 @@
                                 </div>
                                 <div>
                                     <div class="row child-cols-12 g-4 sep-x">
+                                        <?php foreach($HeaderPosts as $value) :  ?>
                                         <div>
                                             <article class="post type-post panel uc-transition-toggle">
                                                 <div class="row child-cols g-2" data-uc-grid>
@@ -2102,7 +1996,7 @@
                                                                 class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
                                                                 <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
                                                                     src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-05.jpg"
+                                                                    data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
                                                                     alt="The Future of Sustainable Living: Driving Eco-Friendly Lifestyles"
                                                                     data-uc-img="loading: lazy">
                                                             </div>
@@ -2117,7 +2011,7 @@
                                                                     <div
                                                                         class="post-category hstack gap-narrow fw-semibold">
                                                                         <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">AI Powered</a>
+                                                                            href="blog-category.html"><?php  print $value['name'] ?> </a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="sep d-none md:d-block">|</div>
@@ -2129,195 +2023,18 @@
                                                             </div>
                                                             <h3 class="post-title h6 lg:h5 m-0 text-truncate-2">
                                                                 <a class="text-none hover:text-primary duration-150"
-                                                                    href="blog-details.html">The Future of Sustainable
-                                                                    Living: Driving Eco-Friendly Lifestyles</a>
+                                                                                href="blog-details.html"><?php  // Orijinal içerik
+                                                                        $content = $value['content'];
+
+                                                                        // İlk 100 karakteri al
+                                                                        print   $excerpt = substr($content, 0, 100);?></a>
                                                             </h3>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </article>
                                         </div>
-                                        <div>
-                                            <article class="post type-post panel uc-transition-toggle">
-                                                <div class="row child-cols g-2" data-uc-grid>
-                                                    <div class="col-auto">
-                                                        <div
-                                                            class="post-media panel overflow-hidden max-w-150px min-w-100px lg:min-w-150px">
-                                                            <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-06.jpg"
-                                                                    alt="Business Agility the Digital Age: Leveraging AI and Automation"
-                                                                    data-uc-img="loading: lazy">
-                                                            </div>
-                                                            <a href="blog-details.html" class="position-cover"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="post-header panel vstack justify-between gap-1">
-                                                            <div
-                                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
-                                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">Tech</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="sep d-none md:d-block">|</div>
-                                                                <div class="d-none md:d-block">
-                                                                    <div class="post-date hstack gap-narrow">
-                                                                        <span>7d ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="post-title h6 lg:h5 m-0 text-truncate-2">
-                                                                <a class="text-none hover:text-primary duration-150"
-                                                                    href="blog-details.html">Business Agility the
-                                                                    Digital Age: Leveraging AI and Automation</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <div>
-                                            <article class="post type-post panel uc-transition-toggle">
-                                                <div class="row child-cols g-2" data-uc-grid>
-                                                    <div class="col-auto">
-                                                        <div
-                                                            class="post-media panel overflow-hidden max-w-150px min-w-100px lg:min-w-150px">
-                                                            <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-07.jpg"
-                                                                    alt="The Art of Baking: From Classic Bread to Artisan Pastries"
-                                                                    data-uc-img="loading: lazy">
-                                                            </div>
-                                                            <a href="blog-details.html" class="position-cover"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="post-header panel vstack justify-between gap-1">
-                                                            <div
-                                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
-                                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">Network</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="sep d-none md:d-block">|</div>
-                                                                <div class="d-none md:d-block">
-                                                                    <div class="post-date hstack gap-narrow">
-                                                                        <span>9d ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="post-title h6 lg:h5 m-0 text-truncate-2">
-                                                                <a class="text-none hover:text-primary duration-150"
-                                                                    href="blog-details.html">The Art of Baking: From
-                                                                    Classic Bread to Artisan Pastries</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <div>
-                                            <article class="post type-post panel uc-transition-toggle">
-                                                <div class="row child-cols g-2" data-uc-grid>
-                                                    <div class="col-auto">
-                                                        <div
-                                                            class="post-media panel overflow-hidden max-w-150px min-w-100px lg:min-w-150px">
-                                                            <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-08.jpg"
-                                                                    alt="AI and Marketing: Unlocking Customer Insights"
-                                                                    data-uc-img="loading: lazy">
-                                                            </div>
-                                                            <a href="blog-details.html" class="position-cover"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="post-header panel vstack justify-between gap-1">
-                                                            <div
-                                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
-                                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">Virtual
-                                                                            Reality</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="sep d-none md:d-block">|</div>
-                                                                <div class="d-none md:d-block">
-                                                                    <div class="post-date hstack gap-narrow">
-                                                                        <span>15d ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="post-title h6 lg:h5 m-0 text-truncate-2">
-                                                                <a class="text-none hover:text-primary duration-150"
-                                                                    href="blog-details.html">AI and Marketing: Unlocking
-                                                                    Customer Insights</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <div>
-                                            <article class="post type-post panel uc-transition-toggle">
-                                                <div class="row child-cols g-2" data-uc-grid>
-                                                    <div class="col-auto">
-                                                        <div
-                                                            class="post-media panel overflow-hidden max-w-150px min-w-100px lg:min-w-150px">
-                                                            <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="view/catalog/assets/images/demo-three/posts/img-09.jpg"
-                                                                    alt="Hidden Gems: Underrated Travel Destinations Around the World"
-                                                                    data-uc-img="loading: lazy">
-                                                            </div>
-                                                            <a href="blog-details.html" class="position-cover"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="post-header panel vstack justify-between gap-1">
-                                                            <div
-                                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
-                                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html">AI Powered</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="sep d-none md:d-block">|</div>
-                                                                <div class="d-none md:d-block">
-                                                                    <div class="post-date hstack gap-narrow">
-                                                                        <span>23d ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="post-title h6 lg:h5 m-0 text-truncate-2">
-                                                                <a class="text-none hover:text-primary duration-150"
-                                                                    href="blog-details.html">Hidden Gems: Underrated
-                                                                    Travel Destinations Around the World</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
+                                        <?php endforeach; ?>
                                     </div>
                                     <a href="blog.html"
                                         class="animate-btn gap-0 btn btn-sm btn-alt-primary bg-transparent dark:text-white border w-100 mt-4">
@@ -2335,22 +2052,9 @@
 
     <!-- Section end -->
 
-    <!-- Section start -->
-    <div class="section panel overflow-hidden">
-        <div class="section-outer panel">
-            <div class="container max-w-xl">
-                <div class="section-inner">
-                    <a class="text-none" href="https://themeforest.net/user/reacthemes/portfolio" target="_blank"
-                        rel="nofollow">
-                        <img class="d-none md:d-block" src="view/catalog/assets/images/common/ad-slot.jpg" alt="Ad slot">
-                        <img class="d-block md:d-none" src="view/catalog/assets/images/common/ad-slot-mobile.jpg" alt="Ad slot">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Section start -->
+
+  
 
     <!-- Section start -->
     <div class="section panel overflow-hidden">
@@ -2363,7 +2067,7 @@
                                 <div class="block-header panel">
                                     <h2 class="h5 lg:h4 fw-medium m-0 text-inherit hstack">
                                         <a class="text-none dark:text-white hover:text-primary duration-150"
-                                            href="blog-category.html">Corporates and innovation</a>
+                                            href="blog-category.html">En Çok Okunan</a>
                                         <i class="icon-2 lg:icon-3 unicon-chevron-right opacity-40"></i>
                                     </h2>
                                 </div>
@@ -2537,7 +2241,7 @@
                                 <div class="block-header panel">
                                     <h2 class="h5 lg:h4 fw-medium m-0 text-inherit hstack">
                                         <a class="text-none dark:text-white hover:text-primary duration-150"
-                                            href="blog-category.html">Investors and funding</a>
+                                            href="blog-category.html">En Çok Yorum Yapılan </a>
                                         <i class="icon-2 lg:icon-3 unicon-chevron-right opacity-40"></i>
                                     </h2>
                                 </div>
@@ -2714,231 +2418,7 @@
 
     <!-- Section end -->
 
-    <!-- Section start -->
-    <div class="section panel overflow-hidden swiper-parent uc-dark">
-        <div class="section-outer panel py-5 lg:py-8 bg-gray-25 dark:bg-gray-800 dark:text-white">
-            <div class="container max-w-xl">
-                <div class="section-inner panel vstack gap-4">
-                    <div class="section-header panel">
-                        <h2 class="h5 lg:h4 fw-medium m-0 text-inherit hstack">
-                            <a class="text-none dark:text-white hover:text-primary duration-150"
-                                href="blog-category.html">Fintech and ecommerce</a>
-                            <i class="icon-2 lg:icon-3 unicon-chevron-right opacity-40"></i>
-                        </h2>
-                    </div>
-                    <div class="section-content">
-                        <div class="swiper"
-                            data-uc-swiper="items: 2; gap: 16; autoplay: 2500; dots: .dot-nav; next: .nav-next; prev: .nav-prev; disable-class: opacity-40;"
-                            data-uc-swiper-s="items: 3;" data-uc-swiper-m="gap: 24;"
-                            data-uc-swiper-l="items: 3; gap: 32;">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div>
-                                        <article class="post type-post panel vstack gap-1 lg:gap-2">
-                                            <div class="post-media panel overflow-hidden">
-                                                <div class="featured-video bg-gray-700 ratio ratio-16x9">
-                                                    <video class="video-cover video-lazyload min-h-100px" preload="none"
-                                                        loop playsinline>
-                                                        <source src="view/catalog/assets/images/common/img-fallback.png"
-                                                            data-src="view/catalog/assets/images/videos/vid-01.webm"
-                                                            type="video/webm">
-                                                        Your browser does not support the video tag.
-                                                    </video>
-                                                </div>
-                                                <div
-                                                    class="has-video-overlay position-absolute top-0 end-0 w-150px h-150px bg-gradient-45 from-transparent via-transparent to-black opacity-50">
-                                                </div>
-                                                <span
-                                                    class="cstack has-video-icon position-absolute top-0 end-0 fs-6 w-40px h-40px text-white">
-                                                    <i class="icon-narrow unicon-play-filled-alt"></i>
-                                                </span>
-                                                <a href="blog-details.html" class="position-cover"></a>
-                                            </div>
-                                            <div class="post-header panel vstack gap-1">
-                                                <div
-                                                    class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                    <div>
-                                                        <div class="post-category hstack gap-narrow fw-semibold">
-                                                            <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                href="blog-category.html">Gadgets</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sep d-none md:d-block">|</div>
-                                                    <div class="d-none md:d-block">
-                                                        <div class="post-date hstack gap-narrow">
-                                                            <span>1h ago</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                                    <a class="text-none hover:text-primary duration-150"
-                                                        href="blog-details.html">Balancing Work and Wellness: Tech
-                                                        Solutions for Healthy</a>
-                                                </h3>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div>
-                                        <article class="post type-post panel vstack gap-1 lg:gap-2">
-                                            <div class="post-media panel overflow-hidden">
-                                                <div class="featured-video bg-gray-700 ratio ratio-16x9">
-                                                    <video class="video-cover video-lazyload min-h-100px" preload="none"
-                                                        loop playsinline>
-                                                        <source src="view/catalog/assets/images/common/img-fallback.png"
-                                                            data-src="view/catalog/assets/images/videos/vid-04.webm"
-                                                            type="video/webm">
-                                                        Your browser does not support the video tag.
-                                                    </video>
-                                                </div>
-                                                <div
-                                                    class="has-video-overlay position-absolute top-0 end-0 w-150px h-150px bg-gradient-45 from-transparent via-transparent to-black opacity-50">
-                                                </div>
-                                                <span
-                                                    class="cstack has-video-icon position-absolute top-0 end-0 fs-6 w-40px h-40px text-white">
-                                                    <i class="icon-narrow unicon-play-filled-alt"></i>
-                                                </span>
-                                                <a href="blog-details.html" class="position-cover"></a>
-                                            </div>
-                                            <div class="post-header panel vstack gap-1">
-                                                <div
-                                                    class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                    <div>
-                                                        <div class="post-category hstack gap-narrow fw-semibold">
-                                                            <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                href="blog-category.html">Tech</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sep d-none md:d-block">|</div>
-                                                    <div class="d-none md:d-block">
-                                                        <div class="post-date hstack gap-narrow">
-                                                            <span>7d ago</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                                    <a class="text-none hover:text-primary duration-150"
-                                                        href="blog-details.html">Business Agility the Digital Age:
-                                                        Leveraging AI and Automation</a>
-                                                </h3>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div>
-                                        <article class="post type-post panel vstack gap-1 lg:gap-2">
-                                            <div class="post-media panel overflow-hidden">
-                                                <div class="featured-video bg-gray-700 ratio ratio-16x9">
-                                                    <video class="video-cover video-lazyload min-h-100px" preload="none"
-                                                        loop playsinline>
-                                                        <source src="view/catalog/assets/images/common/img-fallback.png"
-                                                            data-src="view/catalog/assets/images/videos/vid-03.webm"
-                                                            type="video/webm">
-                                                        Your browser does not support the video tag.
-                                                    </video>
-                                                </div>
-                                                <div
-                                                    class="has-video-overlay position-absolute top-0 end-0 w-150px h-150px bg-gradient-45 from-transparent via-transparent to-black opacity-50">
-                                                </div>
-                                                <span
-                                                    class="cstack has-video-icon position-absolute top-0 end-0 fs-6 w-40px h-40px text-white">
-                                                    <i class="icon-narrow unicon-play-filled-alt"></i>
-                                                </span>
-                                                <a href="blog-details.html" class="position-cover"></a>
-                                            </div>
-                                            <div class="post-header panel vstack gap-1">
-                                                <div
-                                                    class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                    <div>
-                                                        <div class="post-category hstack gap-narrow fw-semibold">
-                                                            <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                href="blog-category.html">Network</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sep d-none md:d-block">|</div>
-                                                    <div class="d-none md:d-block">
-                                                        <div class="post-date hstack gap-narrow">
-                                                            <span>9d ago</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                                    <a class="text-none hover:text-primary duration-150"
-                                                        href="blog-details.html">The Art of Baking: From Classic Bread
-                                                        to Artisan Pastries</a>
-                                                </h3>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div>
-                                        <article class="post type-post panel vstack gap-1 lg:gap-2">
-                                            <div class="post-media panel overflow-hidden">
-                                                <div class="featured-video bg-gray-700 ratio ratio-16x9">
-                                                    <video class="video-cover video-lazyload min-h-100px" preload="none"
-                                                        loop playsinline>
-                                                        <source src="view/catalog/assets/images/common/img-fallback.png"
-                                                            data-src="view/catalog/assets/images/videos/vid-05.webm"
-                                                            type="video/webm">
-                                                        Your browser does not support the video tag.
-                                                    </video>
-                                                </div>
-                                                <div
-                                                    class="has-video-overlay position-absolute top-0 end-0 w-150px h-150px bg-gradient-45 from-transparent via-transparent to-black opacity-50">
-                                                </div>
-                                                <span
-                                                    class="cstack has-video-icon position-absolute top-0 end-0 fs-6 w-40px h-40px text-white">
-                                                    <i class="icon-narrow unicon-play-filled-alt"></i>
-                                                </span>
-                                                <a href="blog-details.html" class="position-cover"></a>
-                                            </div>
-                                            <div class="post-header panel vstack gap-1">
-                                                <div
-                                                    class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                    <div>
-                                                        <div class="post-category hstack gap-narrow fw-semibold">
-                                                            <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                href="blog-category.html">Tech</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sep d-none md:d-block">|</div>
-                                                    <div class="d-none md:d-block">
-                                                        <div class="post-date hstack gap-narrow">
-                                                            <span>2mo ago</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                                    <a class="text-none hover:text-primary duration-150"
-                                                        href="blog-details.html">AI-Powered Financial Planning: How
-                                                        Algorithms Revolutionizing</a>
-                                                </h3>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hstack gap-1 mt-4">
-                                <div
-                                    class="swiper-nav nav-prev btn btn-alt-primary bg-transparent dark:text-white rounded-0 p-0 border w-32px lg:w-40px h-32px lg:h-40px shadow-sm">
-                                    <i class="icon-1 unicon-chevron-left"></i>
-                                </div>
-                                <div
-                                    class="swiper-nav nav-next btn btn-alt-primary bg-transparent dark:text-white rounded-0 p-0 border w-32px lg:w-40px h-32px lg:h-40px shadow-sm">
-                                    <i class="icon-1 unicon-chevron-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Section end -->
 
     <!-- Section start -->
     <div class="section panel overflow-hidden">
@@ -3276,22 +2756,7 @@
 
     <!-- Section end -->
 
-    <!-- Section start -->
-    <div class="section panel overflow-hidden">
-        <div class="section-outer panel">
-            <div class="container max-w-xl">
-                <div class="section-inner">
-                    <a class="text-none" href="https://themeforest.net/user/reacthemes/portfolio" target="_blank"
-                        rel="nofollow">
-                        <img class="d-none md:d-block" src="view/catalog/assets/images/common/ad-slot-2.jpg" alt="Ad slot">
-                        <img class="d-block md:d-none" src="view/catalog/assets/images/common/ad-slot-mobile-2.jpg" alt="Ad slot">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section start -->
+    
 
     <!-- Section start -->
     <div id="latest-news" class="latest-news section panel overflow-hidden">
@@ -3300,19 +2765,20 @@
                 <div class="section-inner panel vstack gap-4">
                     <div class="section-header panel vstack items-center justify-center text-center gap-1">
                         <h2 class="h5 lg:h4 fw-medium m-0 text-inherit hstack">
-                            <span>Latest news</span>
+                            <span>Blog</span>
                         </h2>
                     </div>
                     <div class="section-content">
                         <div
                             class="row child-cols-12 sm:child-cols-6 md:child-cols-4 lg:child-cols-3 g-2 gy-4 md:g-3 md:gy-5 xl:g-4 xl:gy-6">
+                            <?php foreach ($posts as $value) : ?>
                             <div>
                                 <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
                                     <div class="post-media panel overflow-hidden">
                                         <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
                                             <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
                                                 src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-01.jpg"
+                                                data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
                                                 alt="The Rise of AI-Powered Personal Assistants: How They Manage"
                                                 data-uc-img="loading: lazy">
                                         </div>
@@ -3324,7 +2790,7 @@
                                             <div>
                                                 <div class="post-category hstack gap-narrow fw-semibold">
                                                     <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Gadgets</a>
+                                                        href="blog-category.html"><?php echo $value['name'] ?></a>
                                                 </div>
                                             </div>
                                             <div class="sep d-none md:d-block">|</div>
@@ -3336,696 +2802,16 @@
                                         </div>
                                         <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
                                             <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">The Rise of AI-Powered Personal Assistants: How
-                                                They Manage</a>
+                                                href="blog-details.html"><?php  // Orijinal içerik
+                                                                        $content = $value['content'];
+
+                                                                        // İlk 100 karakteri al
+                                                                        print   $excerpt = substr($content, 0, 100);?></a>
                                         </h3>
                                     </div>
                                 </article>
                             </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-02.jpg"
-                                                alt="Tech Innovations Reshaping the Retail Landscape: AI Payments"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Startups</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>55min ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Tech Innovations Reshaping the Retail
-                                                Landscape: AI Payments</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-03.jpg"
-                                                alt="Balancing Work and Wellness: Tech Solutions for Healthy"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Gadgets</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>1h ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Balancing Work and Wellness: Tech Solutions for
-                                                Healthy</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-04.jpg"
-                                                alt="The Importance of Sleep: Tips for Better Rest and Recovery"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">AI Powered</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>2h ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">The Importance of Sleep: Tips for Better Rest
-                                                and Recovery</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-05.jpg"
-                                                alt="The Future of Sustainable Living: Driving Eco-Friendly Lifestyles"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">AI Powered</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>12h ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">The Future of Sustainable Living: Driving
-                                                Eco-Friendly Lifestyles</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-06.jpg"
-                                                alt="Business Agility the Digital Age: Leveraging AI and Automation"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Tech</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>7d ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Business Agility the Digital Age: Leveraging AI
-                                                and Automation</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-07.jpg"
-                                                alt="The Art of Baking: From Classic Bread to Artisan Pastries"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Network</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>9d ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">The Art of Baking: From Classic Bread to
-                                                Artisan Pastries</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-08.jpg"
-                                                alt="AI and Marketing: Unlocking Customer Insights"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Virtual Reality</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>15d ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">AI and Marketing: Unlocking Customer
-                                                Insights</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-09.jpg"
-                                                alt="Hidden Gems: Underrated Travel Destinations Around the World"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">AI Powered</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>23d ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Hidden Gems: Underrated Travel Destinations
-                                                Around the World</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-10.jpg"
-                                                alt="Eco-Tourism: Traveling Responsibly and Sustainably"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Trips</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>29d ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Eco-Tourism: Traveling Responsibly and
-                                                Sustainably</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-11.jpg"
-                                                alt="Solo Travel: Some Tips and Destinations for the Adventurous Explorer"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Travel</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>2mo ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Solo Travel: Some Tips and Destinations for the
-                                                Adventurous Explorer</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-12.jpg"
-                                                alt="AI-Powered Financial Planning: How Algorithms Revolutionizing"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Tech</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>2mo ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">AI-Powered Financial Planning: How Algorithms
-                                                Revolutionizing</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-13.jpg"
-                                                alt="Tech Tools for your Time Management: Enhancing Productivity"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Startups</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>3mo ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Tech Tools for your Time Management: Enhancing
-                                                Productivity</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-14.jpg"
-                                                alt="A Guide to The Rise of Gourmet Street Food: Trends and Top Picks"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">AI Powered</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>6mo ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">A Guide to The Rise of Gourmet Street Food:
-                                                Trends and Top Picks</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-15.jpg"
-                                                alt="Gaming in the Age of AI: Strategies for Startups"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Virtual Reality</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>9mo ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Gaming in the Age of AI: Strategies for
-                                                Startups</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-16.jpg"
-                                                alt="Top Independent Contractors to Invest in Best of Startups"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Media</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>1yr ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Top Independent Contractors to Invest in Best
-                                                of Startups</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-17.jpg"
-                                                alt="Potential of Immersive Technologies help your Business Grow"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Network</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>1yr ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Potential of Immersive Technologies help your
-                                                Business Grow</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-18.jpg"
-                                                alt="Virtual Reality and Mental Health: Exploring the Therapeutic"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">Network</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>2mo ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Virtual Reality and Mental Health: Exploring
-                                                the Therapeutic</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-19.jpg"
-                                                alt="The Future of Sustainable Living: Driving Eco-Friendly Lifestyles"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">AI Powered</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>2mo ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">The Future of Sustainable Living: Driving
-                                                Eco-Friendly Lifestyles</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="view/catalog/assets/images/demo-three/posts/img-20.jpg"
-                                                alt="Smart Homes, Smarter Living: Exploring IoT and AI"
-                                                data-uc-img="loading: lazy">
-                                        </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html">AI Powered</a>
-                                                </div>
-                                            </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>23d ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html">Smart Homes, Smarter Living: Exploring IoT and
-                                                AI</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
+                          <?php  endforeach;    ?> 
                         </div>
                     </div>
                     <div class="section-footer cstack lg:mt-4">
