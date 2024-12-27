@@ -49,8 +49,6 @@ include_once "template/header.php";
 
               <!-- MODAL GÜNCELLEME -->
               <div class="modal fade" id="tagsModalUpdate<?php echo $value['tags_id']; ?>" tabindex="-1" aria-labelledby="tagsModal" aria-hidden="true">
-
- 
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -94,6 +92,16 @@ include_once "template/header.php";
               <div class="mb-3">
                 <label for="blog_title" class="form-label">Etiket İsmi</label>
                 <input type="text" class="form-control" id="blog_title" name="blog_title" placeholder="">
+              </div>
+              <div class="mb-3">
+                <label for="post_id" class="form-label">Post Seç</label>
+                <select class="form-control" id="post_id" name="post_id">
+                  <?php if (isset($posts) && is_array($posts)): ?>
+                    <?php foreach ($posts as $post): ?>
+                      <option value="<?php echo $post['id']; ?>"><?php echo $post['title']; ?></option>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
+                </select>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success">Kaydet</button>
