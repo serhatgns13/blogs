@@ -58,6 +58,29 @@ include_once "template/header.php";
                         value="<?php echo $settingsValue["set_email"]; ?>">
                 </div>
 
+                <div class="col-md-6">
+                    <label for="email" class="form-label text-success">
+                        <i class="bi bi-envelope-fill"></i> facebook
+                    </label>
+                    <input type="text" class="form-control border-success shadow-sm" id="set_facebook" name="set_facebook"
+                        value="<?php echo $settingsValue["set_facebook"]; ?>">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="email" class="form-label text-success">
+                        <i class="bi bi-envelope-fill"></i> twitter
+                    </label>
+                    <input type="text" class="form-control border-success shadow-sm" id="set_twitter" name="set_twitter"
+                        value="<?php echo $settingsValue["set_twitter"]; ?>">
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label text-success">
+                        <i class="bi bi-envelope-fill"></i> instagram
+                    </label>
+                    <input type="text" class="form-control border-success shadow-sm" id="set_imstagram" name="set_instagram"
+                        value="<?php echo $settingsValue["set_instagram"]; ?>">
+                </div>
+
                 <input type="hidden" name="set_id" value="<?php echo $settingsValue["set_id"]; ?>">
 
 

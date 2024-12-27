@@ -16,14 +16,14 @@ class SettingsModel extends Model
 
     public function SettingsUpdate(array $data): bool
     {
-        $statement = $this->pdo->prepare('UPDATE settings SET set_title = :set_title, set_description = :set_description, set_images = :set_images, set_keywords = :set_keywords, set_author = :set_author, set_email = :set_email WHERE set_id = :set_id');
+        $statement = $this->pdo->prepare('UPDATE settings SET set_title = :set_title, set_description = :set_description, set_images = :set_images, set_keywords = :set_keywords, set_author = :set_author, set_email = :set_email, set_facebook = :set_facebook, set_twitter = :set_twitter, set_instagram = :set_instagram  WHERE set_id = :set_id');
         $response = $statement->execute($data);
         return $response;
     }
 
     public function SettingsUpdateNull(array $data): bool
     {
-        $statement = $this->pdo->prepare('UPDATE settings SET set_title = :set_title, set_description = :set_description, set_keywords = :set_keywords, set_author = :set_author, set_email = :set_email WHERE set_id = :set_id');
+        $statement = $this->pdo->prepare('UPDATE settings SET set_title = :set_title, set_description = :set_description, set_keywords = :set_keywords, set_author = :set_author, set_email = :set_email,  set_facebook = :set_facebook, set_twitter = :set_twitter, set_instagram = :set_instagram WHERE set_id = :set_id');
         $response = $statement->execute($data);
         return $response;
     }

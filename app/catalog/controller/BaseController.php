@@ -2,6 +2,7 @@
 
 namespace App\Catalog\Controller;
 
+
 use App\Catalog\Model\BaseModel;
 use App\Catalog\Model\CategoriesModel;
 use System\Engine\Controller;
@@ -20,6 +21,7 @@ class BaseController extends Controller
 
         $Settings = $app->settings();
         $this->data["SettingsValue"] = $Settings;
+
         $this->view("catalog/index", $this->data);
     }
 }

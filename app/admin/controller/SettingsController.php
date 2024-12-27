@@ -33,6 +33,9 @@ class SettingsController extends Controller
             $author = $_POST['set_author'];
             $email = $_POST['set_email'];
             $resim = $_FILES['set_images']['name'];
+            $facebook = $_POST['set_facebook'];
+            $twitter = $_POST['set_twitter'];
+            $instagram = $_POST['set_instagram'];
 
             $data = [
                 'set_id' => $id,
@@ -40,7 +43,11 @@ class SettingsController extends Controller
                 'set_description' => $description,
                 'set_keywords' => $keywords,
                 'set_author' => $author,
-                'set_email' => $email
+                'set_email' => $email,
+                'set_facebook' => $facebook,
+                'set_twitter' => $twitter,
+                'set_instagram' => $instagram
+
             ];
 
             if (!empty($resim)) {
