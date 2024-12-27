@@ -11,20 +11,15 @@ class TagsController extends Controller
     {
         $this->data["title"] = 'Tags Sayfası...';
 
-        $app = new TagsModel;
+        $app = new TagsModel();
         $this->data["ticketvariable"] = $app->tagsTicket(); // çoklu veri çekme
-        //  $this->data["ByIdTags"] = $app->ByIdTags(); // tekli veri çekme 
 
         $this->view("admin/tags", $this->data);
-        
-        
     }
-
 
     public function creatTags(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $tagsModel = new TagsModel();
 
             $ticketName = $_POST['blog_title'];
@@ -42,7 +37,11 @@ class TagsController extends Controller
                 return;
             }
 
-            if ($tagsModel->creat($ticketName, $ticketSlug)) {
+            $tagId = $tagsModel->creat($ticketName, $ticketSlug);
+            if ($tagId) {
+                $postId = $_POST['post_id'];
+                $tagsModel->addPostTag($postId, $tagId);
+
                 $_SESSION['success_message'] = 'Tags Başarılı Bir Şekilde Eklendi';
                 header('Location: /admin/tags');
                 exit();
@@ -51,6 +50,7 @@ class TagsController extends Controller
             }
         }
 
+        $this->data['posts'] = (new TagsModel())->getPosts();
         $this->view('admin/tags', $this->data);
     }
 
@@ -60,12 +60,8 @@ class TagsController extends Controller
             $tagsModel = new TagsModel();
 
             $id = $_POST['tags_id'];
-
             $ticketName = $_POST['name'];
             $ticketSlug = $this->seflink($ticketName);
-            $ticketName = $this->getSecurity($_POST['name']) ;
-            $ticketSlug = $tagsModel->seflink($ticketName);
-
 
             if ($tagsModel->update($id, $ticketName, $ticketSlug)) {
                 $_SESSION['success_message'] = 'Tags güncelleme başarılı';
@@ -90,4 +86,6 @@ class TagsController extends Controller
         header('Location: /admin/tags');
         exit('Yönlendiriliyor...');
     }
+
+
 }

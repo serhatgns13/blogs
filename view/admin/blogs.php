@@ -29,7 +29,7 @@ include_once "template/header.php";
                             <th>Başlık</th>
                             <th>İçerik</th>
                             <th>Yönetici</th>
-                            <th>durum</th>
+                            <th>Durum</th>
                             <th>Görüntüleme</th>
                             <th>Kategori</th>
                             <th>Tarih</th>

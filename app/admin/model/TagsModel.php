@@ -22,19 +22,18 @@ class TagsModel extends Model
         return $response ?: [];
     }
 
-    // tags kaydetme
-
-    public function creat($ticketName, $ticketSlug): bool
+    public function creat($ticketName, $ticketSlug): int | false
     {
         $statement = $this->pdo->prepare('INSERT INTO tags (name, slug) VALUES (:name, :slug)');
-
-        return $statement->execute([
+        if ($statement->execute([
             ':name' => $ticketName,
             ':slug' => $ticketSlug,
-        ]);
+        ])) {
+            return $this->pdo->lastInsertId();
+        }
+        return false;
     }
 
-    // aynı isimden eklenmemesi
     public function tagsExists($ticketName): bool 
     {
         $statement = $this->pdo->prepare('SELECT COUNT(*) FROM tags WHERE  name = :name ');
@@ -43,7 +42,6 @@ class TagsModel extends Model
         ]);
         return $statement->fetchColumn() > 0;
     }
-    // tags Güncelleme
     
     public function update($id, $ticketName, $ticketSlug): bool
     {
@@ -59,12 +57,10 @@ class TagsModel extends Model
         }
     }
 
-    // silme işlemi
     public function deleteTicket($id): bool{
         $statement = $this->pdo->prepare('DELETE FROM tags WHERE tags_id = :id');
         return $statement->execute(['id'=> $id]);
     }
-   
 
     public function seflink($val)
     {
@@ -77,7 +73,20 @@ class TagsModel extends Model
         return $string;
     }
 
+    public function addPostTag($postId, $tagId): bool
+    {
+        $statement = $this->pdo->prepare('INSERT INTO post_tags (post_id, tag_id) VALUES (:post_id, :tag_id)');
+        return $statement->execute([
+            ':post_id' => $postId,
+            ':tag_id' => $tagId,
+        ]);
+    }
+
+    public function getPosts(): array | false
+    {
+        $statement = $this->pdo->query('SELECT id, title FROM posts');
+        $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $response ?: [];
+    }
 }
-
-
-
