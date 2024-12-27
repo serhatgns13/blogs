@@ -1,70 +1,155 @@
-<footer class="simple_footer">
-            <img class="leaf_right" src="view/catalog/img/home_one/leaf_footter.png" alt="">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-sm-6">
-                        <p>© 2020 All Rights Reserved by <a href="index.html">KbDoc</a></p>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <ul class="list-unstyled f_social_icon">
-                            <li><a href="#"><i class="social_facebook"></i></a></li>
-                            <li><a href="#"><i class="social_twitter"></i></a></li>
-                            <li><a href="#"><i class="social_vimeo"></i></a></li>
-                            <li><a href="#"><i class="social_linkedin"></i></a></li>
-                        </ul>
+
+        <!-- Footer start -->
+        <footer id="uc-footer" class="uc-footer panel uc-dark">
+            <div class="footer-outer py-4 lg:py-6 xl:py-9 bg-white dark:bg-gray-900 dark:text-white">
+                <div class="container max-w-xl">
+                    <div class="footer-inner vstack gap-4 lg:gap-6 xl:gap-9">
+                        <div class="uc-footer-top">
+                            <div class="row child-cols col-match gx-4 gy-6">
+                                <div class="col d-none lg:d-block">
+                                    <div class="widget links-widget vstack gap-3">
+                                        <div class="widgt-title">
+                                            <h4 class="fs-7 fw-medium text-uppercase m-0 text-dark dark:text-white text-opacity-50">Latest topics</h4>
+                                        </div>
+                                        <div class="widgt-content">
+                                            <ul class="nav-y gap-2 fs-6 fw-medium text-dark dark:text-white">
+                                                <li><a href="blog-category.html">Startups and technology</a></li>
+                                                <li><a href="blog-category.html">Data and security</a></li>
+                                                <li><a href="blog-category.html">Fintech and ecommerce</a></li>
+                                                <li><a href="blog-category.html">Investors and funding</a></li>
+                                                <li><a href="blog-category.html">Corporates and innovation</a></li>
+                                                <li><a href="blog-category.html">Government and policy</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col">
+                                    <div class="widget links-widget vstack gap-3">
+                                        <div class="widgt-title">
+                                            <h4 class="fs-7 fw-medium text-uppercase m-0 text-dark dark:text-white text-opacity-50">The News</h4>
+                                        </div>
+                                        <div class="widgt-content">
+                                            <ul class="nav-y gap-2 fs-6 fw-medium text-dark dark:text-white">
+                                                <li><a href="blog-category.html">Media</a></li>
+                                                <li><a href="blog-category.html">Events</a></li>
+                                                <li><a href="blog-category.html">Partner with us</a></li>
+                                                <li><a href="blog-category.html">Jobs</a></li>
+                                                <li><a href="blog-category.html">Masthead</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col">
+                                    <div class="widget links-widget vstack gap-3">
+                                        <div class="widgt-title">
+                                            <h4 class="fs-7 fw-medium text-uppercase m-0 text-dark dark:text-white text-opacity-50">About</h4>
+                                        </div>
+                                        <div class="widgt-content">
+                                            <ul class="nav-y gap-2 fs-6 fw-medium text-dark dark:text-white">
+                                                <li><a href="#">About</a></li>
+                                                <li><a href="#">Career</a></li>
+                                                <li><a href="sign-in.html">Log in</a></li>
+                                                <li><a href="sign-up.html">Create an account</a></li>
+                                                <li><a href="#">Sitemap</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 md:col-5">
+                                    <div class="widget newsletter-widget vstack gap-3">
+                                        <div class="widgt-title">
+                                            <h4 class="h4 lg:h3 lg:-ls-2 m-0">Keep up to date with the latest updates & news</h4>
+                                        </div>
+                                        <div class="widgt-content">
+                                            <form class="hstack">
+                                                <input class="form-control form-control-sm fs-6 fw-medium h-40px rounded-end-0 bg-white dark:bg-gray-800 dark:bg-gray-800 dark:border-white dark:border-opacity-15 dark:border-opacity-15" type="email" placeholder="Your email" required="">
+                                                <button class="btn btn-sm btn-primary rounded-start-0 min-w-100px" type="submit">Sign up</button>
+                                            </form>
+                                            <p class="fs-7 fw-medium text-dark dark:text-white text-opacity-50 mt-2">By pressing the Subscribe button, you confirm that you have read and are agreeing to our <a href="page-privacy.html" class="uc-link dark:text-white">Privacy Policy</a> and <a href="page-terms.html" class="uc-link dark:text-white">Terms of Use</a></p>
+                                            <ul class="footer-social nav-x gap-2 mt-2 lg:mt-4">
+                                                <li>
+                                                    <a class="hover:text-gray-900 dark:hover:text-white duration-150" href="#fb"><i class="icon icon-2 unicon-logo-facebook"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a class="hover:text-gray-900 dark:hover:text-white duration-150" href="#x"><i class="icon icon-2 unicon-logo-x-filled"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a class="hover:text-gray-900 dark:hover:text-white duration-150" href="#in"><i class="icon icon-2 unicon-logo-instagram"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a class="hover:text-gray-900 dark:hover:text-white duration-150" href="#yt"><i class="icon icon-2 unicon-logo-youtube"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0">
+                        <div class="uc-footer-bottom panel vstack lg:hstack gap-4 justify-between fs-7 text-center lg:text-start">
+                            <div class="vstack lg:hstack gap-2">
+                                <div class="footer-logo text-center">
+                                    <img class="uc-logo w-100px text-gray-900 dark:text-white" src="view/catalog/assets/images/demo-three/common/logo.svg" alt="News5" data-uc-svg>
+                                </div>
+                                <div class="vr mx-2 d-none lg:d-inline-flex"></div>
+                                <p class="footer-copyrights">News5 © 2024, All rights reserved.</p>
+                                <ul class="footer-site-links nav-x gap-2 fw-medium justify-center lg:justify-start">
+                                    <li><a class="uc-link text-underline hover:text-gray-900 dark:hover:text-white duration-150" href="page-privacy.html">Privacy notice</a></li>
+                                    <li><a class="uc-link text-underline hover:text-gray-900 dark:hover:text-white duration-150" href="page-terms.html">Terms of condition</a></li>
+                                    <li><a class="uc-link text-underline hover:text-gray-900 dark:hover:text-white duration-150" href="page-faq.html">FAQ</a></li>
+                                </ul>
+                            </div>
+                            <div class="panel hstack justify-center gap-2 lg:gap-3">
+                                <div class="footer-lang d-inline-block">
+                                    <a href="#" class="hstack gap-1 text-none fw-medium">
+                                        <i class="icon icon-1 unicon-earth-filled"></i>
+                                        <span>English</span>
+                                        <span data-uc-drop-parent-icon=""></span>
+                                    </a>
+                                    <div class="p-2 bg-white dark:bg-gray-800 shadow-xs rounded w-150px" data-uc-drop="mode: click; boundary: !.uc-footer-bottom; animation: uc-animation-slide-top-small; duration: 150;">
+                                        <ul class="nav-y gap-1 fw-medium items-end">
+                                            <li><a href="#en">English</a></li>
+                                            <li><a href="#ar">العربية</a></li>
+                                            <li><a href="#ch">中文</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </footer>
-    </div>
-    <div class="modal fade img_modal" id="exampleModal2" tabindex="-2" role="dialog" aria-hidden="false">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <i class=" icon_close"></i>
-        </button>
-        <div class="modal-dialog help_form" role="document">
-            <div class="modal-content">
-                <div class="shortcode_title">
-                    <h1>How can we help?</h1>
-                    <p>A premium WordPress theme with integrated Knowledge Base,<br>providing 24/7 community based support.</p>
-                </div>
-                <form action="#" class="contact_form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="Message" id="massage" placeholder="Massage"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn action_btn">Send</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="view/catalog/js/sidebars.js"></script>
-    <script src="view/catalog/js/jquery-3.2.1.min.js"></script>
-    <script src="view/catalog/js/pre-loader.js"> </script>
-    <script src="view/catalog/assets/bootstrap/js/popper.min.js"></script>
-    <script src="view/catalog/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="view/catalog/assets/bootstrap/js/bootstrap-select.min.js"></script>
-    <script src="view/catalog/assets/font-size/js/rv-jquery-fontsize-2.0.3.js"></script>
-    <script src="view/catalog/js/parallaxie.js"></script>
-    <script src="view/catalog/js/TweenMax.min.js"></script>
-    <script src="view/catalog/js/jquery.wavify.js"></script>
-    <script src="view/catalog/js/anchor.js"></script>
-    <script src="view/catalog/assets/mailchimp/plugins.js"></script>
-    <script src="view/catalog/assets/wow/wow.min.js"></script>
-    <script src="view/catalog/assets/niceselectpicker/jquery.nice-select.min.js"></script>
-    <script src="view/catalog/assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="view/catalog/js/main.js"></script>
-</body>
 
+        <!-- Footer end -->
+
+        <!-- include jquery & bootstrap js -->
+        <script defer src="view/catalog/assets/js/libs/jquery.min.js"></script>
+        <script defer src="view/catalog/assets/js/libs/bootstrap.min.js"></script>
+
+        <!-- include scripts -->
+        <script defer src="view/catalog/assets/js/libs/anime.min.js"></script>
+        <script defer src="view/catalog/assets/js/libs/swiper-bundle.min.js"></script>
+        <script defer src="view/catalog/assets/js/libs/scrollmagic.min.js"></script>
+        <script defer src="view/catalog/assets/js/helpers/data-attr-helper.js"></script>
+        <script defer src="view/catalog/assets/js/helpers/swiper-helper.js"></script>
+        <script defer src="view/catalog/assets/js/helpers/anime-helper.js"></script>
+        <script defer src="view/catalog/assets/js/helpers/anime-helper-defined-timelines.js"></script>
+        <script defer src="view/catalog/assets/js/uikit-components-bs.js"></script>
+
+        <!-- include app script -->
+        <script defer src="view/catalog/assets/js/app.js"></script>
+
+        <script>
+            // Schema toggle via URL
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const getSchema = urlParams.get("schema");
+            if (getSchema === "dark") {
+                setDarkMode(1);
+            } else if (getSchema === "light") {
+                setDarkMode(0);
+            }
+        </script>
+    </body>
 </html>
