@@ -41,63 +41,63 @@ include_once "template/header.php";
 
                         <?php if (isset($posts) && is_array($posts)): ?>
 
-                        <?php foreach ($posts as $key => $value):
-   
+                            <?php foreach ($posts as $key => $value):
+
                             ?>
 
-                        <tr>
-                            <td><?php echo ($key + 1) ?></td>
-                            <td>
-                                <img src="/view/catalog/assets/dist/image/blog/<?php print$value['image'] ?>" alt="Görsel"
-                                    style="width: 50px; height: 50px;">
-                            </td>
-                            <td><?php echo $value['title']; ?> </td>
-                            <td><?php echo mb_substr($value['content'], 0, length: 50) . '...'; ?></td>
-                            <td>
-                                <?php
+                                <tr>
+                                    <td><?php echo ($key + 1) ?></td>
+                                    <td>
+                                        <img src="/view/catalog/assets/dist/image/blog/<?php print $value['image'] ?>" alt="Görsel"
+                                            style="width: 50px; height: 50px;">
+                                    </td>
+                                    <td><?php echo $value['title']; ?> </td>
+                                    <td><?php echo mb_substr($value['content'], 0, length: 50) . '...'; ?></td>
+                                    <td>
+                                        <?php
 
-                                    if ($value['role_id'] == 1) {
-                                        echo 'Admin';
-                                    } else if ($value['role_id'] == 2) {
-                                        echo 'kullanıcı';
-                                    } else if ($value['role_id'] == 3) {
-                                        echo 'Misafir';
-                                    }else {
-                                        echo 'Tanımsız';
-                                    }
+                                        if ($value['role_id'] == 1) {
+                                            echo 'Admin';
+                                        } else if ($value['role_id'] == 2) {
+                                            echo 'kullanıcı';
+                                        } else if ($value['role_id'] == 3) {
+                                            echo 'Misafir';
+                                        } else {
+                                            echo 'Tanımsız';
+                                        }
 
-                                    ?>
-                            </td>
+                                        ?>
+                                    </td>
 
-                            <td>
-                                <?php
+                                    <td>
+                                        <?php
 
-                                    if ($value['post_status'] == 1) {
-                                        echo '<i class="container text-success bi bi-check2-circle"></i>';
-                                    } else if ($value['post_status'] == 0) {
-                                        echo '<i class="container text-danger bi bi-x-octagon"></i>';
-                                    }
+                                        if ($value['post_status'] == 1) {
+                                            echo '<i class="container text-success bi bi-check2-circle"></i>';
+                                        } else if ($value['post_status'] == 0) {
+                                            echo '<i class="container text-danger bi bi-x-octagon"></i>';
+                                        }
 
-                                    ?>
-                            </td>
-                            <td><?php echo $value['view_count']; ?></td>
-                            <td>
-                                <?php print $value['name'] ; ?>
-                            </td>
-                            <td><?php echo date('d-m-Y', strtotime($value['created_date'])); ?></td>
-                            <td>
-                                <div class="row text-center">
-                                    <div class="col-4">
-                                        <div class="button"><button type="button" class="btn btn-success text-white"><i
-                                                    class="bi bi-pencil-square" data-bs-toggle="modal"
-                                                    data-bs-target="#blogUpdateModal<?php print $value['post_id']; ?>"></i></button>
+                                        ?>
+                                    </td>
+                                    <td><?php echo $value['view_count']; ?></td>
+                                    <td>
+                                        <?php print $value['name']; ?>
+                                    </td>
+                                    <td><?php echo date('d-m-Y', strtotime($value['created_date'])); ?></td>
+                                    <td>
+                                        <div class="row text-center">
+                                            <div class="col-4">
+                                                <div class="button"><button type="button" class="btn btn-success text-white"><i
+                                                            class="bi bi-pencil-square" data-bs-toggle="modal"
+                                                            data-bs-target="#blogUpdateModal<?php print $value['post_id']; ?>"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <a href="/admin/blogs/deleteBlog/<?php echo $value['post_id']; ?>"
+                                                    class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="/admin/blogs/deleteBlog/<?php echo $value['post_id']; ?>"
-                                            class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>
-                                    </div>
-                                </div>
             </div>
             </td>
             </tr>
@@ -114,7 +114,7 @@ include_once "template/header.php";
                             </div>
                             <div class="modal-body">
                                 <form action="/admin/updateblog/<?php echo $value['post_id']; ?>" method="POST" enctype="multipart/form-data">
-                                <input type="hidden" value="<?php echo $value['post_id']; ?>" name="id">
+                                    <input type="hidden" value="<?php echo $value['post_id']; ?>" name="id">
                                     <div class="mb-3">
                                         <label for="title" class="form-label">Blog Başlığı</label>
                                         <input type="text" class="form-control" id="title" name="title"
@@ -131,29 +131,59 @@ include_once "template/header.php";
 
 
 
-                                            <option value="1" <?php if ($value['post_status'] == 1){  echo 'selected';
+                                            <option value="1" <?php if ($value['post_status'] == 1) {
+                                                                    echo 'selected';
                                                                 } ?>>Aktif</option>
-                                            <option value="0" <?php if ($value['post_status'] == 0){  echo 'selected';
+                                            <option value="0" <?php if ($value['post_status'] == 0) {
+                                                                    echo 'selected';
                                                                 } ?>>Pasif</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                    <img src="/view/catalog/assets/dist/image/blog/<?php print$value['image'] ?>" alt="Görsel"
-                                    style="width: 100px; height: 100px;">
+                                        <img src="/view/catalog/assets/dist/image/blog/<?php print $value['image'] ?>" alt="Görsel"
+                                            style="width: 100px; height: 100px;">
                                         <label for="image" class="form-label">Görsel</label>
                                         <input type="file" class="form-control" id="image" name="image">
                                     </div>
                                     <div class="mb-3">
                                         <label for="image" class="form-label">Kategori</label>
                                         <select name="category_id" id="" class="form-control">
-                                            <option value="<?php echo $value['category_id'] ?>">Kategori Seç</option>
-                                            <?php foreach ($CategoryName as $value): ?>
-                                            <option value="<?php echo $value['category_id'] ?>">
-                                                <?php echo $value['name']; ?></option>
-                                            <?php endforeach; ?>
+                                            <?php
+
+                                            $mainCategories = [];
+                                            $subCategories = [];
+
+                                            // Kategorileri ana ve alt kategoriler olarak ayır
+                                            foreach ($CategoryName as $value) {
+                                                if ($value['parent_id'] == 0) {
+                                                    $mainCategories[] = $value;
+                                                } else {
+                                                    $subCategories[] = $value;
+                                                }
+                                            }
+
+                                            // Ana kategorileri ve alt kategorileri yazdır
+                                            foreach ($mainCategories as $mainCategory) {
+                                            ?>
+                                                <option value="">
+                                                    <?php echo $mainCategory['name']; ?>
+                                                </option>
+                                                <?php
+                                                foreach ($subCategories as $subCategory) {
+                                                    if ($subCategory['parent_id'] == $mainCategory['category_id']) {
+                                                ?>
+                                                        <option value="<?php echo $subCategory['category_id']; ?>">
+                                                            -- <?php echo $subCategory['name']; ?>
+                                                        </option>
+                                            <?php
+                                                    }
+                                                }
+                                            }
+                                            ?>
+
                                         </select>
                                     </div>
-                                    
+
                                     <div class="modal-footer">
 
                                         <input type="submit" value="Kaydet" class="btn btn-success">
@@ -164,7 +194,7 @@ include_once "template/header.php";
                                 </form>
 
                                 <?php if (isset($data['error'])): ?>
-                                <p style="color: red;"><?php echo $data['error']; ?></p>
+                                    <p style="color: red;"><?php echo $data['error']; ?></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -172,14 +202,14 @@ include_once "template/header.php";
                 </div>
             </div>
             <!-- güncelleme modal Başlangıç -->
-            <?php  endforeach; ?>
-            <?php else: ?>
-            <script>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <script>
             showErrorMessage("<?php echo $_SESSION['error_message']; ?>");
-            </script>
-            <?php endif;  ?>
-            </tbody>
-            </table>
+        </script>
+    <?php endif;  ?>
+    </tbody>
+    </table>
     </div>
 
     </main>
@@ -217,12 +247,40 @@ include_once "template/header.php";
                             <div class="mb-3">
                                 <label for="image" class="form-label">Kategori</label>
                                 <select name="category_id" id="" class="form-control">
-                                            <option value="<?php echo $value['category_id'] ?>">Kategori Seç</option>
-                                            <?php foreach ($CategoryName as $value): ?>
-                                            <option value="<?php echo $value['category_id'] ?>">
-                                                <?php echo $value['name']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                    <?php
+
+                                    $mainCategories = [];
+                                    $subCategories = [];
+
+                                    // Kategorileri ana ve alt kategoriler olarak ayır
+                                    foreach ($CategoryName as $value) {
+                                        if ($value['parent_id'] == 0) {
+                                            $mainCategories[] = $value;
+                                        } else {
+                                            $subCategories[] = $value;
+                                        }
+                                    }
+
+                                    // Ana kategorileri ve alt kategorileri yazdır
+                                    foreach ($mainCategories as $mainCategory) {
+                                    ?>
+                                        <option value="">
+                                            <?php echo $mainCategory['name']; ?>
+                                        </option>
+                                        <?php
+                                        foreach ($subCategories as $subCategory) {
+                                            if ($subCategory['parent_id'] == $mainCategory['category_id']) {
+                                        ?>
+                                                <option value="<?php echo $subCategory['category_id']; ?>">
+                                                    -- <?php echo $subCategory['name']; ?>
+                                                </option>
+                                    <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+
+                                </select>
                             </div>
                             <div class="modal-footer">
 
@@ -233,7 +291,7 @@ include_once "template/header.php";
                         </form>
 
                         <?php if (isset($data['error'])): ?>
-                        <p style="color: red;"><?php echo $data['error']; ?></p>
+                            <p style="color: red;"><?php echo $data['error']; ?></p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -242,6 +300,6 @@ include_once "template/header.php";
     </div>
     <?php
 
-        include_once "template/footer.php";
+    include_once "template/footer.php";
 
-        ?>
+    ?>
