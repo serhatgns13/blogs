@@ -8,16 +8,21 @@ use System\Engine\Controller;
 
 class BlogController extends Controller
 {
-  
-    public function index(): void
+
+    public function index(string $slug = null): void
     {
         $this->data["title"] = 'Blog Sayfası...';
 
         $app = new BlogModel();
-        $this->data["posts"] = $app->posts(); // çoklu veri çekme
-       
-        $this->data["ByIdpost"] = $app->ByIdposts(); // tekli veri çekme 
 
-        $this->view("catalog/index", $this->data);
+
+
+        $slug = $app->GetIDBlog();
+        $this->data["GetBlogValue"] = $slug;
+
+        $this->view("catalog/blog", $this->data);
+    
     }
+
+
 }

@@ -1,4 +1,3 @@
-
 <?php require_once "template/header.php"; ?>
 <?php require_once "template/navbars.php"; ?>
 
@@ -20,39 +19,7 @@
     </div>
 </div>
 
-<!--  Newsletter modal -->
-<div id="uc-newsletter-modal" data-uc-modal="overlay: true">
-    <div class="uc-modal-dialog w-800px bg-white text-dark dark:bg-gray-900 dark:text-white rounded overflow-hidden">
-        <button
-            class="uc-modal-close-default p-0 icon-3 btn border-0 dark:text-white dark:text-opacity-50 hover:text-primary hover:rotate-90 duration-150 transition-all"
-            type="button">
-            <i class="unicon-close"></i>
-        </button>
-        <div class="row md:child-cols-6 col-match g-0">
-            <div class="d-none md:d-flex">
-                <div class="position-relative w-100 ratio-1x1">
-                    <img class="media-cover" src="view/catalog/assets/images/demo-three/common/newsletter.jpg"
-                        alt="Newsletter image">
-                </div>
-            </div>
-            <div>
-                <div class="panel vstack self-center p-4 md:py-8 text-center">
-                    <h3 class="h3 md:h2">Subscribe to the Newsletter</h3>
-                    <p class="ft-tertiary">Join 10k+ people to get notified about new posts, news and tips.</p>
-                    <div class="panel mt-2 lg:mt-4">
-                        <form class="vstack gap-1">
-                            <input type="email"
-                                class="form-control form-control-sm w-full fs-6 bg-white dark:border-white dark:border-gray-700 dark:text-dark"
-                                placeholder="Your email addressview/catalog">
-                            <button type="submit" class="btn btn-sm btn-primary">Sign up</button>
-                        </form>
-                        <p class="fs-7 mt-2">Do not worry we don't spam!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!--  Account modal -->
 <div id="uc-account-modal" data-uc-modal="overlay: true">
@@ -280,107 +247,28 @@
                             <div class="block-content">
                                 <div class="row child-cols-12 md:child-cols-6 g-1 col-match">
                                     <div>
-                                        <?php foreach ($HeaderView as $value) : { ?>
-
-
-                                        <div>
-                                            <article
-                                                class="post type-post panel uc-transition-toggle  vstack gap-2 lg:gap-3 h-100 rounded overflow-hidden">
-                                                <div class="post-media panel overflow-hidden h-100">
-                                                    <div
-                                                        class="featured-image bg-gray-25 dark:bg-gray-800 h-100 d-none md:d-block">
-                                                        <canvas class="h-100 w-100"></canvas>
-                                                        <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                            src="view/catalog/assets/images/common/img-fallback.png"
-                                                            data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
-                                                            alt="AI-Powered Financial Planning: How Algorithms Revolutionizing"
-                                                            data-uc-img="loading: lazy">
-                                                    </div>
-                                                    <div
-                                                        class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9 d-block md:d-none">
-                                                        <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                            src="view/catalog/assets/images/common/img-fallback.png"
-                                                            data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
-                                                            alt="AI-Powered Financial Planning: How Algorithms Revolutionizing"
-                                                            data-uc-img="loading: lazy">
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="position-cover bg-gradient-to-t from-black to-transparent opacity-90">
-                                                </div>
-                                                <div
-                                                    class="post-header panel vstack justify-end items-start gap-1 sm:gap-2 p-2 sm:p-4 position-cover text-white">
-                                                    <div
-                                                        class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                        <div>
-                                                            <div class="post-category hstack gap-narrow fw-semibold">
-                                                                <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                    href="blog-category.html"><?php print $value['name']; ?></a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="sep d-none md:d-block">|</div>
-                                                        <div class="d-none md:d-block">
-                                                            <div class="post-date hstack gap-narrow">
-                                                                <span>
-                                                                  
-                                                    
-
-
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <h3
-                                                        class="post-title h5 sm:h4 xl:h3 m-0 max-w-600px text-white text-truncate-2">
-                                                        <a class="text-none text-white"
-                                                            href="blog-details.html"><?php print $value['title']; ?></a>
-                                                    </h3>
-                                                    <div>
-                                                        <div
-                                                            class="post-meta panel hstack justify-between fs-7 fw-medium text-white text-opacity-60">
-                                                            <div class="meta">
-                                                                <div class="hstack gap-2">
-                                                                    <div>
-                                                                        <div class="post-author hstack gap-1">
-                                                                            <a href="page-author.html"
-                                                                                data-uc-tooltip="Sarah Eddrissi"><img
-                                                                                    src="view/catalog/assets/images/avatars/03.png"
-                                                                                    alt="Sarah Eddrissi"
-                                                                                    class="w-24px h-24px rounded-circle"></a>
-                                                                            <a href="page-author.html"
-                                                                                class="text-black dark:text-white text-none fw-bold">Sarah
-                                                                                Eddrissi</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="actions">
-                                                                <div class="hstack gap-1"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <?php } endforeach; ?>
-
-                                    </div>
-                                    <div>
-                                        <div class="panel">
-                                            <div class="row child-cols-6 g-1">
-                                                <?php foreach ($HeaderPosts as $value) {  ?>
+                                        <?php foreach ($HeaderView as $value): { ?>
 
 
                                                 <div>
                                                     <article
-                                                        class="post type-post panel uc-transition-toggle vstack gap-2 lg:gap-3 rounded overflow-hidden">
-                                                        <div class="post-media panel overflow-hidden">
+                                                        class="post type-post panel uc-transition-toggle  vstack gap-2 lg:gap-3 h-100 rounded overflow-hidden">
+                                                        <div class="post-media panel overflow-hidden h-100">
                                                             <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-1x1 sm:ratio-4x3">
-                                                                <img class="media-cover image image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
-                                                                    data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
-                                                                    alt="The Rise of AI-Powered Personal Assistants: How They Manage"
+                                                                class="featured-image bg-gray-25 dark:bg-gray-800 h-100 d-none md:d-block">
+                                                                <canvas class="h-100 w-100"></canvas>
+                                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
+                                                                    src="view/catalog/assets/images/common/img-fallback.png"
+                                                                    data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
+                                                                    alt="AI-Powered Financial Planning: How Algorithms Revolutionizing"
+                                                                    data-uc-img="loading: lazy">
+                                                            </div>
+                                                            <div
+                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9 d-block md:d-none">
+                                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
+                                                                    src="view/catalog/assets/images/common/img-fallback.png"
+                                                                    data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
+                                                                    alt="AI-Powered Financial Planning: How Algorithms Revolutionizing"
                                                                     data-uc-img="loading: lazy">
                                                             </div>
                                                         </div>
@@ -388,18 +276,11 @@
                                                             class="position-cover bg-gradient-to-t from-black to-transparent opacity-90">
                                                         </div>
                                                         <div
-                                                            class="post-header panel vstack justify-start items-start flex-column-reverse gap-1 p-2 position-cover text-white">
-                                                            <h3
-                                                                class="post-title h6 sm:h5 lg:h6 xl:h5 m-0 max-w-600px text-white text-truncate-2">
-                                                                <a class="text-none text-white"
-                                                                    href="blog-details.html"><?php echo $value['title'] ?>
-                                                                </a>
-                                                            </h3>
+                                                            class="post-header panel vstack justify-end items-start gap-1 sm:gap-2 p-2 sm:p-4 position-cover text-white">
                                                             <div
                                                                 class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
                                                                 <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
+                                                                    <div class="post-category hstack gap-narrow fw-semibold">
                                                                         <a class="fw-medium text-none text-primary dark:text-primary-400"
                                                                             href="blog-category.html"><?php print $value['name']; ?></a>
                                                                     </div>
@@ -407,22 +288,108 @@
                                                                 <div class="sep d-none md:d-block">|</div>
                                                                 <div class="d-none md:d-block">
                                                                     <div class="post-date hstack gap-narrow">
+                                                                        <span>
 
-                                                                        <span>  <?php 
+
+
+
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <h3
+                                                                class="post-title h5 sm:h4 xl:h3 m-0 max-w-600px text-white text-truncate-2">
+                                                                <a class="text-none text-white"
+                                                                    href="blog-details.html"><?php print $value['title']; ?></a>
+                                                            </h3>
+                                                            <div>
+                                                                <div
+                                                                    class="post-meta panel hstack justify-between fs-7 fw-medium text-white text-opacity-60">
+                                                                    <div class="meta">
+                                                                        <div class="hstack gap-2">
+                                                                            <div>
+                                                                                <div class="post-author hstack gap-1">
+                                                                                    <a href="page-author.html"
+                                                                                        data-uc-tooltip="Sarah Eddrissi"><img
+                                                                                            src="view/catalog/assets/images/avatars/03.png"
+                                                                                            alt="Sarah Eddrissi"
+                                                                                            class="w-24px h-24px rounded-circle"></a>
+                                                                                    <a href="page-author.html"
+                                                                                        class="text-black dark:text-white text-none fw-bold">Sarah
+                                                                                        Eddrissi</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="actions">
+                                                                        <div class="hstack gap-1"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            <?php }endforeach; ?>
+
+                                    </div>
+                                    <div>
+                                        <div class="panel">
+                                            <div class="row child-cols-6 g-1">
+                                                <?php foreach ($HeaderPosts as $value) { ?>
+
+
+                                                    <div>
+                                                        <article
+                                                            class="post type-post panel uc-transition-toggle vstack gap-2 lg:gap-3 rounded overflow-hidden">
+                                                            <div class="post-media panel overflow-hidden">
+                                                                <div
+                                                                    class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-1x1 sm:ratio-4x3">
+                                                                    <img class="media-cover image image uc-transition-scale-up uc-transition-opaque"
+                                                                        src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
+                                                                        data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
+                                                                        alt="The Rise of AI-Powered Personal Assistants: How They Manage"
+                                                                        data-uc-img="loading: lazy">
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="position-cover bg-gradient-to-t from-black to-transparent opacity-90">
+                                                            </div>
+                                                            <div
+                                                                class="post-header panel vstack justify-start items-start flex-column-reverse gap-1 p-2 position-cover text-white">
+                                                                <h3
+                                                                    class="post-title h6 sm:h5 lg:h6 xl:h5 m-0 max-w-600px text-white text-truncate-2">
+                                                                    <a class="text-none text-white"
+                                                                        href="blog-details.html"><?php echo $value['title'] ?>
+                                                                    </a>
+                                                                </h3>
+                                                                <div
+                                                                    class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
+                                                                    <div>
+                                                                        <div
+                                                                            class="post-category hstack gap-narrow fw-semibold">
+                                                                            <a class="fw-medium text-none text-primary dark:text-primary-400"
+                                                                                href="blog-category.html"><?php print $value['name']; ?></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="sep d-none md:d-block">|</div>
+                                                                    <div class="d-none md:d-block">
+                                                                        <div class="post-date hstack gap-narrow">
+
+                                                                            <span> <?php
 
 
                                                                             echo $this->timeConvert($value['created_date_posts']);
 
                                                                             ?>
-                                                                    </span>
+                                                                            </span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <a href="blog-details.html" class="position-cover"></a>
-                                                    </article>
-                                                </div>
-                                                <?php   } ?>
+                                                            <a href="blog-details.html" class="position-cover"></a>
+                                                        </article>
+                                                    </div>
+                                                <?php } ?>
 
                                             </div>
                                         </div>
@@ -436,213 +403,8 @@
         </div>
     </div>
 
-    <div class="image-links-panel panel overflow-hidden pt-2 swiper-parent">
-        <div class="container max-w-xl">
-            <div class="panel">
-                <div class="swiper overflow-unset"
-                    data-uc-swiper="items: 3.25; gap: 8; center: true; freeMode: true; center-bounds: true; disable-class: d-none;"
-                    data-uc-swiper-s="items: 6;" data-uc-swiper-l="items: 8; gap: 16;">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-01.jpg" alt="Tech"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="Tech"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-orange-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">Tech</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-02.jpg" alt="Gadgets"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="Gadgets"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-lime-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">Gadgets</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-03.jpg" alt="Security"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="Security"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-red-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">Security</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-04.jpg" alt="Network"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="Network"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-green-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">Network</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-05.jpg" alt="Startups"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="Startups"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-blue-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">Startups</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-06.jpg" alt="Space"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="Space"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-teal-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">Space</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-07.jpg" alt="VR"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="VR"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-purple-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">VR</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-20.jpg" alt="Repair"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="Repair"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-pink-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">Repair</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div
-                                class="panel uc-transition-toggle vstack text-center overflow-hidden rounded border border-white border-opacity-10">
-                                <figure
-                                    class="featured-image m-0 ratio ratio-3x4 rounded-0 overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                        src="view/catalog/assets/images/common/img-fallback.png"
-                                        data-src="view/catalog/assets/images/demo-three/posts/img-09.jpg" alt="AI"
-                                        data-uc-img="loading: lazy">
-                                    <a href="blog-category.html" class="position-cover" data-caption="AI"></a>
-                                </figure>
-                                <div class="overlay position-cover z-0 bg-black bg-opacity-50"></div>
-                                <div
-                                    class="position-absolute bottom-0 vstack justify-end gap-1 lg:gap-2 h-3/4 w-100 p-2 bg-gradient-to-t from-indigo-600 to-transparent">
-                                    <span class="fs-5 lg:fs-4 fw-bold text-white m-0">AI</span>
-                                    <a href="#"
-                                        class="btn btn-2xs border-white border-opacity-25 fs-7 text-white rounded-1">Visit</a>
-                                </div>
-                                <a class="position-cover text-none z-1" href="blog-category.html"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Section end -->
 
-    <!-- Section start -->
-
-    <!-- Section end -->
 
     <!-- Section start -->
     <div class="section panel overflow-hidden">
@@ -737,55 +499,56 @@
                                 </div>
                                 <div>
                                     <div class="row child-cols-12 g-4 sep-x">
-                                        <?php foreach($HeaderPosts as $value) :  ?>
-                                        <div>
-                                            <article class="post type-post panel uc-transition-toggle">
-                                                <div class="row child-cols g-2" data-uc-grid>
-                                                    <div class="col-auto">
-                                                        <div
-                                                            class="post-media panel overflow-hidden max-w-150px min-w-100px lg:min-w-150px">
+                                        <?php foreach ($HeaderPosts as $value): ?>
+                                            <div>
+                                                <article class="post type-post panel uc-transition-toggle">
+                                                    <div class="row child-cols g-2" data-uc-grid>
+                                                        <div class="col-auto">
                                                             <div
-                                                                class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                                    src="view/catalog/assets/images/common/img-fallback.png"
-                                                                    data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
-                                                                    alt="The Future of Sustainable Living: Driving Eco-Friendly Lifestyles"
-                                                                    data-uc-img="loading: lazy">
+                                                                class="post-media panel overflow-hidden max-w-150px min-w-100px lg:min-w-150px">
+                                                                <div
+                                                                    class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
+                                                                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
+                                                                        src="view/catalog/assets/images/common/img-fallback.png"
+                                                                        data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
+                                                                        alt="The Future of Sustainable Living: Driving Eco-Friendly Lifestyles"
+                                                                        data-uc-img="loading: lazy">
+                                                                </div>
+                                                                <a href="blog-details.html" class="position-cover"></a>
                                                             </div>
-                                                            <a href="blog-details.html" class="position-cover"></a>
                                                         </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="post-header panel vstack justify-between gap-1">
-                                                            <div
-                                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="post-category hstack gap-narrow fw-semibold">
-                                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                                            href="blog-category.html"><?php  print $value['name'] ?> </a>
+                                                        <div>
+                                                            <div class="post-header panel vstack justify-between gap-1">
+                                                                <div
+                                                                    class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
+                                                                    <div>
+                                                                        <div
+                                                                            class="post-category hstack gap-narrow fw-semibold">
+                                                                            <a class="fw-medium text-none text-primary dark:text-primary-400"
+                                                                                href="blog-category.html"><?php print $value['name'] ?>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="sep d-none md:d-block">|</div>
+                                                                    <div class="d-none md:d-block">
+                                                                        <div class="post-date hstack gap-narrow">
+                                                                            <span>12h ago</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="sep d-none md:d-block">|</div>
-                                                                <div class="d-none md:d-block">
-                                                                    <div class="post-date hstack gap-narrow">
-                                                                        <span>12h ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="post-title h6 lg:h5 m-0 text-truncate-2">
-                                                                <a class="text-none hover:text-primary duration-150"
-                                                                                href="blog-details.html"><?php  // Orijinal içerik
-                                                                        $content = $value['content'];
+                                                                <h3 class="post-title h6 lg:h5 m-0 text-truncate-2">
+                                                                    <a class="text-none hover:text-primary duration-150"
+                                                                        href="blog-details.html"><?php  // Orijinal içerik
+                                                                            $content = $value['content'];
 
-                                                                        // İlk 100 karakteri al
-                                                                        print   $excerpt = substr($content, 0, 100);?></a>
-                                                            </h3>
+                                                                            // İlk 100 karakteri al
+                                                                            print $excerpt = substr($content, 0, 100); ?></a>
+                                                                </h3>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </article>
-                                        </div>
+                                                </article>
+                                            </div>
                                         <?php endforeach; ?>
                                     </div>
                                     <a href="blog.html"
@@ -806,7 +569,7 @@
 
 
 
-  
+
 
     <!-- Section start -->
     <div class="section panel overflow-hidden">
@@ -1508,7 +1271,7 @@
 
     <!-- Section end -->
 
-    
+
 
     <!-- Section start -->
     <div id="latest-news" class="latest-news section panel overflow-hidden">
@@ -1523,47 +1286,47 @@
                     <div class="section-content">
                         <div
                             class="row child-cols-12 sm:child-cols-6 md:child-cols-4 lg:child-cols-3 g-2 gy-4 md:g-3 md:gy-5 xl:g-4 xl:gy-6">
-                            <?php foreach ($posts as $value) : ?>
-                            <div>
-                                <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
-                                    <div class="post-media panel overflow-hidden">
-                                        <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="view/catalog/assets/images/common/img-fallback.png"
-                                                data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
-                                                alt="The Rise of AI-Powered Personal Assistants: How They Manage"
-                                                data-uc-img="loading: lazy">
+                            <?php foreach ($posts as $value): ?>
+                                <div>
+                                    <article class="post type-post panel uc-transition-toggle vstack gap-1 lg:gap-2">
+                                        <div class="post-media panel overflow-hidden">
+                                            <div class="featured-image bg-gray-25 dark:bg-gray-800 ratio ratio-16x9">
+                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
+                                                    src="view/catalog/assets/images/common/img-fallback.png"
+                                                    data-src="/view/catalog/assets/dist/image/blog/<?php echo $value['image'] ?>"
+                                                    alt="The Rise of AI-Powered Personal Assistants: How They Manage"
+                                                    data-uc-img="loading: lazy">
+                                            </div>
+                                            <a href="blog-details.html" class="position-cover"></a>
                                         </div>
-                                        <a href="blog-details.html" class="position-cover"></a>
-                                    </div>
-                                    <div class="post-header panel vstack gap-1">
-                                        <div
-                                            class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
-                                            <div>
-                                                <div class="post-category hstack gap-narrow fw-semibold">
-                                                    <a class="fw-medium text-none text-primary dark:text-primary-400"
-                                                        href="blog-category.html"><?php echo $value['name'] ?></a>
+                                        <div class="post-header panel vstack gap-1">
+                                            <div
+                                                class="post-meta panel hstack justify-start gap-1 fs-7 ft-tertiary fw-medium text-gray-900 dark:text-white text-opacity-60 d-none md:d-flex z-1">
+                                                <div>
+                                                    <div class="post-category hstack gap-narrow fw-semibold">
+                                                        <a class="fw-medium text-none text-primary dark:text-primary-400"
+                                                            href="blog-category.html"><?php echo $value['name'] ?></a>
+                                                    </div>
+                                                </div>
+                                                <div class="sep d-none md:d-block">|</div>
+                                                <div class="d-none md:d-block">
+                                                    <div class="post-date hstack gap-narrow">
+                                                        <span>1min ago</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="sep d-none md:d-block">|</div>
-                                            <div class="d-none md:d-block">
-                                                <div class="post-date hstack gap-narrow">
-                                                    <span>1min ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
-                                            <a class="text-none hover:text-primary duration-150"
-                                                href="blog-details.html"><?php  // Orijinal içerik
-                                                                        $content = $value['content'];
+                                            <h3 class="post-title h6 lg:h5 m-0 text-truncate-2 mb-1">
+                                                <a class="text-none hover:text-primary duration-150"
+                                                    href="blog-details.html"><?php  // Orijinal içerik
+                                                        $content = $value['content'];
 
-                                                                        // İlk 100 karakteri al
-                                                                        print   $excerpt = substr($content, 0, 100);?></a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </div>
-                          <?php  endforeach;    ?> 
+                                                        // İlk 100 karakteri al
+                                                        print $excerpt = substr($content, 0, 100); ?></a>
+                                            </h3>
+                                        </div>
+                                    </article>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                     <div class="section-footer cstack lg:mt-4">
