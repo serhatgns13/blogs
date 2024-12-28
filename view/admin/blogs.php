@@ -217,23 +217,12 @@ include_once "template/header.php";
                             <div class="mb-3">
                                 <label for="image" class="form-label">Kategori</label>
                                 <select name="category_id" id="" class="form-control">
-                                    <option value="">Kategori Seç</option>
-                                    <?php foreach ($CategoryName as $value): ?>
-
-                                        <?php 
-                                        
-                                        if ($value['parent_id'] === 0 ) {
-                                            echo '<option value="'.$value['category_id'].'">'.$value['name'].'</option>';
-                                             
-                                        }else {
-                                            if ($value['parent_id'] > 0) { 
-                                                echo '<option value="'.$value['category_id'].'">'.'---'.$value['name'].'</option>';
-                                            }
-                                        } 
-                                        ?>
-                                       
-                                    <?php endforeach; ?>
-                                </select>
+                                            <option value="<?php echo $value['category_id'] ?>">Kategori Seç</option>
+                                            <?php foreach ($CategoryName as $value): ?>
+                                            <option value="<?php echo $value['category_id'] ?>">
+                                                <?php echo $value['name']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                             </div>
                             <div class="modal-footer">
 
