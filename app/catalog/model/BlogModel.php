@@ -35,62 +35,52 @@ class BlogModel extends Model
 
         return $response ?: [];
     }
-
-
-    public function GetIDBlog(): array|false
-    {
-        $statement = $this->pdo->query('SELECT 
-        posts.post_id,
-        posts.title,
-        posts.slug,
-        posts.content,
-        posts.image,
-        posts.category_id AS postCategoryID,
-        posts.view_count,
-        
-        categories.category_id AS categoryID,
-        categories.parent_id,
-        categories.name
-        FROM 
-            posts
-        INNER JOIN 
-            categories 
-        ON 
-            posts.category_id = categories.category_id;
-        ');
-
-        $response = $statement->fetch(\PDO::FETCH_ASSOC);
-
-        return $response ?: [];
-    }
-
-
    
-
 
     public function Menu(): array|false
     {
         $statement = $this->pdo->query('SELECT 
-        p.post_id,
-        p.title,
-        p.category_id AS PostCategoryID,
-        p.slug AS PostSlug, 
-        p.content,
-        p.image,
-        p.view_count,
-        c.parent_id,
-        c.category_id AS CategoryID,
-        c.name AS CategoryName,
-        c.slug AS CategorySlug
-
-        FROM posts AS p
-        INNER JOIN categories AS c
-        ON p.category_id = c.category_id');
+            p.post_id,
+            p.title,
+            p.category_id AS PostCategoryID,
+            p.slug AS PostSlug, 
+            p.content,
+            p.image,
+            p.view_count,
+            c.parent_id,
+            c.category_id AS CategoryID,
+            c.name AS CategoryName,
+            c.slug AS CategorySlug
+            FROM posts AS p
+            INNER JOIN categories AS c
+            ON p.category_id = c.category_id');
         $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
-
-        return $response ?: [];
+    
+        if (!$response) {
+            return false;
+        }
+    
+        // Menü yapısını oluştur
+        $menu = [];
+        foreach ($response as $row) {
+            $categoryId = $row['CategoryID'];
+            if (!isset($menu[$categoryId])) {
+                $menu[$categoryId] = [
+                    'name' => $row['CategoryName'],
+                    'sub' => []
+                ];
+            }
+            $menu[$categoryId]['sub'][] = [
+                'name' => $row['title'],
+                'url' => '/post/' . $row['PostSlug']
+            ];
+        }
+    
+        return $menu;
     }
 
+     
+ 
 
 
 }

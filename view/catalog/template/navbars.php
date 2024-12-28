@@ -347,13 +347,45 @@
                                         <div>
                                             <div class="row child-cols g-4">
 
-
-                                                <?php
-
-                                                var_dump($MenuValue["title"]);
-
-
-                                                ?>
+                                            <?php
+                                                // $MenuValue değişkeninin doğru bir şekilde tanımlandığından emin olun
+                                                if (isset($MenuValue) && is_array($MenuValue)) {
+                                                    foreach ($MenuValue as $key => $value) { ?>
+                                                        <div>
+                                                            <ul class="uc-nav uc-navbar-dropdown-nav">
+                                                                <li class="uc-nav-header mb-1">
+                                                                    <?php
+                                                                    if (isset($value["name"])) {
+                                                                        echo htmlspecialchars($value["name"]);
+                                                                    } else {
+                                                                        echo 'Bilinmeyen Menü';
+                                                                    }
+                                                                    ?>
+                                                                </li>
+                                                                <?php
+                                                                if (isset($value["sub"]) && is_array($value["sub"])) {
+                                                                    foreach ($value["sub"] as $subKey => $subValue) { ?>
+                                                                        <li>
+                                                                            <a
+                                                                                href="<?php echo isset($subValue["url"]) ? htmlspecialchars($subValue["url"]) : '#'; ?>">
+                                                                                <?php
+                                                                                if (isset($subValue["name"])) {
+                                                                                    echo htmlspecialchars($subValue["name"]);
+                                                                                } else {
+                                                                                    echo 'Bilinmeyen Alt Menü';
+                                                                                }
+                                                                                ?>
+                                                                            </a>
+                                                                        </li>
+                                                                <?php }
+                                                                } ?>
+                                                            </ul>
+                                                        </div>
+                                                <?php }
+                                                } else {
+                                                    echo 'Menu verisi bulunamadı.';
+                                                }
+                                                ?> 
 
                                                 <div>
                                                     <ul class="uc-nav uc-navbar-dropdown-nav">

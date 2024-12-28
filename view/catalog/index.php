@@ -291,7 +291,12 @@
                                                                         <span>
 
 
+                                                                        <?php
 
+
+                                                                        echo $this->timeConvert($value['created_date_posts']);
+
+                                                                        ?>
 
                                                                         </span>
                                                                     </div>
@@ -532,7 +537,12 @@
                                                                     <div class="sep d-none md:d-block">|</div>
                                                                     <div class="d-none md:d-block">
                                                                         <div class="post-date hstack gap-narrow">
-                                                                            <span>12h ago</span>
+                                                                            <span><?php
+
+
+echo $this->timeConvert($value['created_date_posts']);
+
+?></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -568,8 +578,7 @@
     <!-- Section end -->
 
 
-
-
+  
 
     <!-- Section start -->
     <div class="section panel overflow-hidden">

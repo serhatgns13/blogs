@@ -8,7 +8,7 @@ class KategoriModel extends Model
 {
     public function category(): array | false
     {
-        $statement = $this->pdo->query('SELECT * FROM categories');
+        $statement = $this->pdo->query('SELECT * FROM categories ORDER BY `categories`.`category_id` ASC');
         $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $response ?: [];

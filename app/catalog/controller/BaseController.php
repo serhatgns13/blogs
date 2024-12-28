@@ -18,6 +18,8 @@ class BaseController extends Controller
         $this->data["posts"] = $blogApp->posts();
         $this->data["HeaderPosts"] = $blogApp->HeaderPosts();
         $this->data["HeaderView"] = $blogApp->HeaderView();
+       
+       
 
         $this->data["MenuValue"] = $blogApp->Menu();
 
