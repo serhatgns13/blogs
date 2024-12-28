@@ -138,7 +138,7 @@ include_once "template/header.php";
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                    <img src="/view/admin/assets/images/blogs/<?php print$value['image'] ?>" alt="Görsel"
+                                    <img src="/view/catalog/assets/dist/image/blog/<?php print$value['image'] ?>" alt="Görsel"
                                     style="width: 100px; height: 100px;">
                                         <label for="image" class="form-label">Görsel</label>
                                         <input type="file" class="form-control" id="image" name="image">
