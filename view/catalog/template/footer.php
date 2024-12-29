@@ -89,7 +89,7 @@
                         <div class="uc-footer-bottom panel vstack lg:hstack gap-4 justify-between fs-7 text-center lg:text-start">
                             <div class="vstack lg:hstack gap-2">
                                 <div class="footer-logo text-center">
-                                    <img class="uc-logo w-100px text-gray-900 dark:text-white" src="view/catalog/assets/images/demo-three/common/logo.svg" alt="News5" data-uc-svg>
+                                    <img class="uc-logo w-100px text-gray-900 dark:text-white" src="<?php echo APP_URL; ?>view/catalog/assets/images/demo-three/common/logo.svg" alt="News5" data-uc-svg>
                                 </div>
                                 <div class="vr mx-2 d-none lg:d-inline-flex"></div>
                                 <p class="footer-copyrights">News5 © 2024, All rights reserved.</p>
@@ -124,21 +124,21 @@
         <!-- Footer end -->
 
         <!-- include jquery & bootstrap js -->
-        <script defer src="view/catalog/assets/js/libs/jquery.min.js"></script>
-        <script defer src="view/catalog/assets/js/libs/bootstrap.min.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/libs/jquery.min.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/libs/bootstrap.min.js"></script>
 
         <!-- include scripts -->
-        <script defer src="view/catalog/assets/js/libs/anime.min.js"></script>
-        <script defer src="view/catalog/assets/js/libs/swiper-bundle.min.js"></script>
-        <script defer src="view/catalog/assets/js/libs/scrollmagic.min.js"></script>
-        <script defer src="view/catalog/assets/js/helpers/data-attr-helper.js"></script>
-        <script defer src="view/catalog/assets/js/helpers/swiper-helper.js"></script>
-        <script defer src="view/catalog/assets/js/helpers/anime-helper.js"></script>
-        <script defer src="view/catalog/assets/js/helpers/anime-helper-defined-timelines.js"></script>
-        <script defer src="view/catalog/assets/js/uikit-components-bs.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/libs/anime.min.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/libs/swiper-bundle.min.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/libs/scrollmagic.min.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/helpers/data-attr-helper.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/helpers/swiper-helper.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/helpers/anime-helper.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/helpers/anime-helper-defined-timelines.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/uikit-components-bs.js"></script>
 
         <!-- include app script -->
-        <script defer src="view/catalog/assets/js/app.js"></script>
+        <script defer src="<?php echo APP_URL; ?>view/catalog/assets/js/app.js"></script>
 
         <script>
             // Schema toggle via URL

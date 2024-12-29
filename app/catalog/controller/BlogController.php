@@ -9,20 +9,31 @@ use System\Engine\Controller;
 class BlogController extends Controller
 {
 
-    public function index(string $slug = null): void
+    public function index(): void
     {
         $this->data["title"] = 'Blog Sayfası...';
 
+
+
+        $this->view("catalog/index", $this->data);
+
+    }
+
+
+    public function blogs(string $slug = null): void
+    {
+        $this->data["title"] = 'Blogs Sayfası...';
+
         $app = new BlogModel();
 
-
-
         $slug = $app->GetIDBlog();
-        $this->data["GetBlogValue"] = $slug;
 
-        $this->view("catalog/blog", $this->data);
-    
+        $this->data["GetBlogs"] = $slug;
+
+        $this->view("catalog/blogs", $this->data);
+
     }
+
 
 
 }
