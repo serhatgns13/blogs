@@ -35,9 +35,8 @@ class BlogModel extends Model
 
         return $response ?: [];
     }
-   
 
-    public function Menu(): array|false
+    public function GetIDBlog(): array|false
     {
         $statement = $this->pdo->query('SELECT 
             p.post_id,
@@ -49,38 +48,82 @@ class BlogModel extends Model
             p.view_count,
             c.parent_id,
             c.category_id AS CategoryID,
-            c.name AS CategoryName,
+            c.name,
             c.slug AS CategorySlug
             FROM posts AS p
             INNER JOIN categories AS c
             ON p.category_id = c.category_id');
         $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
-    
-        if (!$response) {
-            return false;
-        }
-    
-        // Menü yapısını oluştur
-        $menu = [];
-        foreach ($response as $row) {
-            $categoryId = $row['CategoryID'];
-            if (!isset($menu[$categoryId])) {
-                $menu[$categoryId] = [
-                    'name' => $row['CategoryName'],
-                    'sub' => []
-                ];
-            }
-            $menu[$categoryId]['sub'][] = [
-                'name' => $row['title'],
-                'url' => '/post/' . $row['PostSlug']
-            ];
-        }
-    
-        return $menu;
+
+        return $response ?: [];
     }
 
-     
- 
+
+
+    public function Menu(): array|false
+    {
+        $statement = $this->pdo->query('SELECT * FROM categories');
+        $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $response ?: [];
+    }
+
+
+    // public function Menu(): array|false
+    // {
+    //     $statement = $this->pdo->query('SELECT 
+    //         p.post_id,
+    //         p.title,
+    //         p.category_id AS PostCategoryID,
+    //         p.slug AS PostSlug, 
+    //         p.content,
+    //         p.image,
+    //         p.view_count,
+    //         c.parent_id,
+    //         c.category_id AS CategoryID,
+    //         c.name AS CategoryName,
+    //         c.slug AS CategorySlug
+    //         FROM posts AS p
+    //         INNER JOIN categories AS c
+    //         ON p.category_id = c.category_id');
+    //     $response = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+
+    //     return $response ?: [];
+
+
+        // if (!$response) {
+        //     return false;
+        // }
+
+        // Menü yapısını oluştur
+
+        // $menu = [];
+        // foreach ($response as $row) {
+        //     $categoryId = $row['CategoryID'];
+        //     if (!isset($menu[$categoryId])) {
+        //         $menu[$categoryId] = [
+        //             'name' => $row['CategoryName'],
+        //             'sub' => []
+        //         ];
+        //     }
+        //     $menu[$categoryId]['sub'][] = [
+        //         'name' => $row['CategoryName'],
+        //         'url' => '/detail/' . $row['CategorySlug']
+        //     ];
+        //     $menu[$categoryId]['sub'][] = [
+        //         'name' => $row['title'],
+        //         'url' => '/blogs/' . $row['PostSlug']
+        //     ];
+        // }
+
+        // requrcive function unlimited categories
+
+        // return $menu;
+    // }
+
+
+
 
 
 }

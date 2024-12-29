@@ -1,6 +1,8 @@
 <?php
 
 namespace System\Engine;
+use App\Catalog\Model\BaseModel;
+use App\Catalog\Model\BlogModel;
 
 class Controller
 {
@@ -13,6 +15,15 @@ class Controller
         } else {
             $this->data["csrf"] = $_SESSION["csrf"] = bin2hex(random_bytes(16));
         }
+
+        $app = new BaseModel();
+        $blogApp = new BlogModel();
+
+        $this->data["MenuValue"] = $blogApp->Menu();
+
+        $this->data["SettingsValue"] = $app->settings();
+
+        
     }
 
     public function view(string $path, array $data = []): void

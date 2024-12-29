@@ -6,11 +6,11 @@
     <div class="breadcrumbs panel z-1 py-2 bg-gray-25 dark:bg-gray-100 dark:bg-opacity-5 dark:text-white">
         <div class="container max-w-xl">
             <ul class="breadcrumb nav-x justify-center gap-1 fs-7 sm:fs-6 m-0">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="<?php echo APP_ROOT; ?>">Ana Sayfa</a></li>
                 <li><i class="unicon-chevron-right opacity-50"></i></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html">Blogs</a></li>
                 <li><i class="unicon-chevron-right opacity-50"></i></li>
-                <li><span class="opacity-50">Strategy</span></li>
+                <li><span class="opacity-50"><?php echo $GetBlogs["name"]; ?></span></li>
             </ul>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="container max-w-xl">
             <div class="panel vstack gap-3 sm:gap-6 lg:gap-9">
                 <header class="page-header panel vstack text-center">
-                    <h1 class="h3 lg:h1">Category: Strategy</h1>
+                    <h1 class="h3 lg:h1">Category: <?php echo $GetBlogs["name"]; ?></h1>
                     <span class="m-0 opacity-60">Showed 15 posts out of 20 total under <br class="d-block lg:d-none">
                         "Strategy" category.</span>
                 </header>
