@@ -330,9 +330,9 @@
                         </div>
                         <div class="uc-logo d-none md:d-block text-dark dark:text-white">
                             <a href="<?php echo APP_URL; ?>">
-                            <img class="w-32px"
-                        src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/logo/<?php echo $SettingsValue["set_images"] ?>"
-                        alt="<?php echo $SettingsValue["set_title"] ?>" data-uc-svg>
+                                <img class="w-32px"
+                                    src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/logo/<?php echo $SettingsValue["set_images"] ?>"
+                                    alt="<?php echo $SettingsValue["set_title"] ?>" data-uc-svg>
                             </a>
                         </div>
                         <ul class="uc-navbar-nav gap-3 ft-tertiary fs-5 fw-medium ms-4 d-none lg:d-flex"
@@ -350,51 +350,46 @@
                                         <div>
                                             <div class="row child-cols g-4">
 
+                                            <?php
 
-                                                <?php
+$mainCategories = [];
+$subCategories = [];
 
-                                                $mainCategories = [];
-                                                $subCategories = [];
+// Kategorileri ana ve alt kategoriler olarak ayır
+foreach ($MenuValue as $value) {
+    if ($value['parent_id'] == 0) {
+        $mainCategories[] = $value;
+    } else {
+        $subCategories[] = $value;
+    }
+}
 
-                                                // Kategorileri ana ve alt kategoriler olarak ayır
-                                                foreach ($MenuValue as $value) {
-                                                    if ($value['parent_id'] == 0) {
-                                                        $mainCategories[] = $value;
-                                                    } else {
-                                                        $subCategories[] = $value;
-                                                    }
-                                                }
-
-                                                // Ana kategorileri ve alt kategorileri yazdır
-                                                foreach ($mainCategories as $mainCategory) {
-
-                                                    foreach ($subCategories as $subCategory) {
-                                                        if ($subCategory['parent_id'] == $mainCategory['category_id']) {
-                                                            ?>
-                                                            <div>
-                                                                <ul class="uc-nav uc-navbar-dropdown-nav">
-                                                                    <li class="uc-nav-header mb-1">
-                                                                        <a href="blogs/<?php echo $mainCategory["slug"]; ?>">
-                                                                            <h5><?php echo $mainCategory["name"]; ?></h5>
-                                                                        </a>
-                                                                    </li>
-
-                                                                    <li><a
-                                                                            href="blog/<?php echo $subCategory["slug"]; ?>"><?php echo $subCategory["name"]; ?></a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <?php
-                                                        }
-                                                    }
-                                                }
-                                                ?>
-
-
-
-
-
-
+// Ana kategorileri ve alt kategorileri yazdır
+foreach ($mainCategories as $mainCategory) {
+    ?>
+    <div>
+        <ul class="uc-nav uc-navbar-dropdown-nav">
+            <li class="uc-nav-header mb-1">
+                <a href="blogs/<?php echo $mainCategory["slug"]; ?>">
+                    <h5><?php echo $mainCategory["name"]; ?></h5>
+                </a>
+            </li>
+            <?php
+            foreach ($subCategories as $subCategory) {
+                if ($subCategory['parent_id'] == $mainCategory['category_id']) {
+                    ?>
+                    <li><a href="blog/<?php echo $subCategory["slug"]; ?>"><?php echo $subCategory["name"]; ?></a></li>
+                    <?php
+                }
+            }
+            ?>
+        </ul>
+    </div>
+    <?php
+}
+?>
+                                            
+                                                
 
                                             </div>
                                         </div>
@@ -407,9 +402,9 @@
                     <div class="uc-navbar-center">
                         <div class="uc-logo d-block md:d-none text-dark dark:text-white">
                             <a href="<?php echo APP_URL; ?>">
-                            <img class="w-32px"
-                        src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/logo/<?php echo $SettingsValue["set_images"] ?>"
-                        alt="<?php echo $SettingsValue["set_title"] ?>" data-uc-svg>
+                                <img class="w-32px"
+                                    src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/logo/<?php echo $SettingsValue["set_images"] ?>"
+                                    alt="<?php echo $SettingsValue["set_title"] ?>" data-uc-svg>
                             </a>
                         </div>
                     </div>

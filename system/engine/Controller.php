@@ -23,8 +23,11 @@ class Controller
 
         $this->data["SettingsValue"] = $app->settings();
 
-        
+
     }
+
+   
+
 
     public function view(string $path, array $data = []): void
     {
@@ -129,44 +132,45 @@ class Controller
         return $new_password;
     }
 
-function timeConvert($zaman) {
-    date_default_timezone_set('Europe/Istanbul'); // Türkiye için zaman dilimi
+    function timeConvert($zaman)
+    {
+        date_default_timezone_set('Europe/Istanbul'); // Türkiye için zaman dilimi
 
-    // Tarih formatını kontrol et
-    $zaman = strtotime($zaman);
-    if ($zaman === false) {
-        return 'Geçersiz tarih formatı';
+        // Tarih formatını kontrol et
+        $zaman = strtotime($zaman);
+        if ($zaman === false) {
+            return 'Geçersiz tarih formatı';
+        }
+
+        $zaman_farki = time() - $zaman;
+
+        // Negatif zaman farkını önle
+        if ($zaman_farki < 0) {
+            return 'Gelecekteki bir tarih';
+        }
+
+        if ($zaman_farki < 60) {
+            return $zaman_farki . ' saniye önce';
+        } else if ($zaman_farki < 3600) {
+            $dakika = floor($zaman_farki / 60);
+            return $dakika . ' dakika önce';
+        } else if ($zaman_farki < 86400) {
+            $saat = floor($zaman_farki / 3600);
+            return $saat . ' saat önce';
+        } else if ($zaman_farki < 604800) {
+            $gun = floor($zaman_farki / 86400);
+            return $gun . ' gün önce';
+        } else if ($zaman_farki < 2419200) {
+            $hafta = floor($zaman_farki / 604800);
+            return $hafta . ' hafta önce';
+        } else if ($zaman_farki < 29030400) {
+            $ay = floor($zaman_farki / 2419200);
+            return $ay . ' ay önce';
+        } else {
+            $yil = floor($zaman_farki / 29030400);
+            return $yil . ' yıl önce';
+        }
     }
-
-    $zaman_farki = time() - $zaman;
-
-    // Negatif zaman farkını önle
-    if ($zaman_farki < 0) {
-        return 'Gelecekteki bir tarih';
-    }
-
-    if ($zaman_farki < 60) {
-        return $zaman_farki . ' saniye önce';
-    } else if ($zaman_farki < 3600) {
-        $dakika = floor($zaman_farki / 60);
-        return $dakika . ' dakika önce';
-    } else if ($zaman_farki < 86400) {
-        $saat = floor($zaman_farki / 3600);
-        return $saat . ' saat önce';
-    } else if ($zaman_farki < 604800) {
-        $gun = floor($zaman_farki / 86400);
-        return $gun . ' gün önce';
-    } else if ($zaman_farki < 2419200) {
-        $hafta = floor($zaman_farki / 604800);
-        return $hafta . ' hafta önce';
-    } else if ($zaman_farki < 29030400) {
-        $ay = floor($zaman_farki / 2419200);
-        return $ay . ' ay önce';
-    } else {
-        $yil = floor($zaman_farki / 29030400);
-        return $yil . ' yıl önce';
-    }
-}
 
 
 }
