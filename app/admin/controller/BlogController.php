@@ -117,6 +117,17 @@ class BlogController extends Controller
                     $blogTitleSeflink = $this->seflink($title);
                     $contentSecurity = $this->getSecurity($content);
                     $resim = $_FILES['image']['name'];
+                    if(empty($categoryID)){
+                        $_SESSION['warning_message'] = 'Lütfen tüm alanları doldurun';
+                        $this->view('admin/blogs', $this->data);
+                        return;
+                        exit;
+                    }
+                    if (empty($categoryID)) { // $email kaldırıldı
+                        $_SESSION['warning_message'] = 'Lütfen tüm alanları doldurun';
+                        $this->view('admin/blogs', $this->data);
+                        return;
+                    }
             
                     $data = [
                         'id' => $id,

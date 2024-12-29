@@ -320,8 +320,7 @@
                                                                                             alt="Sarah Eddrissi"
                                                                                             class="w-24px h-24px rounded-circle"></a>
                                                                                     <a href="page-author.html"
-                                                                                        class="text-black dark:text-white text-none fw-bold">Sarah
-                                                                                        Eddrissi</a>
+                                                                                        class="text-black dark:text-white text-none fw-bold"><?php print $value['user_name'] ?></a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -385,13 +384,13 @@
 
                                                                             echo $this->timeConvert($value['created_date_posts']);
 
-                                                                            ?>
+                                                                            ?> 
                                                                             </span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <a href="blog-details.html" class="position-cover"></a>
+                                                      
                                                         </article>
                                                     </div>
                                                 <?php } ?>
@@ -765,7 +764,7 @@ echo $this->timeConvert($value['created_date_posts']);
                                 <div class="block-header panel">
                                     <h2 class="h5 lg:h4 fw-medium m-0 text-inherit hstack">
                                         <a class="text-none dark:text-white hover:text-primary duration-150"
-                                            href="blog-category.html">En Çok Yorum Yapılan </a>
+                                            href="blog-category.html">En Çok Beğenilen </a>
                                         <i class="icon-2 lg:icon-3 unicon-chevron-right opacity-40"></i>
                                     </h2>
                                 </div>

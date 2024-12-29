@@ -148,6 +148,9 @@ include_once "template/header.php";
                                     <div class="mb-3">
                                         <label for="image" class="form-label">Kategori</label>
                                         <select name="category_id" id="" class="form-control">
+                                        <option value="<?php echo $value['category_id']; ?>">
+                                                    Kategori Seçiniz 
+                                                </option>
                                             <?php
 
                                             $mainCategories = [];
@@ -165,14 +168,14 @@ include_once "template/header.php";
                                             // Ana kategorileri ve alt kategorileri yazdır
                                             foreach ($mainCategories as $mainCategory) {
                                             ?>
-                                                <option value="">
+                                                <option value="" >
                                                     <?php echo $mainCategory['name']; ?>
                                                 </option>
                                                 <?php
                                                 foreach ($subCategories as $subCategory) {
                                                     if ($subCategory['parent_id'] == $mainCategory['category_id']) {
                                                 ?>
-                                                        <option value="<?php echo $subCategory['category_id']; ?>">
+                                                        <option value="<?php echo $subCategory['category_id']; ?>" >
                                                             -- <?php echo $subCategory['name']; ?>
                                                         </option>
                                             <?php
