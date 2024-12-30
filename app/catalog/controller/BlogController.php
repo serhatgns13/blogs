@@ -21,13 +21,25 @@ class BlogController extends Controller
 
     public function blog(string $slug): void
     {
-        $this->data["title"] = 'Blogs Sayfası';
+        $this->data["title"] = 'Blog Sayfası';
 
         $blogModel = new BlogModel();
         $blog = $blogModel->GetBlog($slug);
 
         $this->data["SubCategoryBlog"] = $blog;
         $this->view("catalog/blog", $this->data);
+    }
+
+    public function blogs(string $slug): void
+    {
+        $this->data["title"] = 'Blogs Sayfası';
+
+        $blogModel = new BlogModel();
+        $blog = $blogModel->GetBlogsAll($slug);
+
+        $this->data["MainCategoryBlog"] = $blog;
+        
+        $this->view("catalog/blogs", $this->data);
     }
 
 
