@@ -39,6 +39,12 @@
                 Tags Listesi
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/privacy">
+                <span data-feather="layers"></span>
+                Gizlilik Politikası
+              </a>
+            </li>
 
             <li class="nav-item">
               <a class="nav-link" href="/admin/settings">
@@ -46,6 +52,7 @@
                 Settings
               </a>
             </li>
+
 
 
           </ul>
