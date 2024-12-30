@@ -340,8 +340,7 @@
 
 
                             <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>">Ana Sayfa</a></li>
-                            <li><a href="blog-category.html">Hakkımızda</a></li>
-                            <li><a href="blog-category.html">İletişim</a></li>
+                       
                             <li>
                                 <a href="#">Kategoriler <span data-uc-navbar-parent-icon></span></a>
                                 <div class="uc-navbar-dropdown ft-primary text-unset p-3 hide-scrollbar"
