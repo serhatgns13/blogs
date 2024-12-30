@@ -53,22 +53,27 @@ class BlogModel extends Model
         return $result ?: [];
     }
 
-  
+
 
     public function GetBlogsAll(string $slug): array|false
     {
+
         $statement = $this->pdo->prepare("SELECT posts.*, categories.name as category_name,
         (SELECT COUNT(*) FROM posts WHERE posts.category_id = categories.category_id AND posts.post_status = 1) as post_count
-        FROM posts
-        INNER JOIN categories ON posts.category_id = categories.category_id
-        WHERE posts.post_status = 1
-        AND categories.slug = :slug");
+       
+        FROM categories c1
+        LEFT JOIN categories c2 ON c1.parent_id = c2.category_id
+        LEFT JOIN posts p1 ON c1.category_id = p1.category_id AND p1.post_status = 1
+        WHERE c1.slug = :slug");
+
 
         $statement->execute(['slug' => $slug]);
 
         $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
         return $result ?: [];
     }
+
+
 
 
 
