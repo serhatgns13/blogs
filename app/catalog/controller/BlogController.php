@@ -9,11 +9,9 @@ use System\Engine\Controller;
 class BlogController extends Controller
 {
 
-    public function index(): void
+    public function index(string $slug): void
     {
-        $this->data["title"] = 'Blog Sayfası...';
-
-
+        $this->data["title"] = 'Blogs Sayfası';
 
         $this->view("catalog/index", $this->data);
 
@@ -30,6 +28,7 @@ class BlogController extends Controller
         $this->view("catalog/blog", $this->data);
     }
 
+    
     public function blogs(string $slug): void
     {
         $this->data["title"] = 'Blogs Sayfası';
@@ -40,7 +39,10 @@ class BlogController extends Controller
         $this->data["MainCategoryBlog"] = $blog;
         
         $this->view("catalog/blogs", $this->data);
+
     }
+
+
 
 
 }
