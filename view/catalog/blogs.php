@@ -10,12 +10,11 @@
                 <li><a href="blog.html">Blogs</a></li>
                 <li><i class="unicon-chevron-right opacity-50"></i></li>
                 <li><span class="opacity-50">
-                        <?php if (isset($MainCategoryBlog[0]["category_name"])) {
-                            echo $MainCategoryBlog[0]["category_name"];
+                        <?php if (isset($MainCategoryBlog[0]["parent_name"])) {
+                            echo $MainCategoryBlog[0]["parent_name"];
                         } else {
                             echo "Kategori Bulunamadı";
                         }
-
 
                         ?>
                     </span></li>
@@ -28,8 +27,8 @@
         <div class="container max-w-xl">
             <div class="panel vstack gap-3 sm:gap-6 lg:gap-9">
                 <header class="page-header panel vstack text-center">
-                    <h1 class="h3 lg:h1">Kategori: <?php if (isset($MainCategoryBlog["category_name"])) {
-                        echo $MainCategoryBlog["category_name"];
+                    <h1 class="h3 lg:h1">Kategori: <?php if (isset($MainCategoryBlog[0]["parent_name"])) {
+                        echo $MainCategoryBlog[0]["parent_name"];
                     } else {
                         echo "Kategori Bulunamadı";
                     }
@@ -50,12 +49,7 @@
 
 
                                 <?php
-
-                                var_dump($MainCategoryBlog);
-                                foreach ($MainCategoryBlog as $key => $value):
-
-
-                                    ?>
+                                foreach ($MainCategoryBlog as $key => $value): ?>
 
 
                                     <div>
@@ -64,18 +58,17 @@
                                                 <figure
                                                     class="featured-image m-0 ratio ratio-16x9 rounded uc-transition-toggle overflow-hidden bg-gray-25 dark:bg-gray-800">
                                                     <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                        src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["image"]; ?>"
-                                                        data-src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["image"]; ?>"
-                                                        alt="<?php echo $value["title"]; ?>"
-                                                        data-uc-img="loading: lazy">
-                                                    <a href="<?php echo APP_URL; ?>detail/<?php echo $value["slug"]; ?>"
+                                                        src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["post_image"]; ?>"
+                                                        data-src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["post_image"]; ?>"
+                                                        alt="<?php echo $value["post_title"]; ?>" data-uc-img="loading: lazy">
+                                                    <a href="<?php echo APP_URL; ?>detail/<?php echo $value["post_slug"]; ?>"
                                                         class="position-cover"
-                                                        data-caption="<?php echo $value["title"]; ?>"></a>
+                                                        data-caption="<?php echo $value["post_title"]; ?>"></a>
                                                 </figure>
                                                 <div
                                                     class="post-category hstack gap-narrow position-absolute top-0 start-0 m-1 fs-7 fw-bold h-24px px-1 rounded-1 shadow-xs bg-white text-primary">
                                                     <a class="text-none"
-                                                        href="<?php echo APP_URL; ?>detail/<?php echo $value["slug"]; ?>"><?php echo $value["category_name"]; ?></a>
+                                                        href="<?php echo APP_URL; ?>detail/<?php echo $value["post_slug"]; ?>"><?php echo $value["post_title"]; ?></a>
                                                 </div>
                                                 <div
                                                     class="position-absolute top-0 end-0 w-150px h-150px rounded-top-end bg-gradient-45 from-transparent via-transparent to-black opacity-50">
@@ -85,7 +78,7 @@
                                             <div class="post-header panel vstack gap-1 lg:gap-2">
                                                 <h3 class="post-title h6 sm:h5 xl:h4 m-0 text-truncate-2 m-0">
                                                     <a class="text-none"
-                                                        href="blog-details.html"><?php echo $value["title"]; ?></a>
+                                                        href="blog-details.html"><?php echo $value["post_title"]; ?></a>
                                                 </h3>
                                                 <div>
                                                     <div
