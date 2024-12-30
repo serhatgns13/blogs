@@ -28,7 +28,7 @@
         <div class="container max-w-xl">
             <div class="panel vstack gap-3 sm:gap-6 lg:gap-9">
                 <header class="page-header panel vstack text-center">
-                    <h1 class="h3 lg:h1">Kategori: <?php if (isset($MainCategoryBlog[0]["category_name"])) {
+                    <h1 class="h3 lg:h1">Kategori: <?php if($MainCategoryBlog["parent_id"] == 0) {
                         echo $MainCategoryBlog[0]["category_name"];
                     } else {
                         echo "Kategori Bulunamadı";
