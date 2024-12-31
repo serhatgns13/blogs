@@ -42,6 +42,20 @@ class BlogController extends Controller
 
     }
 
+    public function detail(string $slug): void
+    {
+        $this->data["title"] = 'detail';
+
+        $blogModel = new BlogModel();
+
+        $blog = $blogModel->GetBlogsdetail($slug);
+
+        $this->data["BlogDetail"] = $blog;
+        
+        $this->view("catalog/detail", $this->data);
+
+    }
+
 
 
 

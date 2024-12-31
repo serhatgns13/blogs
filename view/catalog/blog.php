@@ -16,6 +16,8 @@
                             echo "Kategori Bulunamadı";
                         }
                         ?>
+
+                        
                     </span></li>
             </ul>
         </div>
@@ -46,7 +48,14 @@
                             <div
                                 class="row child-cols-12 sm:child-cols-6 lg:child-cols-4 col-match gy-4 xl:gy-6 gx-2 sm:gx-4">
 
-                                <?php foreach ($SubCategoryBlog as $key => $value): ?>
+                                
+                                <?php 
+                                
+                                
+
+                                foreach ($SubCategoryBlog as $key => $value):
+                                
+                                ?>
 
                                     <div>
                                         <article class="post type-post panel vstack gap-2">
@@ -57,13 +66,13 @@
                                                         src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["image"]; ?>"
                                                         data-src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["image"]; ?>"
                                                         alt="<?= $value["title"]; ?>" data-uc-img="loading: lazy">
-                                                    <a href="blog-details.html" class="position-cover"
+                                                    <a href="<?php echo APP_URL; ?>detail/<?php echo $value["post_slug"]; ?>" class="position-cover"
                                                         data-caption="<?= $value["title"]; ?>"></a>
                                                 </figure>
                                                 <div
                                                     class="post-category hstack gap-narrow position-absolute top-0 start-0 m-1 fs-7 fw-bold h-24px px-1 rounded-1 shadow-xs bg-white text-primary">
                                                     <a class="text-none"
-                                                        href="detail/<?php echo $value["slug"]; ?>"><?php echo $value["category_name"]; ?></a>
+                                                        href="<?php echo APP_URL; ?>detail/<?php echo $value["post_slug"]; ?>"><?php echo $value["category_name"]; ?></a>
                                                 </div>
                                                 <div
                                                     class="position-absolute top-0 end-0 w-150px h-150px rounded-top-end bg-gradient-45 from-transparent via-transparent to-black opacity-50">
@@ -73,7 +82,7 @@
                                             <div class="post-header panel vstack gap-1 lg:gap-2">
                                                 <h3 class="post-title h6 sm:h5 xl:h4 m-0 text-truncate-2 m-0">
                                                     <a class="text-none"
-                                                        href="blog-details.html"><?php echo $value["title"]; ?></a>
+                                                        href="<?php echo APP_URL; ?>detail/<?php echo $value["post_slug"]; ?>"><?php echo $value["title"]; ?></a>
                                                 </h3>
                                                 <div>
                                                     <div

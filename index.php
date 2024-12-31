@@ -18,7 +18,6 @@ $router->name('catalog.index')->get('/', [App\Catalog\Controller\BaseController:
 $router->name('catalog.blog')->get('/blog/{slug}', [App\Catalog\Controller\BlogController::class, 'blog']);
 $router->name('catalog.blogs')->get('/blogs/{slug}', [App\Catalog\Controller\BlogController::class, 'blogs']);
 $router->name('catalog.detail')->get('/detail/{slug}', [App\Catalog\Controller\BlogController::class, 'detail']);
-
 // Admin Routes
 $router->name('admin.index')->get('/admin', [App\Admin\Controller\BaseController::class, 'index']);
 $router->name('admin.blogs')->get('/admin/blogs', [App\Admin\Controller\BlogController::class, 'index']);

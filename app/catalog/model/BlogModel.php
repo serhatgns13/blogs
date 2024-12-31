@@ -40,7 +40,7 @@ class BlogModel extends Model
 
     public function GetBlog(string $slug): array|false
     {
-        $statement = $this->pdo->prepare("SELECT posts.*, categories.name as category_name,
+        $statement = $this->pdo->prepare("SELECT posts.*, categories.name as category_name, posts.slug as post_slug,
         (SELECT COUNT(*) FROM posts WHERE posts.category_id = categories.category_id AND posts.post_status = 1) as post_count
         FROM posts
         INNER JOIN categories ON posts.category_id = categories.category_id
@@ -82,8 +82,32 @@ class BlogModel extends Model
         return $result ?: [];
     }
 
+    public function GetBlogsdetail(string $slug): array|false
+    {
 
+        $statement = $this->pdo->prepare("SELECT
+        c1.name AS category_name,
+        c1.slug AS category_slug,
+        c1.category_id AS c1_category_id,
+        c2.parent_id AS c2_parent_id,
+        P1.category_id AS post_category_id,
+        p1.title AS post_title,
+        p1.slug AS post_slug,
+        p1.image AS post_image,
+        p1.view_count,
+        p1.content AS post_content,
+        p1.created_date_posts
 
+        FROM categories c1
+        INNER JOIN posts p1 ON c1.category_id = p1.category_id
+        LEFT JOIN categories c2 ON c1.parent_id = c2.category_id
+        AND p1.post_status = 1
+        WHERE p1.slug = :slug");
+
+        $statement->execute(['slug' => $slug]);
+        $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        return $result ?: [];
+    }
 
 
     public function Menu(): array|false

@@ -78,7 +78,7 @@
                                             <div class="post-header panel vstack gap-1 lg:gap-2">
                                                 <h3 class="post-title h6 sm:h5 xl:h4 m-0 text-truncate-2 m-0">
                                                     <a class="text-none"
-                                                        href="blog-details.html"><?php echo $value["post_title"]; ?></a>
+                                                        href="<?php echo APP_URL; ?>detail/<?php echo $value["post_slug"]; ?>"><?php echo $value["post_title"]; ?></a>
                                                 </h3>
                                                 <div>
                                                     <div

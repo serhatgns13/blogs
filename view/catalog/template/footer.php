@@ -2,7 +2,7 @@
 <footer id="uc-footer" class="uc-footer panel uc-dark">
     <div class="footer-outer py-5 bg-dark text-light position-relative d-flex flex-column align-items-center">
         <div class="footer-logo text-center mb-4">
-            <img src="view/admin/assets/images/logo/footer-logo.jpeg" alt="Full Stack Logo" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+            <img src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/logo/<?php echo $SettingsValue["set_images"]; ?>" alt="Full Stack Logo" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
         </div>
         <div class="text-center mb-4">
             <p class="mb-2 fs-5 fw-bold">Sosyal Medya Hesaplarımızdan Bizi Takip Edin</p>
