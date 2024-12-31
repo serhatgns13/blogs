@@ -29,7 +29,6 @@ $router->name('admin.yorumlar')->get('/admin/yorumlar', [App\Admin\Controller\Co
 $router->name('admin.tags')->get('/admin/tags', [App\Admin\Controller\TagsController::class, 'index']);
 $router->name('admin.profil')->get('/admin/profil', [App\Admin\Controller\ProfilController::class, 'index']);
 $router->name('admin.logout')->get('/admin/logout', [App\Admin\Controller\LoginController::class, 'logout']);
-$router->name('admin.privacy')->get('/admin/privacy', [App\Admin\Controller\PrivacyController::class, 'index']);
 
 $router->name('admin.settings')->get('/admin/settings', [App\Admin\Controller\SettingsController::class, 'index']);
 
@@ -54,11 +53,6 @@ $router->name('admin.deleteKategori')->get('/admin/kategori/deleteKategori/{id}'
 $router->name('admin.createTags')->post('/admin/createTags', [App\Admin\Controller\TagsController::class, 'createTags']);
 $router->name('admin.updateTags')->post('/admin/updateTags/{id}', [App\Admin\Controller\TagsController::class, 'updateTags']);
 $router->name('admin.deleteTags')->get('/admin/kategori/deleteTags/{id}', [App\Admin\Controller\TagsController::class, 'deleteTags']);
-
-// Privacy Routes
-$router->name('admin.createPrivacy')->post('/admin/createPrivacy', [App\Admin\Controller\PrivacyController::class, 'createPrivacy']);
-$router->name('admin.updatePrivacy')->post('/admin/updatePrivacy/{id}', [App\Admin\Controller\PrivacyController::class, 'updatePrivacy']);
-$router->name('admin.deletePrivacy')->get('/admin/deletePrivacy/{id}', [App\Admin\Controller\PrivacyController::class, 'deletePrivacy']);
 
 // Settings Routes
 $router->name('admin.updateSettings')->post('/admin/updateSettings/{id}', [App\Admin\Controller\SettingsController::class, 'updateSettings']);
