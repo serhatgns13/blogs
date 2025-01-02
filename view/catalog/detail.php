@@ -127,32 +127,32 @@
 
                         foreach ($BlogDetail as $value):
 
-                                ?>
-                                <div>
-                                    <article class="post type-post panel vstack gap-2">
-                                        <figure
-                                            class="featured-image m-0 ratio ratio-4x3 rounded uc-transition-toggle overflow-hidden bg-gray-25 dark:bg-gray-800">
-                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["post_image"]; ?>"
-                                                data-src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["post_image"]; ?>"
-                                                alt="The Art of Baking: From Classic Bread to Artisan Pastries"
-                                                data-uc-img="loading: lazy">
-                                            <a href="blog-details.html" class="position-cover"
-                                                data-caption="The Art of Baking: From Classic Bread to Artisan Pastries"></a>
-                                        </figure>
-                                        <div class="post-header panel vstack gap-1">
-                                            <h5 class="h6 md:h5 m-0">
-                                                <a class="text-none"
-                                                    href="blog-details.html"><?php echo $value["post_title"]; ?></a>
-                                            </h5>
-                                            <div class="post-date hstack gap-narrow fs-7 opacity-60">
-                                                <span><?php echo $this->timeConvert($value['created_date_posts']); ?></span>
-                                            </div>
+                            ?>
+                            <div>
+                                <article class="post type-post panel vstack gap-2">
+                                    <figure
+                                        class="featured-image m-0 ratio ratio-4x3 rounded uc-transition-toggle overflow-hidden bg-gray-25 dark:bg-gray-800">
+                                        <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
+                                            src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["post_image"]; ?>"
+                                            data-src="<?php echo APP_URL; ?>view/catalog/assets/dist/image/blog/<?php echo $value["post_image"]; ?>"
+                                            alt="The Art of Baking: From Classic Bread to Artisan Pastries"
+                                            data-uc-img="loading: lazy">
+                                        <a href="blog-details.html" class="position-cover"
+                                            data-caption="The Art of Baking: From Classic Bread to Artisan Pastries"></a>
+                                    </figure>
+                                    <div class="post-header panel vstack gap-1">
+                                        <h5 class="h6 md:h5 m-0">
+                                            <a class="text-none"
+                                                href="blog-details.html"><?php echo $value["post_title"]; ?></a>
+                                        </h5>
+                                        <div class="post-date hstack gap-narrow fs-7 opacity-60">
+                                            <span><?php echo $this->timeConvert($value['created_date_posts']); ?></span>
                                         </div>
-                                    </article>
-                                </div>
+                                    </div>
+                                </article>
+                            </div>
 
-                                <?php
+                            <?php
                         endforeach;
 
                         ?>
@@ -161,113 +161,73 @@
                     </div>
                 </div>
                 <div id="blog-comment" class="panel border-top pt-2 mt-8 xl:mt-9">
-                    <h4 class="h5 xl:h4 mb-5 xl:mb-6">Comments (5)</h4>
+                    <h4 class="h5 xl:h4 mb-5 xl:mb-6">Yorumlar (5)</h4>
 
                     <div class="spacer-half"></div>
 
+
                     <ol>
-                        <li>
-                            <div class="avatar">
-                                <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/01.png" alt="">
-                            </div>
-                            <div class="comment-info">
-                                <span class="c_name">Merrill Rayos</span>
-                                <span class="c_date id-color">2 days ago</span>
-                                <span class="c_reply"><a href="#">Reply</a></span>
-                                <div class="clearfix"></div>
-                            </div>
 
-                            <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                                inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
-                            <ol>
-                                <li>
+                        <?php foreach ($CommentsValue as $Comments): ?>
+
+                            <li>
+                                <?php if (isset($Comments["reply"]) && $Comments["reply"] == 1): ?>
                                     <div class="avatar">
-                                        <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/02.png"
-                                            alt="">
+                                        <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/01.png" alt="">
                                     </div>
                                     <div class="comment-info">
-                                        <span class="c_name">Jackqueline Sprang</span>
-                                        <span class="c_date id-color">2 days ago</span>
-                                        <span class="c_reply"><a href="#">Reply</a></span>
+                                        <span class="c_name"><?php echo $Comments["name"] ?></span>
+                                        <span
+                                            class="c_date id-color"><?php echo $this->timeConvert($Comments['created_date']); ?></span>
+
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit
-                                        voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                        quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                        explicabo.</div>
-                                </li>
-                            </ol>
-                        </li>
 
-                        <li>
-                            <div class="avatar">
-                                <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/03.png" alt="">
-                            </div>
-                            <div class="comment-info">
-                                <span class="c_name">Sanford Crowley</span>
-                                <span class="c_date id-color">2 days ago</span>
-                                <span class="c_reply"><a href="#">Reply</a></span>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                                inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
-                            <ol>
-                                <li>
-                                    <div class="avatar">
-                                        <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/04.png"
-                                            alt="">
-                                    </div>
-                                    <div class="comment-info">
-                                        <span class="c_name">Lyndon Pocekay</span>
-                                        <span class="c_date id-color">2 days ago</span>
-                                        <span class="c_reply"><a href="#">Reply</a></span>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit
-                                        voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                        quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                        explicabo.</div>
-                                </li>
-                            </ol>
-                        </li>
+                                    <div class="comment"><?php echo $Comments["content"] ?></div>
 
-                        <li>
-                            <div class="avatar">
-                                <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/05.png" alt="">
-                            </div>
-                            <div class="comment-info">
-                                <span class="c_name">Aleen Crigger</span>
-                                <span class="c_date id-color">2 days ago</span>
-                                <span class="c_reply"><a href="#">Reply</a></span>
+                                <?php elseif (isset($Comments["reply"]) && $Comments["reply"] == 2): ?>
+                                    <ol>
+                                        <li>
+                                            <div class="avatar">
+                                                <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/02.png"
+                                                    alt="">
+                                            </div>
+                                            <div class="comment-info">
+                                                <span class="c_name">J<?php echo $Comments["name"] ?></span>
+                                                <span
+                                                    class="c_date id-color"><?php echo $this->timeConvert($Comments['created_date']); ?></span>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="comment"><?php echo $Comments["content"] ?></div>
+                                        </li>
+                                    </ol>
+                                <?php endif; ?>
+                            </li>
 
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                                inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
-                        </li>
+                        <?php endforeach; ?>
+
                     </ol>
 
                     <div class="spacer-single"></div>
 
+                    <?php require_once APP_ROOT . "/view/admin/template/notice.php"; ?>
+
                     <div id="comment-form-wrapper" class="panel pt-2 mt-8 xl:mt-9">
-                        <h4 class="h5 xl:h4 mb-5 xl:mb-6">Leave a Comment</h4>
+                        <h4 class="h5 xl:h4 mb-5 xl:mb-6">Yorum yaz</h4>
                         <div class="comment_form_holder">
-                            <form class="vstack gap-2">
+                            <form action="/catalog/CommentsCreate" method="post" class="vstack gap-2">
                                 <input
                                     class="form-control form-control-sm h-40px w-full fs-6 bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30"
-                                    type="text" placeholder="First name" required>
+                                    type="text" placeholder="Ad Soyadı" name="name" required>
+
                                 <input
                                     class="form-control form-control-sm h-40px w-full fs-6 bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30"
-                                    type="text" placeholder="Last name" required>
-                                <input
-                                    class="form-control form-control-sm h-40px w-full fs-6 bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30"
-                                    type="email" placeholder="Your email" required>
+                                    type="email" placeholder="E-posta adresiniz" name="email" required>
                                 <textarea
                                     class="form-control h-250px w-full fs-6 bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30"
-                                    type="text" placeholder="Your comment" required></textarea>
+                                    type="text" placeholder="Yorumunuz" required name="content"></textarea>
+                                <input type="hidden" name="post_id" value="<?php echo $BlogDetail[0]["commentsID"]; ?>">
+
                                 <button class="btn btn-primary btn-sm mt-1" type="submit">Send</button>
                             </form>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Catalog\Controller;
 
 
 use App\Catalog\Model\BlogModel;
+use App\Catalog\Model\CommetsModel;
 use System\Engine\Controller;
 
 class BlogController extends Controller
@@ -28,7 +29,7 @@ class BlogController extends Controller
         $this->view("catalog/blog", $this->data);
     }
 
-    
+
     public function blogs(string $slug): void
     {
         $this->data["title"] = 'Blogs Sayfası';
@@ -37,7 +38,7 @@ class BlogController extends Controller
         $blog = $blogModel->GetBlogsAll($slug);
 
         $this->data["MainCategoryBlog"] = $blog;
-        
+
         $this->view("catalog/blogs", $this->data);
 
     }
@@ -47,13 +48,20 @@ class BlogController extends Controller
         $this->data["title"] = 'detail';
 
         $blogModel = new BlogModel();
+        $commentsList = new CommetsModel();
 
         $blog = $blogModel->GetBlogsdetail($slug);
 
         $this->data["BlogDetail"] = $blog;
-        
-        $this->view("catalog/detail", $this->data);
 
+        if (isset($blog["id"])) {
+            $commentsModel = $commentsList->CommentsList((int) $blog["id"]);
+            $this->data["CommentsValue"] = $commentsModel;
+        } else {
+            $this->data["CommentsValue"] = []; 
+        }
+
+        $this->view("catalog/detail", $this->data);
     }
 
 

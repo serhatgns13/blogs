@@ -92,6 +92,7 @@ class BlogModel extends Model
         c2.parent_id AS c2_parent_id,
         P1.category_id AS post_category_id,
         p1.title AS post_title,
+        p1.post_id AS commentsID,
         p1.slug AS post_slug,
         p1.image AS post_image,
         p1.view_count,

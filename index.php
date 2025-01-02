@@ -18,13 +18,14 @@ $router->name('catalog.index')->get('/', [App\Catalog\Controller\BaseController:
 $router->name('catalog.blog')->get('/blog/{slug}', [App\Catalog\Controller\BlogController::class, 'blog']);
 $router->name('catalog.blogs')->get('/blogs/{slug}', [App\Catalog\Controller\BlogController::class, 'blogs']);
 $router->name('catalog.detail')->get('/detail/{slug}', [App\Catalog\Controller\BlogController::class, 'detail']);
+
+$router->name('catalog.CommentsCreate')->post('/detail/{slug}', [App\Catalog\Controller\CommetsController::class, 'CommentsCreate']);
 // Admin Routes
 $router->name('admin.index')->get('/admin', [App\Admin\Controller\BaseController::class, 'index']);
 $router->name('admin.blogs')->get('/admin/blogs', [App\Admin\Controller\BlogController::class, 'index']);
 $router->name('admin.loginForm')->get('/admin/login', [App\Admin\Controller\LoginController::class, 'index']);
 $router->name('admin.kullanici')->get('/admin/kullanici', [App\Admin\Controller\KullaniciController::class, 'index']);
 $router->name('admin.kategori')->get('/admin/kategori', [App\Admin\Controller\KategoriController::class, 'index']);
-$router->name('admin.yorumlar')->get('/admin/yorumlar', [App\Admin\Controller\CommentsController::class, 'index']);
 $router->name('admin.tags')->get('/admin/tags', [App\Admin\Controller\TagsController::class, 'index']);
 $router->name('admin.profil')->get('/admin/profil', [App\Admin\Controller\ProfilController::class, 'index']);
 $router->name('admin.logout')->get('/admin/logout', [App\Admin\Controller\LoginController::class, 'logout']);
