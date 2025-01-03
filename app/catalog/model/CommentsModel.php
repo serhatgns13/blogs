@@ -4,7 +4,7 @@ namespace App\Catalog\Model;
 
 use System\Engine\Model;
 
-class CommetsModel extends Model
+class CommentsModel extends Model
 {
 
     public function CommentsAdd(string $name, string $email, string $comment, int $post_id): bool
@@ -36,8 +36,7 @@ class CommetsModel extends Model
         FROM comments c1
         INNER JOIN posts p1 ON c1.post_id = p1.post_id
         INNER JOIN users u1 ON c1.user_id = u1.id
-        AND c1.comment_status = 1
-        WHERE c1.post_id = :post_id');
+        WHERE p1.post_id = :post_id');
         $statement->execute(['post_id' => $post_id]);
 
         return $statement->fetchAll();

@@ -2,9 +2,8 @@
 
 namespace App\Catalog\Controller;
 
-
+use App\Catalog\Model\CommentsModel;
 use App\Catalog\Model\BlogModel;
-use App\Catalog\Model\CommetsModel;
 use System\Engine\Controller;
 
 class BlogController extends Controller
@@ -48,17 +47,17 @@ class BlogController extends Controller
         $this->data["title"] = 'detail';
 
         $blogModel = new BlogModel();
-        $commentsList = new CommetsModel();
+        $commentsList = new CommentsModel();
 
-        $blog = $blogModel->GetBlogsdetail($slug);
+        $blog = $blogModel->GetBlogsDetail($slug); // GetBlogsdetail yazım hatası düzeltildi
 
         $this->data["BlogDetail"] = $blog;
 
-        if (isset($blog["id"])) {
-            $commentsModel = $commentsList->CommentsList((int) $blog["id"]);
+        if (isset($blog["postID"])) {
+            $commentsModel = $commentsList->CommentsList($blog["postID"]);
             $this->data["CommentsValue"] = $commentsModel;
         } else {
-            $this->data["CommentsValue"] = []; 
+            $this->data["CommentsValue"] = [];
         }
 
         $this->view("catalog/detail", $this->data);
