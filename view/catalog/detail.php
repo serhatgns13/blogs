@@ -167,25 +167,20 @@
 
 
                     <ol>
-
                         <?php foreach ($CommentsValue as $Comments): ?>
-
                             <li>
-                                <?php if (isset($Comments["reply"]) && $Comments["reply"] == 1): ?>
-                                    <div class="avatar">
-                                        <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/01.png" alt="">
-                                    </div>
-                                    <div class="comment-info">
-                                        <span class="c_name"><?php echo $Comments["name"] ?></span>
-                                        <span
-                                            class="c_date id-color"><?php echo $this->timeConvert($Comments['created_date']); ?></span>
+                                <div class="avatar">
+                                    <img src="<?php echo APP_URL; ?>view/catalog/assets/images/avatars/01.png" alt="">
+                                </div>
+                                <div class="comment-info">
+                                    <span class="c_name"><?php echo $Comments["userName"] ?></span>
+                                    <span
+                                        class="c_date id-color"><?php echo $this->timeConvert($Comments['created_date']); ?></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="comment"><?php echo $Comments["content"] ?></div>
 
-                                        <div class="clearfix"></div>
-                                    </div>
-
-                                    <div class="comment"><?php echo $Comments["content"] ?></div>
-
-                                <?php elseif (isset($Comments["reply"]) && $Comments["reply"] == 2): ?>
+                                <?php if (!empty($Comments["reply_content"])): ?>
                                     <ol>
                                         <li>
                                             <div class="avatar">
@@ -193,18 +188,24 @@
                                                     alt="">
                                             </div>
                                             <div class="comment-info">
-                                                <span class="c_name">J<?php echo $Comments["name"] ?></span>
+                                                <span class="c_name"><?php echo $Comments["reply_name"] ?></span>
                                                 <span
-                                                    class="c_date id-color"><?php echo $this->timeConvert($Comments['created_date']); ?></span>
+                                                    class="c_date id-color"><?php echo $this->timeConvert($Comments['reply_date']); ?></span>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <div class="comment"><?php echo $Comments["content"] ?></div>
+                                            <div class="comment"><?php echo $Comments["reply_content"] ?></div>
                                         </li>
                                     </ol>
+                                <?php else: ?>
+                                    <div class="comment">Henüz cevaplanmadı.</div>
                                 <?php endif; ?>
                             </li>
-
                         <?php endforeach; ?>
+
+
+                        </li>
+
+
 
                     </ol>
 
@@ -215,7 +216,8 @@
                     <div id="comment-form-wrapper" class="panel pt-2 mt-8 xl:mt-9">
                         <h4 class="h5 xl:h4 mb-5 xl:mb-6">Yorum yaz</h4>
                         <div class="comment_form_holder">
-                            <form action="/catalog/CommentsCreate" method="post" class="vstack gap-2">
+                            <form action="CommentsAdd/<?php echo $BlogDetail[0]["post_slug"]; ?>" method="post"
+                                class="vstack gap-2">
                                 <input
                                     class="form-control form-control-sm h-40px w-full fs-6 bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30"
                                     type="text" placeholder="Ad Soyadı" name="name" required>
@@ -227,8 +229,9 @@
                                     class="form-control h-250px w-full fs-6 bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30"
                                     type="text" placeholder="Yorumunuz" required name="content"></textarea>
                                 <input type="hidden" name="post_id" value="<?php echo $BlogDetail[0]["commentsID"]; ?>">
+                                <input type="hidden" name="user_id" value="<?php echo rand(1, max: 1000); ?>">
 
-                                <button class="btn btn-primary btn-sm mt-1" type="submit">Send</button>
+                                <button class="btn btn-primary btn-sm mt-1" type="submit">Gönder</button>
                             </form>
                         </div>
                     </div>
@@ -236,7 +239,6 @@
             </div>
         </div>
     </article>
-
     <!-- Newsletter -->
 </div>
 

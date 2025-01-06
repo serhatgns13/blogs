@@ -27,7 +27,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin/yorumlar">
+              <a class="nav-link" href="/admin/comments">
                 <span data-feather="file"></span>
                 Yorumlar Listesi
               </a>

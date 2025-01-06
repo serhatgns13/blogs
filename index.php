@@ -18,6 +18,7 @@ $router->name('catalog.index')->get('/', [App\Catalog\Controller\BaseController:
 $router->name('catalog.blog')->get('/blog/{slug}', [App\Catalog\Controller\BlogController::class, 'blog']);
 $router->name('catalog.blogs')->get('/blogs/{slug}', [App\Catalog\Controller\BlogController::class, 'blogs']);
 $router->name('catalog.detail')->get('/detail/{slug}', [App\Catalog\Controller\BlogController::class, 'detail']);
+$router->name('catalog.CommentsAdd')->post('/detail/CommentsAdd/{slug}', [App\Catalog\Controller\BlogController::class, 'CommentsAdd']);
 
 // Admin Routes
 $router->name('admin.index')->get('/admin', [App\Admin\Controller\BaseController::class, 'index']);
@@ -55,6 +56,14 @@ $router->name('admin.deleteTags')->get('/admin/kategori/deleteTags/{id}', [App\A
 
 // Settings Routes
 $router->name('admin.updateSettings')->post('/admin/updateSettings/{id}', [App\Admin\Controller\SettingsController::class, 'updateSettings']);
+
+
+// comments Routes
+$router->name('admin.comments')->get('/admin/comments', [App\Admin\Controller\CommentsController::class, 'index']);
+$router->name('admin.ReplyadminAdd')->post('/admin/ReplyadminAdd', [App\Admin\Controller\CommentsController::class, 'ReplyadminAdd']);
+$router->name('admin.deleteComments')->get('/admin/comments/deleteComments/{id}', [App\Admin\Controller\CommentsController::class, 'deleteComments']);
+$router->name('admin.replyadminEdit')->post('/admin/replyadminEdit/{id}', [App\Admin\Controller\CommentsController::class, 'replyadminEdit']);
+
 
 $router->dispatch($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 

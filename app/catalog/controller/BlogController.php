@@ -47,21 +47,46 @@ class BlogController extends Controller
         $this->data["title"] = 'detail';
 
         $blogModel = new BlogModel();
-        $commentsList = new CommentsModel();
+        $commentsModel = new CommentsModel();
 
-        $blog = $blogModel->GetBlogsDetail($slug); // GetBlogsdetail yazım hatası düzeltildi
+        $blog = $blogModel->GetBlogsDetail($slug);
 
         $this->data["BlogDetail"] = $blog;
 
-        if (isset($blog["postID"])) {
-            $commentsModel = $commentsList->CommentsList($blog["postID"]);
-            $this->data["CommentsValue"] = $commentsModel;
-        } else {
-            $this->data["CommentsValue"] = [];
-        }
+        $comments = $commentsModel->CommentsList($slug);
+        $this->data["CommentsValue"] = $comments;
 
         $this->view("catalog/detail", $this->data);
     }
+
+
+
+
+    public function CommentsAdd(string $slug): void
+    {
+        if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['content']) && !empty($_POST['post_id']) && !empty($_POST['user_id'])) {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $content = $_POST['content'];
+            $post_id = $_POST['post_id'];
+            $user_id = $_POST['user_id'];
+            $comment_status = 2;
+
+            $commentsModel = new CommentsModel();
+            $commentsModel->CommentsAdd($name, $email, $content, $post_id, $user_id, $comment_status);
+
+            $_SESSION['success_message'] = 'Yorum başarıyla eklendi';
+            header("Location: /detail/$slug");
+            return;
+
+        } else {
+            $_SESSION['error_message'] = 'Yorum başarısız. Lütfen tüm alanları doldurunuz.';
+            header("Location: /detail/$slug");
+            return;
+        }
+    }
+
+
 
 
 

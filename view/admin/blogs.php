@@ -43,13 +43,13 @@ include_once "template/header.php";
 
                             <?php foreach ($posts as $key => $value):
 
-                            ?>
+                                ?>
 
                                 <tr>
                                     <td><?php echo ($key + 1) ?></td>
                                     <td>
-                                        <img src="/view/catalog/assets/dist/image/blog/<?php print $value['image'] ?>" alt="Görsel"
-                                            style="width: 50px; height: 50px;">
+                                        <img src="/view/catalog/assets/dist/image/blog/<?php print $value['image'] ?>"
+                                            alt="Görsel" style="width: 50px; height: 50px;">
                                     </td>
                                     <td><?php echo $value['title']; ?> </td>
                                     <td><?php echo mb_substr($value['content'], 0, length: 50) . '...'; ?></td>
@@ -98,121 +98,122 @@ include_once "template/header.php";
                                                     class="btn bg-danger text-white"><i class="bi bi-trash"></i></a>
                                             </div>
                                         </div>
-            </div>
-            </td>
-            </tr>
-            <!-- güncelleme modal Başlangıç -->
-            <div class="container mt-5">
-                <div class="modal fade" id="blogUpdateModal<?php print $value['post_id']; ?>" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Blog Güncelle</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Kapat"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="/admin/updateblog/<?php echo $value['post_id']; ?>" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" value="<?php echo $value['post_id']; ?>" name="id">
-                                    <div class="mb-3">
-                                        <label for="title" class="form-label">Blog Başlığı</label>
-                                        <input type="text" class="form-control" id="title" name="title"
-                                            value="<?php echo $value['title']; ?>">
+                    </div>
+                    </td>
+                    </tr>
+                    <!-- güncelleme modal Başlangıç -->
+                    <div class="container mt-5">
+                        <div class="modal fade" id="blogUpdateModal<?php print $value['post_id']; ?>" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Blog Güncelle</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Kapat"></button>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="content">Açıklama</label>
-                                        <textarea name="content" class="form-control" id="content"
-                                            rows="3"><?php print $value['content']; ?></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="post_status" class="form-label">Durum</label>
-                                        <select class="form-select" id="post_status" name="post_status">
+                                    <div class="modal-body">
+                                        <form action="/admin/updateblog/<?php echo $value['post_id']; ?>" method="POST"
+                                            enctype="multipart/form-data">
+                                            <input type="hidden" value="<?php echo $value['post_id']; ?>" name="id">
+                                            <div class="mb-3">
+                                                <label for="title" class="form-label">Blog Başlığı</label>
+                                                <input type="text" class="form-control" id="title" name="title"
+                                                    value="<?php echo $value['title']; ?>">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="content">Açıklama</label>
+                                                <textarea name="content" class="form-control" id="content"
+                                                    rows="3"><?php print $value['content']; ?></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="post_status" class="form-label">Durum</label>
+                                                <select class="form-select" id="post_status" name="post_status">
 
 
 
-                                            <option value="1" <?php if ($value['post_status'] == 1) {
-                                                                    echo 'selected';
-                                                                } ?>>Aktif</option>
-                                            <option value="0" <?php if ($value['post_status'] == 0) {
-                                                                    echo 'selected';
-                                                                } ?>>Pasif</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <img src="/view/catalog/assets/dist/image/blog/<?php print $value['image'] ?>" alt="Görsel"
-                                            style="width: 100px; height: 100px;">
-                                        <label for="image" class="form-label">Görsel</label>
-                                        <input type="file" class="form-control" id="image" name="image">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="image" class="form-label">Kategori</label>
-                                        <select name="category_id" id="" class="form-control">
-                                        <option value="<?php echo $value['category_id']; ?>">
-                                                    Kategori Seçiniz 
-                                                </option>
-                                            <?php
+                                                    <option value="1" <?php if ($value['post_status'] == 1) {
+                                                        echo 'selected';
+                                                    } ?>>Aktif</option>
+                                                    <option value="0" <?php if ($value['post_status'] == 0) {
+                                                        echo 'selected';
+                                                    } ?>>Pasif</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <img src="/view/catalog/assets/dist/image/blog/<?php print $value['image'] ?>"
+                                                    alt="Görsel" style="width: 100px; height: 100px;">
+                                                <label for="image" class="form-label">Görsel</label>
+                                                <input type="file" class="form-control" id="image" name="image">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="image" class="form-label">Kategori</label>
+                                                <select name="category_id" id="" class="form-control">
+                                                    <option value="<?php echo $value['category_id']; ?>">
+                                                        Kategori Seçiniz
+                                                    </option>
+                                                    <?php
 
-                                            $mainCategories = [];
-                                            $subCategories = [];
+                                                    $mainCategories = [];
+                                                    $subCategories = [];
 
-                                            // Kategorileri ana ve alt kategoriler olarak ayır
-                                            foreach ($CategoryName as $value) {
-                                                if ($value['parent_id'] == 0) {
-                                                    $mainCategories[] = $value;
-                                                } else {
-                                                    $subCategories[] = $value;
-                                                }
-                                            }
-
-                                            // Ana kategorileri ve alt kategorileri yazdır
-                                            foreach ($mainCategories as $mainCategory) {
-                                            ?>
-                                                <option value="" >
-                                                    <?php echo $mainCategory['name']; ?>
-                                                </option>
-                                                <?php
-                                                foreach ($subCategories as $subCategory) {
-                                                    if ($subCategory['parent_id'] == $mainCategory['category_id']) {
-                                                ?>
-                                                        <option value="<?php echo $subCategory['category_id']; ?>" >
-                                                            -- <?php echo $subCategory['name']; ?>
-                                                        </option>
-                                            <?php
+                                                    // Kategorileri ana ve alt kategoriler olarak ayır
+                                                    foreach ($CategoryName as $value) {
+                                                        if ($value['parent_id'] == 0) {
+                                                            $mainCategories[] = $value;
+                                                        } else {
+                                                            $subCategories[] = $value;
+                                                        }
                                                     }
-                                                }
-                                            }
-                                            ?>
 
-                                        </select>
+                                                    // Ana kategorileri ve alt kategorileri yazdır
+                                                    foreach ($mainCategories as $mainCategory) {
+                                                        ?>
+                                                        <option value="">
+                                                            <?php echo $mainCategory['name']; ?>
+                                                        </option>
+                                                        <?php
+                                                        foreach ($subCategories as $subCategory) {
+                                                            if ($subCategory['parent_id'] == $mainCategory['category_id']) {
+                                                                ?>
+                                                                <option value="<?php echo $subCategory['category_id']; ?>">
+                                                                    -- <?php echo $subCategory['name']; ?>
+                                                                </option>
+                                                                <?php
+                                                            }
+                                                        }
+                                                    }
+                                                    ?>
+
+                                                </select>
+                                            </div>
+
+                                            <div class="modal-footer">
+
+                                                <input type="submit" value="Kaydet" class="btn btn-success">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Kapat</button>
+                                            </div>
+
+                                        </form>
+
+                                        <?php if (isset($data['error'])): ?>
+                                            <p style="color: red;"><?php echo $data['error']; ?></p>
+                                        <?php endif; ?>
                                     </div>
-
-                                    <div class="modal-footer">
-
-                                        <input type="submit" value="Kaydet" class="btn btn-success">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Kapat</button>
-                                    </div>
-
-                                </form>
-
-                                <?php if (isset($data['error'])): ?>
-                                    <p style="color: red;"><?php echo $data['error']; ?></p>
-                                <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- güncelleme modal Başlangıç -->
-        <?php endforeach; ?>
-    <?php else: ?>
-        <script>
-            showErrorMessage("<?php echo $_SESSION['error_message']; ?>");
-        </script>
-    <?php endif;  ?>
-    </tbody>
-    </table>
+                    <!-- güncelleme modal Başlangıç -->
+                <?php endforeach; ?>
+            <?php else: ?>
+                <script>
+                    showErrorMessage("<?php echo $_SESSION['error_message']; ?>");
+                </script>
+            <?php endif; ?>
+            </tbody>
+            </table>
     </div>
 
     </main>
@@ -266,18 +267,18 @@ include_once "template/header.php";
 
                                     // Ana kategorileri ve alt kategorileri yazdır
                                     foreach ($mainCategories as $mainCategory) {
-                                    ?>
+                                        ?>
                                         <option value="">
                                             <?php echo $mainCategory['name']; ?>
                                         </option>
                                         <?php
                                         foreach ($subCategories as $subCategory) {
                                             if ($subCategory['parent_id'] == $mainCategory['category_id']) {
-                                        ?>
+                                                ?>
                                                 <option value="<?php echo $subCategory['category_id']; ?>">
                                                     -- <?php echo $subCategory['name']; ?>
                                                 </option>
-                                    <?php
+                                                <?php
                                             }
                                         }
                                     }
