@@ -44,88 +44,59 @@
                     <i class="unicon-search icon-1"></i>
                 </span>
             </form>
+
+
+            <?php
+
+            $mainCategories = [];
+            $subCategories = [];
+
+            // Kategorileri ana ve alt kategoriler olarak ayır
+            foreach ($MenuValue as $value) {
+                if ($value['parent_id'] == 0) {
+                    $mainCategories[] = $value;
+                } else {
+                    $subCategories[] = $value;
+                }
+            }
+
+            // Ana kategorileri ve alt kategorileri yazdır
+            ?>
+
             <ul class="nav-y gap-narrow fw-bold fs-5" data-uc-nav>
-                <li class="uc-parent">
-                    <a href="#">Homepages1</a>
-                    <ul class="uc-nav-sub" data-uc-nav="">
-                        <li><a href="../main/index.html">Main</a></li>
-                        <li><a href="../demo-two/index.html">Classic News</a></li>
-                        <li><a href="../demo-three/index.html">Tech</a></li>
-                        <li><a href="../demo-four/index.html">Classic Blog</a></li>
-                        <li><a href="../demo-five/index.html">Gaming</a></li>
-                        <li><a href="../demo-six/index.html">Sports</a></li>
-                        <li><a href="../demo-seven/index.html">Newspaper</a></li>
-                        <li><a href="../demo-eight/index.html">Magazine</a></li>
-                        <li><a href="../demo-nine/index.html">Travel</a></li>
-                        <li><a href="../demo-ten/index.html">Food</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Latest1</a></li>
-                <li><a href="#">Trending</a></li>
-                <li class="uc-parent">
-                    <a href="#">Inner Pages</a>
-                    <ul class="uc-nav-sub" data-uc-nav="">
-                        <li class="uc-parent">
-                            <a href="blog.html">Blog</a>
-                            <ul class="uc-nav-sub">
-                                <li><a href="blog.html">Full Width</a></li>
-                                <li><a href="blog-2cols.html">Grid 2 Cols</a></li>
-                                <li><a href="blog-3cols.html">Grid 3 Cols</a></li>
-                                <li><a href="blog-4cols.html">Grid 4 Cols</a></li>
-                            </ul>
-                        </li>
-                        <li class="uc-parent">
-                            <a href="blog-details.html">Blog - detail</a>
-                            <ul class="uc-nav-sub">
-                                <li><a href="blog-details.html">Blog detail</a></li>
-                                <li><a href="blog-details-2.html">Blog detail - v2</a></li>
-                            </ul>
-                        </li>
-                        <li class="uc-parent">
-                            <a href="#">Useful pages</a>
-                            <ul class="uc-nav-sub">
-                                <li><a href="sign-up.html">Sign up</a></li>
-                                <li><a href="sign-in.html">Sign in</a></li>
-                                <li><a href="reset-password.html">Reset password</a></li>
-                                <li><a href="404.html">404 page</a></li>
-                                <li><a href="coming-soon.html">Coming soon</a></li>
-                            </ul>
-                        </li>
-                        <li class="uc-parent">
-                            <a href="#">Other pages</a>
-                            <ul class="uc-nav-sub">
-                                <li><a href="page-faq.html">FAQ</a></li>
-                                <li><a href="page-terms.html">Terms of use</a></li>
-                                <li><a href="page-privacy.html">Privacy policy</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="uc-parent">
-                    <a href="shop.html">Shop</a>
-                    <ul class="uc-nav-sub" data-uc-nav="">
-                        <li class="uc-parent">
-                            <a href="shop.html">Shop layouts</a>
-                            <ul class="uc-nav-sub">
-                                <li><a href="shop.html">Shop 4 cols</a></li>
-                                <li><a href="shop-3.html">Shop 3 cols</a></li>
-                                <li><a href="shop-2.html">Shop 2 cols</a></li>
-                                <li><a href="shop-sidebar.html">Shop with sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shop-category.html">Archive category</a></li>
-                        <li><a href="shop-product-detail.html">Product detail</a></li>
-                        <li><a href="shop-product-detail-2.html">Product detail - v2</a></li>
-                        <li><a href="shop-cart.html">Cart</a></li>
-                        <li><a href="shop-cart-2.html">Cart - v2</a></li>
-                        <li><a href="shop-checkout.html">Checkout</a></li>
-                        <li><a href="shop-checkout-2.html">Checkout - v2</a></li>
-                        <li><a href="shop-order.html">Order confirmation</a></li>
-                    </ul>
-                </li>
-                <li class="hr opacity-10 my-1"></li>
-                <li><a href="sign-in.html">Sign in</a></li>
-                <li><a href="sign-up.html">Create an account</a></li>
+                <?php
+                foreach ($mainCategories as $mainCategory) {
+                    ?>
+
+                    <li class="uc-parent">
+                        <a
+                            href="<?php echo APP_URL; ?>blogs/<?php echo $mainCategory["slug"]; ?>"><?php echo $mainCategory["name"]; ?></a>
+
+
+                        <ul class="uc-nav-sub" data-uc-nav="">
+
+                            <?php
+                            foreach ($subCategories as $subCategory) {
+                                if ($subCategory['parent_id'] == $mainCategory['category_id']) {
+                                    ?>
+
+                                    <li><a
+                                            href="<?php echo APP_URL; ?>blog/<?php echo $subCategory["slug"]; ?>"><?php echo $subCategory["name"]; ?></a>
+                                    </li>
+
+                                    <?php
+                                }
+                            }
+                            ?>
+
+                        </ul>
+                    </li>
+
+
+                    <?php
+                }
+                ?>
+
             </ul>
             <ul class="social-icons nav-x mt-4">
                 <li>
@@ -208,115 +179,7 @@
 <header class="uc-header header-three uc-navbar-sticky-wrap z-999"
     data-uc-sticky="sel-target: .uc-navbar-container; cls-active: uc-navbar-sticky; cls-inactive: uc-navbar-transparent; end: !*;">
     <nav class="uc-navbar-container fs-6 z-1">
-        <div class="uc-top-navbar panel z-3 min-h-32px lg:min-h-48px mx-2 rounded-bottom overflow-hidden bg-gray-800 text-white uc-dark d-none md:d-block"
-            data-uc-navbar=" animation: uc-animation-slide-top-small; duration: 150;">
-            <div class="position-cover blend-color" data-src="view/catalog/assets/images/demo-three/topbar-abstract.jpg"
-                data-uc-img></div>
-            <div class="container max-w-xl">
-                <div class="hstack panel z-1">
-                    <div class="uc-navbar-left gap-2 lg:gap-3">
-                        <div class="trending-ticker panel swiper-parent max-w-600px">
-                            <div class="swiper hstack gap-1 min-h-40px"
-                                data-uc-swiper="items: 1; autoplay: 3000; parallax: true; pause-mouse: false; reverse: false; prev: .swiper-prev; next: .swiper-next; effect: fade; fade: true;">
-                                <div class="hstack gap-narrow">
-                                    <i class="icon-1 unicon-fire text-warning"></i>
-                                    <span class="fs-6 fw-bold dark:text-white">Trending:</span>
-                                </div>
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <article class="post type-post">
-                                            <h6 class="post-title fs-6 ft-primary fw-medium m-0 opacity-75 dark:text-white"
-                                                data-swiper-parallax-y="-24">
-                                                <a class="text-none" href="blog-details.html">The Rise of AI-Powered
-                                                    Personal Assistants: How They Manage</a>
-                                            </h6>
-                                        </article>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <article class="post type-post">
-                                            <h6 class="post-title fs-6 ft-primary fw-medium m-0 opacity-75 dark:text-white"
-                                                data-swiper-parallax-y="-24">
-                                                <a class="text-none" href="blog-details.html">Tech Innovations Reshaping
-                                                    the Retail Landscape: AI Payments</a>
-                                            </h6>
-                                        </article>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <article class="post type-post">
-                                            <h6 class="post-title fs-6 ft-primary fw-medium m-0 opacity-75 dark:text-white"
-                                                data-swiper-parallax-y="-24">
-                                                <a class="text-none" href="blog-details.html">Balancing Work and
-                                                    Wellness: Tech Solutions for Healthy</a>
-                                            </h6>
-                                        </article>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <article class="post type-post">
-                                            <h6 class="post-title fs-6 ft-primary fw-medium m-0 opacity-75 dark:text-white"
-                                                data-swiper-parallax-y="-24">
-                                                <a class="text-none" href="blog-details.html">The Importance of Sleep:
-                                                    Tips for Better Rest and Recovery</a>
-                                            </h6>
-                                        </article>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <article class="post type-post">
-                                            <h6 class="post-title fs-6 ft-primary fw-medium m-0 opacity-75 dark:text-white"
-                                                data-swiper-parallax-y="-24">
-                                                <a class="text-none" href="blog-details.html">The Future of Sustainable
-                                                    Living: Driving Eco-Friendly Lifestyles</a>
-                                            </h6>
-                                        </article>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <article class="post type-post">
-                                            <h6 class="post-title fs-6 ft-primary fw-medium m-0 opacity-75 dark:text-white"
-                                                data-swiper-parallax-y="-24">
-                                                <a class="text-none" href="blog-details.html">Business Agility the
-                                                    Digital Age: Leveraging AI and Automation</a>
-                                            </h6>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uc-navbar-right gap-2 lg:gap-3">
-                        <div class="uc-navbar-item">
-                            <ul class="uc-social-header nav-x gap-1 d-none lg:d-flex dark:text-white">
-                                <li>
-                                    <a href="<?php echo $SettingsValue["set_facebook"]; ?>"
-                                        class="w-32px h-32px cstack border rounded-circle hover:bg-primary transition-colors duration-200"><i
-                                            class="icon icon-1 unicon-logo-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $SettingsValue["set_twitter"]; ?>"
-                                        class="w-32px h-32px cstack border rounded-circle hover:bg-primary transition-colors duration-200"><i
-                                            class="icon icon-1 unicon-logo-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $SettingsValue["set_instagram"]; ?>"
-                                        class="w-32px h-32px cstack border rounded-circle hover:bg-primary transition-colors duration-200"><i
-                                            class="icon icon-1 unicon-logo-instagram"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="uc-navbar-item">
-                            <a class="uc-account-trigger btn btn-sm border-0 p-0 duration-0 dark:text-white"
-                                href="#uc-newsletter-modal" data-uc-toggle>
-                                <i class="icon icon-2 fw-medium unicon-email"></i>
-                            </a>
-                        </div>
-                        <div class="uc-navbar-item">
-                            <a class="uc-search-trigger icon-2 cstack text-none text-dark dark:text-white"
-                                href="#uc-search-modal" data-uc-toggle>
-                                <i class="icon icon-2 fw-bold unicon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- masaüstü -->
 
@@ -339,8 +202,8 @@
                             style="--uc-nav-height: 80px">
 
 
-                            <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>">Ana Sayfa</a></li>
-                       
+                            <li><a href="<?php echo APP_URL; ?>">Ana Sayfa</a></li>
+
                             <li>
                                 <a href="#">Kategoriler <span data-uc-navbar-parent-icon></span></a>
                                 <div class="uc-navbar-dropdown ft-primary text-unset p-3 hide-scrollbar"
@@ -349,46 +212,49 @@
                                         <div>
                                             <div class="row child-cols g-4">
 
-                                            <?php
+                                                <?php
 
-                $mainCategories = [];
-                $subCategories = [];
+                                                $mainCategories = [];
+                                                $subCategories = [];
 
-                // Kategorileri ana ve alt kategoriler olarak ayır
-                foreach ($MenuValue as $value) {
-                    if ($value['parent_id'] == 0) {
-                        $mainCategories[] = $value;
-                    } else {
-                        $subCategories[] = $value;
-                    }
-                }
+                                                // Kategorileri ana ve alt kategoriler olarak ayır
+                                                foreach ($MenuValue as $value) {
+                                                    if ($value['parent_id'] == 0) {
+                                                        $mainCategories[] = $value;
+                                                    } else {
+                                                        $subCategories[] = $value;
+                                                    }
+                                                }
 
-                // Ana kategorileri ve alt kategorileri yazdır
-                foreach ($mainCategories as $mainCategory) {
-                    ?>
-                    <div>
-                        <ul class="uc-nav uc-navbar-dropdown-nav">
-                            <li class="uc-nav-header mb-1">
-                                <a href="<?php echo APP_URL; ?>blogs/<?php echo $mainCategory["slug"]; ?>">
-                                    <h5><?php echo $mainCategory["name"]; ?></h5>
-                                </a>
-                            </li>
-                            <?php
-                            foreach ($subCategories as $subCategory) {
-                                if ($subCategory['parent_id'] == $mainCategory['category_id']) {
-                                    ?>
-                                    <li><a href="<?php echo APP_URL; ?>blog/<?php echo $subCategory["slug"]; ?>"><?php echo $subCategory["name"]; ?></a></li>
-                                    <?php
-                                }
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                    <?php
-                }
-                ?>
-                                            
-                                                
+                                                // Ana kategorileri ve alt kategorileri yazdır
+                                                foreach ($mainCategories as $mainCategory) {
+                                                    ?>
+                                                    <div>
+                                                        <ul class="uc-nav uc-navbar-dropdown-nav">
+                                                            <li class="uc-nav-header mb-1">
+                                                                <a
+                                                                    href="<?php echo APP_URL; ?>blogs/<?php echo $mainCategory["slug"]; ?>">
+                                                                    <h5><?php echo $mainCategory["name"]; ?></h5>
+                                                                </a>
+                                                            </li>
+                                                            <?php
+                                                            foreach ($subCategories as $subCategory) {
+                                                                if ($subCategory['parent_id'] == $mainCategory['category_id']) {
+                                                                    ?>
+                                                                    <li><a
+                                                                            href="<?php echo APP_URL; ?>blog/<?php echo $subCategory["slug"]; ?>"><?php echo $subCategory["name"]; ?></a>
+                                                                    </li>
+                                                                    <?php
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </ul>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                ?>
+
+
 
                                             </div>
                                         </div>
@@ -396,6 +262,8 @@
                                     </div>
                                 </div>
                             </li>
+
+
                         </ul>
                     </div>
                     <div class="uc-navbar-center">

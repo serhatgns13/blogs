@@ -94,7 +94,7 @@
                                                                 <div>
                                                                     <a href="#post_comment"
                                                                         class="post-comments text-none hstack gap-narrow">
-                                                                        <i class="icon-narrow unicon-chat"></i>
+                                                                        <i class="fa-solid fa-eye"></i>
                                                                         <span><?php echo $value["view_count"]; ?></span>
                                                                     </a>
                                                                 </div>

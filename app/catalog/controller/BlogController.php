@@ -56,6 +56,8 @@ class BlogController extends Controller
         $comments = $commentsModel->CommentsList($slug);
         $this->data["CommentsValue"] = $comments;
 
+        $blogModel->view_count($slug);
+
         $this->view("catalog/detail", $this->data);
     }
 
@@ -82,9 +84,13 @@ class BlogController extends Controller
         } else {
             $_SESSION['error_message'] = 'Yorum başarısız. Lütfen tüm alanları doldurunuz.';
             header("Location: /detail/$slug");
+
             return;
         }
     }
+
+
+
 
 
 

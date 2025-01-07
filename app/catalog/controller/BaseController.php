@@ -18,8 +18,7 @@ class BaseController extends Controller
         $this->data["posts"] = $blogApp->posts();
         $this->data["HeaderPosts"] = $blogApp->HeaderPosts();
         $this->data["HeaderView"] = $blogApp->HeaderView();
-       
-       
+        $this->data["title"] = 'Blogs Sayfası';
 
         $this->data["MenuValue"] = $blogApp->Menu();
 
@@ -27,4 +26,6 @@ class BaseController extends Controller
 
         $this->view("catalog/index", $this->data);
     }
+
+   
 }

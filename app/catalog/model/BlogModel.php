@@ -119,6 +119,13 @@ class BlogModel extends Model
         return $response ?: [];
     }
 
+    public function view_count(string $slug): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE posts SET view_count = view_count + 1 WHERE slug = :slug");
+        $response = $statement->execute(['slug' => $slug]);
+        return $response;
+    }
+
 
 
 }
